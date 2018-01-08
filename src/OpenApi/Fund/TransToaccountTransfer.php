@@ -4,9 +4,10 @@ use Poppy\Extension\Alipay\OpenApi\Request;
 
 /**
  * 单笔转账到支付宝账户接口
- * ALIPAY API: alipay.fund.trans.toaccount.transfer request
+ * ALIPAY API: alipay.fund.trans.toaccount.transfer
  * @author auto create
  * @since  1.0, 2017-11-14 18:46:52
+ * @url https://docs.open.alipay.com/api_28/alipay.fund.trans.toaccount.transfer/
  */
 class TransToAccountTransfer extends Request
 {
@@ -30,7 +31,6 @@ class TransToAccountTransfer extends Request
 	{
 		return $this->bizContent;
 	}
-
 
 	public function setNeedEncrypt($needEncrypt)
 	{

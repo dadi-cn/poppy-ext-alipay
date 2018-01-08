@@ -38,8 +38,6 @@ class FundTest extends TestCase
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
 		$request = new TransToAccountTransfer();
-
-
 		$data = [
 			'out_biz_no'      => $this->genNo('SandboxFundTrans'),
 			'payee_type'      => 'ALIPAY_LOGONID',

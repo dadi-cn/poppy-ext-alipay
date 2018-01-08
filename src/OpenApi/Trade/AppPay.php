@@ -3,10 +3,10 @@
 use Poppy\Extension\Alipay\OpenApi\Request;
 
 /**
- * ALIPAY API: alipay.trade.app.pay request
- *
+ * ALIPAY API: alipay.trade.app.pay
  * @author auto create
  * @since  1.0, 2016-11-17 11:45:56
+ * @url https://docs.open.alipay.com/204/105465
  */
 class AppPay extends Request
 {
@@ -35,9 +35,7 @@ class AppPay extends Request
 
 	public function setNeedEncrypt($needEncrypt)
 	{
-
 		$this->needEncrypt = $needEncrypt;
-
 	}
 
 	public function getNeedEncrypt()
