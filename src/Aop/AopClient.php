@@ -1,12 +1,14 @@
 <?php namespace Poppy\Extension\Alipay\Aop;
 
 use Poppy\Extension\Alipay\OpenApi\Request;
+use Poppy\Framework\Classes\Traits\AppTrait;
 
 /**
  * 文档地址: https://doc.open.alipay.com/docs/api.htm?apiId=1321&docType=4
  */
 class AopClient
 {
+	use AppTrait;
 	/**
 	 * @var string 应用ID
 	 */
@@ -221,7 +223,7 @@ class AopClient
 			if (false === $this->checkEmpty($v) && "@" != substr($v, 0, 1)) {
 
 				// 转换成目标字符集
-				$v = $this->characet($v, $this->postCharset);
+				$v = $this->charset($v, $this->postCharset);
 
 				if ($i == 0) {
 					$stringToBeSigned .= "$k" . "=" . "$v";
@@ -253,7 +255,7 @@ class AopClient
 			if (false === $this->checkEmpty($v) && "@" != substr($v, 0, 1)) {
 
 				// 转换成目标字符集
-				$v = $this->characet($v, $this->postCharset);
+				$v = $this->charset($v, $this->postCharset);
 
 				if ($i == 0) {
 					$stringToBeSigned .= "$k" . "=" . urlencode($v);
@@ -368,8 +370,8 @@ class AopClient
 			foreach ($postFields as $k => $v) {
 				if ("@" != substr($v, 0, 1)) //判断是不是文件上传
 				{
-					$postBodyString  .= "$k=" . urlencode($this->characet($v, $this->postCharset)) . "&";
-					$encodeArray[$k] = $this->characet($v, $this->postCharset);
+					$postBodyString  .= "$k=" . urlencode($this->charset($v, $this->postCharset)) . "&";
+					$encodeArray[$k] = $this->charset($v, $this->postCharset);
 				}
 				else //文件上传用multipart/form-data，否则用www-form-urlencoded
 				{
@@ -506,7 +508,7 @@ class AopClient
 		//系统参数放入GET请求串
 		$requestUrl = $this->gatewayUrl . "?";
 		foreach ($sysParams as $sysParamKey => $sysParamValue) {
-			$requestUrl .= "$sysParamKey=" . urlencode($this->characet($sysParamValue, $this->postCharset)) . "&";
+			$requestUrl .= "$sysParamKey=" . urlencode($this->charset($sysParamValue, $this->postCharset)) . "&";
 		}
 		$requestUrl = substr($requestUrl, 0, -1);
 
@@ -515,8 +517,7 @@ class AopClient
 		try {
 			$resp = $this->curl($requestUrl, $apiParams);
 		} catch (\Exception $e) {
-			\Log::debug([$sysParams["method"], $requestUrl, "HTTP_ERROR_" . $e->getCode(), $e->getMessage()]);
-			return false;
+			return $this->setError($e->getMessage());
 		}
 
 		//解析AOP返回结果
@@ -582,7 +583,7 @@ class AopClient
 	 * @return mixed|string
 	 * @author Antonio
 	 */
-	function characet($data, $targetCharset)
+	function charset($data, $targetCharset)
 	{
 		if (!empty($data)) {
 			$fileType = $this->fileCharset;
@@ -1273,7 +1274,7 @@ class AopClient
 		$params['sign'] = $this->generateSign($params, $this->signType);
 
 		foreach ($params as &$value) {
-			$value = $this->characet($value, $params['charset']);
+			$value = $this->charset($value, $params['charset']);
 		}
 
 		return http_build_query($params);
