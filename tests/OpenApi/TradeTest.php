@@ -2,10 +2,8 @@
 
 use Carbon\Carbon;
 use Poppy\Extension\Alipay\Aop\AopClient;
-use Poppy\Extension\Alipay\OpenApi\Fund\TransToAccountTransfer;
 use Poppy\Extension\Alipay\OpenApi\Trade\AppPay;
 use Poppy\Framework\Application\TestCase;
-use Poppy\Framework\Helper\StrHelper;
 use Poppy\Framework\Helper\UtilHelper;
 
 class TradeTest extends TestCase
@@ -29,6 +27,7 @@ class TradeTest extends TestCase
 	public function testAppPay()
 	{
 		$aop = new AopClient ();
+		$aop->openDebug();
 		$aop->setEnv($this->env);
 		// sandbox id : 2016082100303692
 		$aop->setAppId($this->appId);
@@ -37,8 +36,10 @@ class TradeTest extends TestCase
 		$aop->setRsaPrivateKey($this->rsaPrivateKey);
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
+
 		$request = new AppPay();
-		$amount  = rand(1, 20) + round(0, 99) * 0.01;
+		$request->setNotifyUrl('http://www.testdomain.com/abc/123');
+		$amount = rand(1, 20) + round(0, 99) * 0.01;
 
 		$data = [
 			'out_trade_no'    => $this->genNo('AppPay'),
@@ -50,9 +51,10 @@ class TradeTest extends TestCase
 		$request->setBizContent(json_encode($data));
 
 
-		if ($result = $aop->execute($request)){
+		if ($result = $aop->execute($request)) {
 			dd($result);
-		} else {
+		}
+		else {
 			dd($aop->getError());
 		}
 

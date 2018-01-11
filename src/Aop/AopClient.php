@@ -512,11 +512,15 @@ class AopClient
 		}
 		$requestUrl = substr($requestUrl, 0, -1);
 
+		$this->printDebug($this->gatewayUrl);
+		$this->printDebug($sysParams);
+		$this->printDebug($apiParams);
 
 		//发起HTTP请求
 		try {
 			$resp = $this->curl($requestUrl, $apiParams);
 		} catch (\Exception $e) {
+			dd($e);
 			return $this->setError($e->getMessage());
 		}
 
@@ -1138,11 +1142,20 @@ class AopClient
 	}
 
 
-	function echoDebug($content)
+	function printDebug($content)
 	{
 		if ($this->debugInfo) {
-			echo "<br/>" . $content;
+			print_r($content);
+			echo "\n";
 		}
+	}
+
+	/**
+	 * Open Debug.
+	 */
+	function openDebug()
+	{
+		$this->debugInfo = true;
 	}
 
 	/** rsaCheckV1 & rsaCheckV2
@@ -1241,32 +1254,34 @@ class AopClient
 		return $result;
 	}
 
+
 	/**
 	 * 生成用于调用收银台SDK的字符串
 	 * @param Request $request SDK接口的请求参数对象
 	 * @return string
 	 * @author guofa.tgf
 	 */
-	public function sdkExecute($request) {
+	public function sdkExecute($request)
+	{
 
 		$this->setupCharsets($request);
 
-		$params['app_id'] = $this->appId;
-		$params['method'] = $request->getApiMethodName();
-		$params['format'] = $this->format;
-		$params['sign_type'] = $this->signType;
-		$params['timestamp'] = date("Y-m-d H:i:s");
+		$params['app_id']     = $this->appId;
+		$params['method']     = $request->getApiMethodName();
+		$params['format']     = $this->format;
+		$params['sign_type']  = $this->signType;
+		$params['timestamp']  = date("Y-m-d H:i:s");
 		$params['alipay_sdk'] = $this->alipaySdkVersion;
-		$params['charset'] = $this->postCharset;
+		$params['charset']    = $this->postCharset;
 
-		$version = $request->getApiVersion();
+		$version           = $request->getApiVersion();
 		$params['version'] = $this->checkEmpty($version) ? $this->apiVersion : $version;
 
 		if ($notify_url = $request->getNotifyUrl()) {
 			$params['notify_url'] = $notify_url;
 		}
 
-		$dict = $request->getApiParas();
+		$dict                  = $request->getApiParas();
 		$params['biz_content'] = $dict['biz_content'];
 
 		ksort($params);
