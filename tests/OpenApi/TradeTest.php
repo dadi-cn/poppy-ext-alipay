@@ -50,7 +50,6 @@ class TradeTest extends TestCase
 		];
 		$request->setBizContent(json_encode($data));
 
-
 		if ($result = $aop->execute($request)) {
 			dd($result);
 		}
@@ -59,7 +58,6 @@ class TradeTest extends TestCase
 		}
 
 		$resultCode = data_get($result, 'alipay_fund_trans_toaccount_transfer_response.code');
-
 		/**
 		 * "alipay_fund_trans_toaccount_transfer_response": {#469 ▼
 		 *     "code": "10000"

@@ -520,7 +520,6 @@ class AopClient
 		try {
 			$resp = $this->curl($requestUrl, $apiParams);
 		} catch (\Exception $e) {
-			dd($e);
 			return $this->setError($e->getMessage());
 		}
 
