@@ -1203,7 +1203,7 @@ class AopClient
 		}
 
 		//submit按钮控件请不要含有name属性
-		$sHtml = $sHtml . "<input type='submit' value='ok' style='display:none;''></form>";
+		$sHtml = $sHtml . '<input type="submit" value="ok" style="display:none;"></form>';
 
 		$sHtml = $sHtml . "<script>document.forms['alipaysubmit'].submit();</script>";
 
@@ -1218,7 +1218,7 @@ class AopClient
 	 * @return bool
 	 * @author Antonio
 	 */
-	private function verify($data, $sign, $signType = 'RSA')
+	public function verify($data, $sign, $signType = 'RSA')
 	{
 		/* 如果是空的, 则需要获取内容值
 		 -------------------------------------------- */
@@ -1238,8 +1238,8 @@ class AopClient
 		($res) or die('支付宝RSA公钥错误。请检查公钥文件格式是否正确');
 
 		//调用openssl内置方法验签，返回bool值
-
 		if ("RSA2" == $signType) {
+
 			$result = (bool) openssl_verify($data, base64_decode($sign), $res, OPENSSL_ALGO_SHA256);
 		}
 		else {
@@ -1250,7 +1250,10 @@ class AopClient
 			//释放资源
 			openssl_free_key($res);
 		}
+
 		return $result;
+
+
 	}
 
 
