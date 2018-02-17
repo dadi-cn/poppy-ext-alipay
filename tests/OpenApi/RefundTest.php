@@ -1,7 +1,7 @@
 <?php namespace Poppy\Extension\Alipay\Tests\OpenApi;
 
 use Poppy\Extension\Alipay\Aop\AopClient;
-use Poppy\Extension\Alipay\OpenApi\Refund\AlipayTradeRefundRequest;
+use Poppy\Extension\Alipay\OpenApi\Refund\Refund;
 use Poppy\Framework\Application\TestCase;
 
 class RefundTest extends TestCase
@@ -33,7 +33,7 @@ class RefundTest extends TestCase
 		$aop->setRsaPrivateKey($this->rsaPrivateKey);
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
-		$request = new AlipayTradeRefundRequest();
+		$request = new Refund();
 		$data = [
 			'out_trade_no'    => 'CHARGE201802071553392532739',       // 商户订单号
 			'trade_no'        => '2018020721001004370200326677',      // 支付宝交易号
