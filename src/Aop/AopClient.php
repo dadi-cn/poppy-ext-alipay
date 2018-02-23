@@ -4,7 +4,8 @@ use Poppy\Extension\Alipay\OpenApi\Request;
 use Poppy\Framework\Classes\Traits\AppTrait;
 
 /**
- * 文档地址: https://doc.open.alipay.com/docs/api.htm?apiId=1321&docType=4
+ * Aop = Ali Open Platform
+ * 文档地址: https://docs.open.alipay.com/200
  */
 class AopClient
 {
