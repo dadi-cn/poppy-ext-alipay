@@ -1,11 +1,10 @@
 <?php namespace Poppy\Extension\Alipay;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Support\ServiceProvider;
 
 class ExtensionServiceProvider extends ServiceProvider
 {
-
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 * @var bool
@@ -44,6 +43,7 @@ class ExtensionServiceProvider extends ServiceProvider
 				->setNotifyUrl($config->get('l5-alipay.web_direct_notify_url'))
 				->setReturnUrl($config->get('l5-alipay.web_direct_return_url'))
 				->setExterInvokeIp($app->request->getClientIp());
+
 			return $alipay;
 		});
 
@@ -59,7 +59,6 @@ class ExtensionServiceProvider extends ServiceProvider
 
 			return $alipay;
 		});
-
 	}
 
 	/**
@@ -73,5 +72,4 @@ class ExtensionServiceProvider extends ServiceProvider
 			'duoli.alipay.mobile',
 		];
 	}
-
 }

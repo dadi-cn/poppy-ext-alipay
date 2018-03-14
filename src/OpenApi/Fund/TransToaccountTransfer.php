@@ -11,20 +11,18 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  */
 class TransToAccountTransfer extends Request
 {
-
 	private $bizContent;
 
 	protected $apiMethodName = 'alipay.fund.trans.toaccount.transfer';
 
-	protected $apiVersion = "1.0";
+	protected $apiVersion = '1.0';
 
 	private $needEncrypt = false;
-
 
 	public function setBizContent($bizContent)
 	{
 		$this->bizContent              = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+		$this->apiParas['biz_content'] = $bizContent;
 	}
 
 	public function getBizContent()
@@ -41,5 +39,4 @@ class TransToAccountTransfer extends Request
 	{
 		return $this->needEncrypt;
 	}
-
 }

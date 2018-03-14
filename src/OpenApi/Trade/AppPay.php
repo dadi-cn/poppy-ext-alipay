@@ -15,17 +15,16 @@ class AppPay extends Request
 	 **/
 	private $bizContent;
 
-	protected $apiVersion = "1.0";
+	protected $apiVersion = '1.0';
 
 	protected $apiMethodName = 'alipay.trade.app.pay';
 
 	private $needEncrypt = false;
 
-
 	public function setBizContent($bizContent)
 	{
 		$this->bizContent              = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+		$this->apiParas['biz_content'] = $bizContent;
 	}
 
 	public function getBizContent()
@@ -42,5 +41,4 @@ class AppPay extends Request
 	{
 		return $this->needEncrypt;
 	}
-
 }

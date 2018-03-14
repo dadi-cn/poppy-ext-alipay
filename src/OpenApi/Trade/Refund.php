@@ -16,16 +16,14 @@ class Refund extends Request
 	 **/
 	private $bizContent;
 
-
-	protected $apiVersion = "1.0";
+	protected $apiVersion = '1.0';
 
 	private $needEncrypt = false;
-
 
 	public function setBizContent($bizContent)
 	{
 		$this->bizContent              = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+		$this->apiParas['biz_content'] = $bizContent;
 	}
 
 	public function getBizContent()
@@ -35,7 +33,7 @@ class Refund extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.trade.refund";
+		return 'alipay.trade.refund';
 	}
 
 	public function setNeedEncrypt($needEncrypt)
@@ -47,5 +45,4 @@ class Refund extends Request
 	{
 		return $this->needEncrypt;
 	}
-
 }

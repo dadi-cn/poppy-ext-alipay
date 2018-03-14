@@ -1,8 +1,8 @@
 <?php namespace Poppy\Extension\Alipay\Aop;
+
 /**
  *   加密工具类
  */
-
 class AopEncrypt
 {
 	/**
@@ -18,6 +18,7 @@ class AopEncrypt
 		$str         = trim($str);
 		$str         = self::addPKCS7Padding($str);
 		$encrypt_str = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $secret_key, $str, MCRYPT_MODE_CBC);
+
 		return base64_encode($encrypt_str);
 	}
 
@@ -36,8 +37,8 @@ class AopEncrypt
 		$encrypt_str = trim($encrypt_str);
 
 		$encrypt_str = self::stripPKSC7Padding($encrypt_str);
-		return $encrypt_str;
 
+		return $encrypt_str;
 	}
 
 	/**
@@ -55,6 +56,7 @@ class AopEncrypt
 			$char   = chr($pad);
 			$source .= str_repeat($char, $pad);
 		}
+
 		return $source;
 	}
 
@@ -70,12 +72,8 @@ class AopEncrypt
 		$num    = ord($char);
 		if ($num == 62) return $source;
 		$source = substr($source, 0, -$num);
+
 		return $source;
 	}
-
 }
-
-
-
-
 

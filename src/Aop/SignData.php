@@ -1,10 +1,8 @@
 <?php namespace Poppy\Extension\Alipay\Aop;
 
-class SignData {
+class SignData
+{
+	public $signSourceData=null;
 
-    public $signSourceData=null;
-
-
-    public $sign=null;
-
-} 
+	public $sign=null;
+}

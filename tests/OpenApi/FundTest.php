@@ -28,7 +28,7 @@ class FundTest extends TestCase
 	 */
 	public function testTransToAccountTransfer()
 	{
-		$aop = new AopClient ();
+		$aop = new AopClient();
 		$aop->setEnv($this->env);
 		// sandbox id : 2016082100303692
 		$aop->setAppId($this->appId);
@@ -38,7 +38,7 @@ class FundTest extends TestCase
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
 		$request = new TransToAccountTransfer();
-		$data = [
+		$data    = [
 			'out_biz_no'      => $this->genNo('SandboxFundTrans'),
 			'payee_type'      => 'ALIPAY_LOGONID',
 			'payee_account'   => $this->userAccount,
@@ -60,7 +60,6 @@ class FundTest extends TestCase
 		 *     "pay_date": "2018-01-01 16:08:04"
 		 * }
 		 */
-
 		$this->assertEquals($resultCode, '10000');
 	}
 
@@ -69,7 +68,7 @@ class FundTest extends TestCase
 	 */
 	public function testTransToAccountTransferError()
 	{
-		$aop = new AopClient ();
+		$aop = new AopClient();
 		$aop->setEnv($this->env);
 		// sandbox id : 2016082100303692
 		$aop->setAppId($this->appId);
@@ -79,7 +78,6 @@ class FundTest extends TestCase
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
 		$request = new TransToAccountTransfer();
-
 
 		$data = [
 			'out_biz_no'      => $this->genNo('SandboxFundTrans'),
@@ -103,7 +101,6 @@ class FundTest extends TestCase
 		 *     "pay_date": "2018-01-01 16:08:04"
 		 * }
 		 */
-
 		$this->assertNotEquals($resultCode, '10000');
 	}
 

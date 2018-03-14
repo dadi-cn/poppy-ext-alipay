@@ -1,4 +1,5 @@
 <?php namespace Poppy\Extension\Alipay\Mapi\Wap;
+
 /*
  * 手机网站支付
  * @url https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.ySbnXK&treeId=60&articleId=103564&docType=1
@@ -7,7 +8,6 @@
  */
 class SdkPayment
 {
-
 	private $__gateway_new = 'https://mapi.alipay.com/gateway.do?';
 
 	private $__https_verify_url = 'https://mapi.alipay.com/gateway.do?service=notify_verify&';
@@ -109,86 +109,98 @@ class SdkPayment
 		if (preg_match('/true$/i', $response_txt) && $is_sign) {
 			return true;
 		}
-		else {
+		 
 			return false;
-		}
 	}
 
 	public function setPartner($partner)
 	{
 		$this->partner = $partner;
+
 		return $this;
 	}
 
 	public function setNotifyUrl($notify_url)
 	{
 		$this->notify_url = $notify_url;
+
 		return $this;
 	}
 
 	public function setReturnUrl($return_url)
 	{
 		$this->return_url = $return_url;
+
 		return $this;
 	}
 
 	public function setOutTradeNo($out_trade_no)
 	{
 		$this->out_trade_no = $out_trade_no;
+
 		return $this;
 	}
 
 	public function setKey($key)
 	{
 		$this->key = $key;
+
 		return $this;
 	}
 
 	public function setSellerId($seller_id)
 	{
 		$this->seller_id = $seller_id;
+
 		return $this;
 	}
 
 	public function setTotalFee($total_fee)
 	{
 		$this->total_fee = $total_fee;
+
 		return $this;
 	}
 
 	public function setSubject($subject)
 	{
 		$this->subject = $subject;
+
 		return $this;
 	}
 
 	public function setBody($body)
 	{
 		$this->body = $body;
+
 		return $this;
 	}
 
 	public function setItBPay($it_b_pay)
 	{
 		$this->it_b_pay = $it_b_pay;
+
 		return $this;
 	}
 
 	public function setShowUrl($show_url)
 	{
 		$this->show_url = $show_url;
+
 		return $this;
 	}
 
 	public function setSignType($sign_type)
 	{
 		$this->sign_type = $sign_type;
+
 		return $this;
 	}
 
 	public function setExterInvokeIp($exter_invoke_ip)
 	{
 		$this->exter_invoke_ip = $exter_invoke_ip;
+
 		return $this;
 	}
 
@@ -223,14 +235,14 @@ class SdkPayment
 	private function paraFilter($para)
 	{
 		$para_filter = [];
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			if ($key == 'sign' || $key == 'sign_type' || $val == '') {
 				continue;
 			}
-			else {
+			 
 				$para_filter[$key] = $para[$key];
-			}
 		}
+
 		return $para_filter;
 	}
 
@@ -243,6 +255,7 @@ class SdkPayment
 	{
 		ksort($para);
 		reset($para);
+
 		return $para;
 	}
 
@@ -276,7 +289,7 @@ class SdkPayment
 	private function createLinkstring($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . $val . '&';
 		}
 		//去掉最后一个&字符
@@ -298,7 +311,7 @@ class SdkPayment
 	private function createLinkstringUrlencode($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . urlencode($val) . '&';
 		}
 		//去掉最后一个&字符
@@ -321,6 +334,7 @@ class SdkPayment
 	private function md5Sign($prestr, $key)
 	{
 		$prestr = $prestr . $key;
+
 		return md5($prestr);
 	}
 
@@ -339,9 +353,8 @@ class SdkPayment
 		if ($mysgin == $sign) {
 			return true;
 		}
-		else {
+		 
 			return false;
-		}
 	}
 
 	/**

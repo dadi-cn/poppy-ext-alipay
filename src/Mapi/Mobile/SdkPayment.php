@@ -8,7 +8,6 @@
  */
 class SdkPayment
 {
-
 	private $__https_verify_url = 'https://mapi.alipay.com/gateway.do?service=notify_verify&';
 
 	private $__http_verify_url = 'http://notify.alipay.com/trade/notify_query.do?';
@@ -109,68 +108,77 @@ class SdkPayment
 		if (preg_match('/true$/i', $response_txt) && $is_sign) {
 			return true;
 		}
-		else {
+		 
 			return false;
-		}
 	}
 
 	public function setBody($body)
 	{
 		$this->body = $body;
+
 		return $this;
 	}
 
 	public function setNotifyUrl($notify_url)
 	{
 		$this->notify_url = $notify_url;
+
 		return $this;
 	}
 
 	public function setOutTradeNo($out_trade_no)
 	{
 		$this->out_trade_no = $out_trade_no;
+
 		return $this;
 	}
 
 	public function setPartner($partner)
 	{
 		$this->partner = $partner;
+
 		return $this;
 	}
 
 	public function setPrivateKeyPath($private_key_path)
 	{
 		$this->private_key_path = $private_key_path;
+
 		return $this;
 	}
 
 	public function setPublicKeyPath($public_key_path)
 	{
 		$this->public_key_path = $public_key_path;
+
 		return $this;
 	}
 
 	public function setSellerId($seller_id)
 	{
 		$this->seller_id = $seller_id;
+
 		return $this;
 	}
 
 	public function setSubject($subject)
 	{
 		$this->subject = $subject;
+
 		return $this;
 	}
 
 	public function setTotalFee($total_fee)
 	{
 		$this->total_fee = $total_fee;
+
 		return $this;
 	}
 
 	public function setSignType($sign_type)
 	{
 		$this->sign_type = $sign_type;
+
 		return $this;
 	}
 
@@ -228,7 +236,7 @@ class SdkPayment
 	 * @param $sign      返回的签名结果
 	 * @return 签名验证结果
 	 */
-	function getSignVeryfy($para_temp, $sign)
+	public function getSignVeryfy($para_temp, $sign)
 	{
 		//除去待签名参数数组中的空值和签名参数
 		$para_filter = $this->paraFilter($para_temp);
@@ -262,14 +270,14 @@ class SdkPayment
 	private function paraFilter($para)
 	{
 		$para_filter = [];
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			if ($key == 'sign' || $key == 'sign_type' || $val == '') {
 				continue;
 			}
-			else {
+			 
 				$para_filter[$key] = $para[$key];
-			}
 		}
+
 		return $para_filter;
 	}
 
@@ -282,6 +290,7 @@ class SdkPayment
 	{
 		ksort($para);
 		reset($para);
+
 		return $para;
 	}
 
@@ -298,6 +307,7 @@ class SdkPayment
 		$res    = openssl_get_publickey($pubKey);
 		$result = (bool) openssl_verify($data, base64_decode($sign), $res);
 		openssl_free_key($res);
+
 		return $result;
 	}
 
@@ -315,6 +325,7 @@ class SdkPayment
 		openssl_free_key($res);
 		//base64编码
 		$sign = base64_encode($sign);
+
 		return $sign;
 	}
 
@@ -326,7 +337,7 @@ class SdkPayment
 	private function createLinkstring($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . $val . '&';
 		}
 		//去掉最后一个&字符
@@ -348,7 +359,7 @@ class SdkPayment
 	private function createLinkstringUrlencode($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . urlencode($val) . '&';
 		}
 		//去掉最后一个&字符

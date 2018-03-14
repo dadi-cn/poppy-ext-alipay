@@ -8,7 +8,6 @@
  */
 class SdkPayment
 {
-
 	/** @type string 支付宝网关地址（新） */
 	private $__gateway_new = 'https://mapi.alipay.com/gateway.do?';
 
@@ -197,14 +196,14 @@ class SdkPayment
 	private function _paraFilter($para)
 	{
 		$para_filter = [];
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			if ($key == 'sign' || $key == 'sign_type' || $val == '') {
 				continue;
 			}
-			else {
+			 
 				$para_filter[$key] = $para[$key];
-			}
 		}
+
 		return $para_filter;
 	}
 
@@ -217,6 +216,7 @@ class SdkPayment
 	{
 		ksort($para);
 		reset($para);
+
 		return $para;
 	}
 
@@ -249,7 +249,7 @@ class SdkPayment
 	private function _createLinkstring($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . $val . '&';
 		}
 		//去掉最后一个&字符
@@ -267,6 +267,7 @@ class SdkPayment
 	private function _md5Sign($prestr, $key)
 	{
 		$prestr = $prestr . $key;
+
 		return md5($prestr);
 	}
 
@@ -278,7 +279,7 @@ class SdkPayment
 	private function _createLinkstringUrlencode($para)
 	{
 		$arg = '';
-		while ((list ($key, $val) = each($para)) == true) {
+		while ((list($key, $val) = each($para)) == true) {
 			$arg .= $key . '=' . urlencode($val) . '&';
 		}
 		//去掉最后一个&字符
@@ -314,9 +315,8 @@ class SdkPayment
 		if (preg_match('/true$/i', $response_txt) && $is_sign) {
 			return true;
 		}
-		else {
+		 
 			return false;
-		}
 	}
 
 	/**
@@ -362,9 +362,8 @@ class SdkPayment
 		if ($mysgin == $sign) {
 			return true;
 		}
-		else {
+		 
 			return false;
-		}
 	}
 
 	/**
@@ -420,84 +419,98 @@ class SdkPayment
 	public function setPartner($partner)
 	{
 		$this->partner = $partner;
+
 		return $this;
 	}
 
 	public function setNotifyUrl($notify_url)
 	{
 		$this->notify_url = $notify_url;
+
 		return $this;
 	}
 
 	public function setReturnUrl($return_url)
 	{
 		$this->return_url = $return_url;
+
 		return $this;
 	}
 
 	public function setOutTradeNo($out_trade_no)
 	{
 		$this->out_trade_no = $out_trade_no;
+
 		return $this;
 	}
 
 	public function setKey($key)
 	{
 		$this->key = $key;
+
 		return $this;
 	}
 
 	public function setSellerId($seller_id)
 	{
 		$this->seller_id = $seller_id;
+
 		return $this;
 	}
 
 	public function setTotalFee($total_fee)
 	{
 		$this->total_fee = $total_fee;
+
 		return $this;
 	}
 
 	public function setSubject($subject)
 	{
 		$this->subject = $subject;
+
 		return $this;
 	}
 
 	public function setBody($body)
 	{
 		$this->body = $body;
+
 		return $this;
 	}
 
 	public function setItBPay($it_b_pay)
 	{
 		$this->it_b_pay = $it_b_pay;
+
 		return $this;
 	}
 
 	public function setShowUrl($show_url)
 	{
 		$this->show_url = $show_url;
+
 		return $this;
 	}
 
 	public function setSignType($sign_type)
 	{
 		$this->sign_type = $sign_type;
+
 		return $this;
 	}
 
 	public function setExterInvokeIp($exter_invoke_ip)
 	{
 		$this->exter_invoke_ip = $exter_invoke_ip;
+
 		return $this;
 	}
 
 	public function setQrPayMode($qr_pay_mode)
 	{
 		$this->qr_pay_mode = $qr_pay_mode;
+
 		return $this;
 	}
 
@@ -514,9 +527,8 @@ class SdkPayment
 	 */
 	private function _getHttpResponsePOST($url, $cacert_url, $para, $input_charset = '')
 	{
-
 		if (trim($input_charset) != '') {
-			$url = $url . "_input_charset=" . $input_charset;
+			$url = $url . '_input_charset=' . $input_charset;
 		}
 		$curl = curl_init($url);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSL证书认证
@@ -548,13 +560,14 @@ class SdkPayment
 		if ($_input_charset == $_output_charset || $input == null) {
 			$output = $input;
 		}
-		elseif (function_exists("mb_convert_encoding")) {
+		elseif (function_exists('mb_convert_encoding')) {
 			$output = mb_convert_encoding($input, $_output_charset, $_input_charset);
 		}
-		elseif (function_exists("iconv")) {
+		elseif (function_exists('iconv')) {
 			$output = iconv($_input_charset, $_output_charset, $input);
 		}
-		else die("sorry, you have no libs support for charset change.");
+		else die('sorry, you have no libs support for charset change.');
+
 		return $output;
 	}
 
@@ -571,13 +584,14 @@ class SdkPayment
 		if ($_input_charset == $_output_charset || $input == null) {
 			$output = $input;
 		}
-		elseif (function_exists("mb_convert_encoding")) {
+		elseif (function_exists('mb_convert_encoding')) {
 			$output = mb_convert_encoding($input, $_output_charset, $_input_charset);
 		}
-		elseif (function_exists("iconv")) {
+		elseif (function_exists('iconv')) {
 			$output = iconv($_input_charset, $_output_charset, $input);
 		}
-		else die("sorry, you have no libs support for charset changes.");
+		else die('sorry, you have no libs support for charset changes.');
+
 		return $output;
 	}
 
@@ -586,7 +600,7 @@ class SdkPayment
 	 * @param $para_temp array 请求前的参数数组
 	 * @return string 要请求的参数数组字符串
 	 */
-	function buildRequestParaToString($para_temp)
+	public function buildRequestParaToString($para_temp)
 	{
 		//待请求参数数组
 		$para = $this->_buildRequestPara($para_temp);
@@ -604,13 +618,13 @@ class SdkPayment
 	 * @param $button_name string 确认按钮显示文字
 	 * @return string 提交表单HTML文本
 	 */
-	function buildRequestForm($para_temp, $method, $button_name)
+	public function buildRequestForm($para_temp, $method, $button_name)
 	{
 		//待请求参数数组
 		$para = $this->_buildRequestPara($para_temp);
 
-		$sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='" . $this->__gateway_new . "_input_charset=" . trim(strtolower($this->_input_charset)) . "' method='" . $method . "'>";
-		while (list ($key, $val) = each($para)) {
+		$sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='" . $this->__gateway_new . '_input_charset=' . trim(strtolower($this->_input_charset)) . "' method='" . $method . "'>";
+		while (list($key, $val) = each($para)) {
 			$sHtml .= "<input type='hidden' name='" . $key . "' value='" . $val . "'/>";
 		}
 
@@ -627,7 +641,7 @@ class SdkPayment
 	 * @param $para_temp string 请求参数数组
 	 * @return string 支付宝处理结果
 	 */
-	function buildRequestHttp($para_temp)
+	public function buildRequestHttp($para_temp)
 	{
 		//待请求参数数组字符串
 		$request_data = $this->_buildRequestPara($para_temp);
@@ -645,12 +659,11 @@ class SdkPayment
 	 * @param $file_name      string  文件完整绝对路径
 	 * @return string 支付宝返回处理结果
 	 */
-	function buildRequestHttpInFile($para_temp, $file_para_name, $file_name)
+	public function buildRequestHttpInFile($para_temp, $file_para_name, $file_name)
 	{
-
 		//待请求参数数组
 		$para                  = $this->_buildRequestPara($para_temp);
-		$para[$file_para_name] = "@" . $file_name;
+		$para[$file_para_name] = '@' . $file_name;
 
 		//远程获取数据
 		$sResult = $this->_getHttpResponsePOST($this->__gateway_new, $this->cacert, $para, trim(strtolower($this->_input_charset)));
@@ -663,13 +676,13 @@ class SdkPayment
 	 * 注意：该功能PHP5环境及以上支持，因此必须服务器、本地电脑中装有支持DOMDocument、SSL的PHP配置环境。建议本地调试时使用PHP开发软件
 	 * return 时间戳字符串
 	 */
-	function queryTimestamp()
+	public function queryTimestamp()
 	{
-		$url = $this->__gateway_new . "service=query_timestamp&partner=" . trim(strtolower($this->partner)) . "&_input_charset=" . trim(strtolower($this->_input_charset));
+		$url = $this->__gateway_new . 'service=query_timestamp&partner=' . trim(strtolower($this->partner)) . '&_input_charset=' . trim(strtolower($this->_input_charset));
 
 		$doc = new \DOMDocument();
 		$doc->load($url);
-		$itemEncrypt_key = $doc->getElementsByTagName("encrypt_key");
+		$itemEncrypt_key = $doc->getElementsByTagName('encrypt_key');
 		$encrypt_key     = $itemEncrypt_key->item(0)->nodeValue;
 
 		return $encrypt_key;

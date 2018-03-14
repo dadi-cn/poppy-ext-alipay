@@ -18,13 +18,12 @@ class RefundTest extends TestCase
 
 	private $rsaPublicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3LqVQEmw38EBpZLFwaT2RFmziS3klluT7ekHfdda4t7q87MueVN2I+VBoE/XDTYZ67HZEHmOAFTxFYwAXWuWKczxo54Bg+SaWw+qWhWxrIz2dmbDCEsTfWVIncBnHGaMK9ZkAvs+waMap77WXTFsw9Ak3eSoeLkLkxfhzjEvk/elLyLThngfkfoKHegw5W5tcfjh5eWGHmRxTk5qVHTB6f9DEyBUqaLpu2kjX4TNoSTgDgnEBAeGE4SxY3FfYTj/Zo5blZxQ3H+IkjCDuV2C9y70CvtP8T8uPjddGq5mqV0XYSwv10rsyNW5VEiJSha4i4ESmsg2H2QUP/dT8J7Q0wIDAQAB';
 
-
 	/**
 	 * @throws \Exception
 	 */
 	public function testRefund()
 	{
-		$aop = new AopClient ();
+		$aop = new AopClient();
 		$aop->setEnv($this->env);
 		// sandbox id : 2016082100303692
 		$aop->setAppId($this->appId);
@@ -34,7 +33,7 @@ class RefundTest extends TestCase
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
 		$request = new Refund();
-		$data = [
+		$data    = [
 			'out_trade_no'    => 'CHARGE201802071553392532739',       // 商户订单号
 			'trade_no'        => '2018020721001004370200326677',      // 支付宝交易号
 			'refund_amount'   => 0.12,                               // 退款金额
@@ -60,21 +59,21 @@ class RefundTest extends TestCase
 		dd($result);
 		$resultCode = data_get($result, 'alipay_trade_refund_response.code');
 
-	   /**
-		*"alipay_trade_refund_response": {#648
-		*    "code": "10000"
-		*	 "msg": "Success"
-		*	 "buyer_logon_id": "rna***@sandbox.com"
-		*	 "buyer_user_id": "2088102175461375"
-		*	 "fund_change": "Y"
-		*	 "gmt_refund_pay": "2018-02-07 21:43:33"
-		*	 "out_trade_no": "CHARGE201802071553392532739"
-		*	 "refund_fee": "0.12"
-		*	 "send_back_fee": "0.00"
-		*	 "trade_no": "2018020721001004370200326677"
-        *    }
-        *+"sign": "xKIbVMuX45+zkF5hmPaWvbjG91M4cXSv7sg6mfr3u+LeYgVvEtrpGTiKzaisVxEXvIkw4fXtOBPc2b4ss6riVM9dfu3lHV2haLmmBHARQLdVG916xmSmAe/PmVTMs8S7ZPcyRZj3SBC/W9b/h1RtouJEHteuLIfahr6wuiADIyxpVGDzFPkaTg/VIjMytXGANdtbstsTykqgHXqPCaOqCGaol9F5Wc1Io9bb+50iGZzGU0Mm6ekIAe+BI2hutnfaOYc+I+96D2lcFTZo7ysBzhp07zV1gxha5D52ulAbXMDXheG15KgSaISal+918G4iewsml0Ral4tgXj3+Dvvf3g=="
-		*/
+		/**
+		 *"alipay_trade_refund_response": {#648
+		 *    "code": "10000"
+		 *	 "msg": "Success"
+		 *	 "buyer_logon_id": "rna***@sandbox.com"
+		 *	 "buyer_user_id": "2088102175461375"
+		 *	 "fund_change": "Y"
+		 *	 "gmt_refund_pay": "2018-02-07 21:43:33"
+		 *	 "out_trade_no": "CHARGE201802071553392532739"
+		 *	 "refund_fee": "0.12"
+		 *	 "send_back_fee": "0.00"
+		 *	 "trade_no": "2018020721001004370200326677"
+		 *    }
+		 *+"sign": "xKIbVMuX45+zkF5hmPaWvbjG91M4cXSv7sg6mfr3u+LeYgVvEtrpGTiKzaisVxEXvIkw4fXtOBPc2b4ss6riVM9dfu3lHV2haLmmBHARQLdVG916xmSmAe/PmVTMs8S7ZPcyRZj3SBC/W9b/h1RtouJEHteuLIfahr6wuiADIyxpVGDzFPkaTg/VIjMytXGANdtbstsTykqgHXqPCaOqCGaol9F5Wc1Io9bb+50iGZzGU0Mm6ekIAe+BI2hutnfaOYc+I+96D2lcFTZo7ysBzhp07zV1gxha5D52ulAbXMDXheG15KgSaISal+918G4iewsml0Ral4tgXj3+Dvvf3g=="
+		 */
 		$this->assertEquals($resultCode, '10000');
 	}
 }
