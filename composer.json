@@ -1,6 +1,7 @@
 {
 	"name": "poppy/ext-alipay",
 	"description": "Poppy Alipay Extension.",
+	"license": "Apache-2.0",
 	"type": "poppy-extension",
 	"authors": [
 		{
