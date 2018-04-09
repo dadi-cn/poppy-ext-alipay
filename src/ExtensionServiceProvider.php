@@ -19,7 +19,7 @@ class ExtensionServiceProvider extends ServiceProvider
 	{
 		// 加载的时候进行配置项的发布
 		$this->publishes([
-			__DIR__ . '/../config/alipay.php' => config_path('l5-alipay.php'),
+			__DIR__ . '/../config/alipay.php' => config_path('poppy-alipay.php'),
 		], 'sour-lemon');
 	}
 
@@ -30,32 +30,32 @@ class ExtensionServiceProvider extends ServiceProvider
 	public function register()
 	{
 		// 配置文件合并
-		$this->mergeConfigFrom(__DIR__ . '/../config/alipay.php', 'l5-alipay');
+		$this->mergeConfigFrom(__DIR__ . '/../config/alipay.php', 'poppy-alipay');
 
-		$this->app->bind('l5.alipay.web-direct', function ($app) {
+		$this->app->singleton('poppy.ext-alipay.web-direct', function ($app) {
 			$alipay = new Mapi\WebDirect\SdkPayment();
 			/** @type ConfigRepository $config */
 			$config = $app->config;
-			$alipay->setPartner($config->get('l5-alipay.partner_id'))
-				->setSellerId($config->get('l5-alipay.seller_id'))
-				->setKey($config->get('l5-alipay.web_direct_key'))
-				->setSignType($config->get('l5-alipay.web_direct_sign_type'))
-				->setNotifyUrl($config->get('l5-alipay.web_direct_notify_url'))
-				->setReturnUrl($config->get('l5-alipay.web_direct_return_url'))
+			$alipay->setPartner($config->get('poppy-alipay.partner_id'))
+				->setSellerId($config->get('poppy-alipay.seller_id'))
+				->setKey($config->get('poppy-alipay.web_direct_key'))
+				->setSignType($config->get('poppy-alipay.web_direct_sign_type'))
+				->setNotifyUrl($config->get('poppy-alipay.web_direct_notify_url'))
+				->setReturnUrl($config->get('poppy-alipay.web_direct_return_url'))
 				->setExterInvokeIp($app->request->getClientIp());
 
 			return $alipay;
 		});
 
-		$this->app->bind('l5.alipay.mobile', function ($app) {
+		$this->app->singleton('poppy.ext-alipay.mobile', function ($app) {
 			$alipay = new Mapi\Mobile\SdkPayment();
 
-			$alipay->setPartner($app->config->get('l5-alipay.partner_id'))
-				->setSellerId($app->config->get('l5-alipay.seller_id'))
-				->setSignType($app->config->get('l5-alipay.mobile_sign_type'))
-				->setPrivateKeyPath($app->config->get('l5-alipay.mobile_private_key_path'))
-				->setPublicKeyPath($app->config->get('l5-alipay.mobile_public_key_path'))
-				->setNotifyUrl($app->config->get('l5-alipay.mobile_notify_url'));
+			$alipay->setPartner($app->config->get('poppy-alipay.partner_id'))
+				->setSellerId($app->config->get('poppy-alipay.seller_id'))
+				->setSignType($app->config->get('poppy-alipay.mobile_sign_type'))
+				->setPrivateKeyPath($app->config->get('poppy-alipay.mobile_private_key_path'))
+				->setPublicKeyPath($app->config->get('poppy-alipay.mobile_public_key_path'))
+				->setNotifyUrl($app->config->get('poppy-alipay.mobile_notify_url'));
 
 			return $alipay;
 		});
@@ -68,8 +68,8 @@ class ExtensionServiceProvider extends ServiceProvider
 	public function provides()
 	{
 		return [
-			'duoli.alipay.web-direct',
-			'duoli.alipay.mobile',
+			'poppy.ext-alipay.web-direct',
+			'poppy.ext-alipay.mobile',
 		];
 	}
 }

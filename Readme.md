@@ -1,17 +1,16 @@
 # Alipay 在 Laravel 5 的封装包
 
-修改自 [Latrell/Alipay](https://github.com/Latrell/Alipay), 目的是在 Laravel5框架下更便捷使用支付宝付款功能。
-
 ## 安装
 
 ```
-composer require imvkmark/l5-alipay dev-master
+composer require poppy/ext-alipay dev-master
 ```
 
-更新你的依赖包 ```composer update``` 或者全新安装 ```composer install```。
+更新你的依赖包 `composer update` 或者全新安装 `composer install`。
 
 ## 发布配置
 
+发布配置文件到你的项目中
 ```
 php artisan vendor:publish
 ```
@@ -26,13 +25,13 @@ php artisan vendor:publish
 ```php
 'providers' => [
     // ...
-    Poppy\Extension\Alipay\L5AlipayServiceProvider::class,
+    Poppy\Extension\Alipay\ExtensionServiceProvider::class,
 ]
 ```
 
 运行 `php artisan vendor:publish` 命令，发布配置文件到你的项目中。
 
-配置文件 `config/polly-alipay.php` 为公共配置信息文件， `web_direct_` 为Web版支付宝SDK配置前缀。
+配置文件 `config/poppy-alipay.php` 为公共配置信息文件， `web_direct_` 为Web版支付宝SDK配置前缀。
 配置 回调地址的时候使用 url 函数， 填写的是完整的回调地址， 不是部分地址， 例如填写
 
 ```
@@ -51,7 +50,7 @@ php artisan vendor:publish
 
 ```php
 // 创建支付单。
-$alipay = app('l5.alipay.web-direct');
+$alipay = app('poppy.ext-alipay.web-direct');
 $alipay->setOutTradeNo('order_id');
 $alipay->setTotalFee('order_price');
 $alipay->setSubject('goods_name');
@@ -74,7 +73,7 @@ return redirect()->to($alipay->getPayLink());
 public function webNotify()
 {
     // 验证请求。
-    if (! app('l5.alipay.web-direct')->verify()) {
+    if (! app('poppy.ext-alipay.web-direct')->verify()) {
         Log::notice('Alipay notify post data verification fail.', [
         'data' => Request::instance()->getContent()
     ]);
@@ -101,7 +100,7 @@ public function webNotify()
 public function webReturn()
 {
     // 验证请求。
-    if (! app('l5.alipay.web-direct')->verify()) {
+    if (! app('poppy.ext-alipay.web-direct')->verify()) {
         Log::notice('Alipay return query data verification fail.', [
             'data' => Request::getQueryString()
         ]);
