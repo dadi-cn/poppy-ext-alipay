@@ -1,5 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Trade;
 
+use Poppy\Extension\Alipay\OpenApi\Alipay\TradeAppPayRequest;
 use Poppy\Extension\Alipay\OpenApi\Request;
 
 /**
@@ -7,6 +8,8 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since  1.0, 2016-11-17 11:45:56
  * @url https://docs.open.alipay.com/204/105465
+ * @deprecated
+ * @see TradeAppPayRequest
  */
 class AppPay extends Request
 {

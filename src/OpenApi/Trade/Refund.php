@@ -1,5 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Trade;
 
+use Poppy\Extension\Alipay\OpenApi\Alipay\TradeRefundRequest;
 use Poppy\Extension\Alipay\OpenApi\Request;
 
 /**
@@ -8,6 +9,8 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since  1.0, 2016-12-06 16:07:23
  * @url https://docs.open.alipay.com/api_1/alipay.trade.refund/
+ * @deprecated
+ * @see    TradeRefundRequest
  */
 class Refund extends Request
 {

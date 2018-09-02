@@ -1,5 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Fund;
 
+use Poppy\Extension\Alipay\OpenApi\Alipay\FundTransToaccountTransferRequest;
 use Poppy\Extension\Alipay\OpenApi\Request;
 
 /**
@@ -8,6 +9,9 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since  1.0, 2017-11-14 18:46:52
  * @url https://docs.open.alipay.com/api_28/alipay.fund.trans.toaccount.transfer/
+ * @deprecated
+ * @see FundTransToaccountTransferRequest
+ *
  */
 class TransToAccountTransfer extends Request
 {
