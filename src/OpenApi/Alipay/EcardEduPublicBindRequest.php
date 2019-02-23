@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ecard.edu.public.bind request
@@ -8,52 +8,58 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2014-06-12 17:16:41
  */
-class EcardEduPublicBindRequest extends Request
+class EcardEduPublicBindRequest
 {
-	/** 
+	/**
 	 * 机构编码
 	 **/
 	private $agentCode;
 	
-	/** 
+	/**
 	 * 公众账号协议Id
 	 **/
 	private $agreementId;
 	
-	/** 
+	/**
 	 * 支付宝userId
 	 **/
 	private $alipayUserId;
 	
-	/** 
+	/**
 	 * 一卡通姓名
 	 **/
 	private $cardName;
 	
-	/** 
+	/**
 	 * 一卡通卡号
 	 **/
 	private $cardNo;
 	
-	/** 
+	/**
 	 * 公众账号id
 	 **/
 	private $publicId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAgentCode($agentCode)
 	{
-		$this->agentCode = $agentCode;
-		$this->apiParas["agent_code"] = $agentCode;
+		$this->agentCode              = $agentCode;
+		$this->apiParas['agent_code'] = $agentCode;
 	}
 
 	public function getAgentCode()
@@ -63,8 +69,8 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setAgreementId($agreementId)
 	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+		$this->agreementId              = $agreementId;
+		$this->apiParas['agreement_id'] = $agreementId;
 	}
 
 	public function getAgreementId()
@@ -74,8 +80,8 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setAlipayUserId($alipayUserId)
 	{
-		$this->alipayUserId = $alipayUserId;
-		$this->apiParas["alipay_user_id"] = $alipayUserId;
+		$this->alipayUserId               = $alipayUserId;
+		$this->apiParas['alipay_user_id'] = $alipayUserId;
 	}
 
 	public function getAlipayUserId()
@@ -85,8 +91,8 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setCardName($cardName)
 	{
-		$this->cardName = $cardName;
-		$this->apiParas["card_name"] = $cardName;
+		$this->cardName              = $cardName;
+		$this->apiParas['card_name'] = $cardName;
 	}
 
 	public function getCardName()
@@ -96,8 +102,8 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setCardNo($cardNo)
 	{
-		$this->cardNo = $cardNo;
-		$this->apiParas["card_no"] = $cardNo;
+		$this->cardNo              = $cardNo;
+		$this->apiParas['card_no'] = $cardNo;
 	}
 
 	public function getCardNo()
@@ -107,8 +113,8 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setPublicId($publicId)
 	{
-		$this->publicId = $publicId;
-		$this->apiParas["public_id"] = $publicId;
+		$this->publicId              = $publicId;
+		$this->apiParas['public_id'] = $publicId;
 	}
 
 	public function getPublicId()
@@ -118,12 +124,12 @@ class EcardEduPublicBindRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ecard.edu.public.bind";
+		return 'alipay.ecard.edu.public.bind';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -133,7 +139,7 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -178,7 +184,7 @@ class EcardEduPublicBindRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -188,14 +194,11 @@ class EcardEduPublicBindRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

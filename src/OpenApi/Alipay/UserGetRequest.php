@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.user.get request
@@ -8,27 +8,33 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-02-28 16:34:11
  */
-class UserGetRequest extends Request
+class UserGetRequest
 {
-	/** 
+	/**
 	 * 需要返回的字段列表。alipay_user_id：支付宝用户userId,user_status：支付宝用户状态,user_type：支付宝用户类型,certified：是否通过实名认证,real_name：真实姓名,logon_id：支付宝登录号,sex：用户性别
 	 **/
 	private $fields;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setFields($fields)
 	{
-		$this->fields = $fields;
-		$this->apiParas["fields"] = $fields;
+		$this->fields             = $fields;
+		$this->apiParas['fields'] = $fields;
 	}
 
 	public function getFields()
@@ -38,12 +44,12 @@ class UserGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.user.get";
+		return 'alipay.user.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -53,7 +59,7 @@ class UserGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -98,7 +104,7 @@ class UserGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -108,14 +114,11 @@ class UserGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

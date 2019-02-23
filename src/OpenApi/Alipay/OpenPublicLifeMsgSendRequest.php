@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.open.public.life.msg.send request
@@ -8,34 +8,34 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-04-17 14:24:09
  */
-class OpenPublicLifeMsgSendRequest extends Request
+class OpenPublicLifeMsgSendRequest
 {
-	/** 
+	/**
 	 * 消息分类，请传入对应分类编码值
 	 **/
 	private $category;
 	
-	/** 
+	/**
 	 * 消息正文，html原文或纯文本
 	 **/
 	private $content;
 	
-	/** 
+	/**
 	 * 消息背景图片（目前支持格式jpg, jpeg, bmp），需上传图片原始二进制流，图片最大1MB
 	 **/
 	private $cover;
 	
-	/** 
+	/**
 	 * 消息概述
 	 **/
 	private $desc;
 	
-	/** 
+	/**
 	 * 媒体资讯类生活号消息类型
 	 **/
 	private $msgType;
 	
-	/** 
+	/**
 	 * 消息来源方附属信息，供搜索、推荐使用
 publish_time（int）：消息发布时间，单位秒
 keyword_list（String）: 文章的标签列表，英文逗号分隔
@@ -51,60 +51,66 @@ deadline（int）：文章的失效时间，单位秒
 	 **/
 	private $sourceExtInfo;
 	
-	/** 
+	/**
 	 * 消息标题
 	 **/
 	private $title;
 	
-	/** 
+	/**
 	 * 来源方消息唯一标识；若不为空，根据此id和生活号id对消息去重；若为空，不去重
 	 **/
 	private $uniqueMsgId;
 	
-	/** 
+	/**
 	 * 生活号消息视频时长，单位：秒（视频类消息必填）
 	 **/
 	private $videoLength;
 	
-	/** 
+	/**
 	 * 视频类型消息中视频抽样关键帧截图，视频类消息选填
 	 **/
 	private $videoSamples;
 	
-	/** 
+	/**
 	 * 视频大小，单位：KB（视频类消息必填）
 	 **/
 	private $videoSize;
 	
-	/** 
+	/**
 	 * 视频资源来源id（视频类消息必填），取值限定youku, miaopai, taobao, sina中的一个
 	 **/
 	private $videoSource;
 	
-	/** 
+	/**
 	 * 视频的临时链接（优酷来源的视频消息，该字段不能为空）
 	 **/
 	private $videoTemporaryUrl;
 	
-	/** 
+	/**
 	 * 生活号视频类消息视频id或url（视频类消息必填，根据来源区分）
 	 **/
 	private $videoUrl;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setCategory($category)
 	{
-		$this->category = $category;
-		$this->apiParas["category"] = $category;
+		$this->category             = $category;
+		$this->apiParas['category'] = $category;
 	}
 
 	public function getCategory()
@@ -114,8 +120,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setContent($content)
 	{
-		$this->content = $content;
-		$this->apiParas["content"] = $content;
+		$this->content             = $content;
+		$this->apiParas['content'] = $content;
 	}
 
 	public function getContent()
@@ -125,8 +131,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setCover($cover)
 	{
-		$this->cover = $cover;
-		$this->apiParas["cover"] = $cover;
+		$this->cover             = $cover;
+		$this->apiParas['cover'] = $cover;
 	}
 
 	public function getCover()
@@ -136,8 +142,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setDesc($desc)
 	{
-		$this->desc = $desc;
-		$this->apiParas["desc"] = $desc;
+		$this->desc             = $desc;
+		$this->apiParas['desc'] = $desc;
 	}
 
 	public function getDesc()
@@ -147,8 +153,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setMsgType($msgType)
 	{
-		$this->msgType = $msgType;
-		$this->apiParas["msg_type"] = $msgType;
+		$this->msgType              = $msgType;
+		$this->apiParas['msg_type'] = $msgType;
 	}
 
 	public function getMsgType()
@@ -158,8 +164,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setSourceExtInfo($sourceExtInfo)
 	{
-		$this->sourceExtInfo = $sourceExtInfo;
-		$this->apiParas["source_ext_info"] = $sourceExtInfo;
+		$this->sourceExtInfo               = $sourceExtInfo;
+		$this->apiParas['source_ext_info'] = $sourceExtInfo;
 	}
 
 	public function getSourceExtInfo()
@@ -169,8 +175,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setTitle($title)
 	{
-		$this->title = $title;
-		$this->apiParas["title"] = $title;
+		$this->title             = $title;
+		$this->apiParas['title'] = $title;
 	}
 
 	public function getTitle()
@@ -180,8 +186,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setUniqueMsgId($uniqueMsgId)
 	{
-		$this->uniqueMsgId = $uniqueMsgId;
-		$this->apiParas["unique_msg_id"] = $uniqueMsgId;
+		$this->uniqueMsgId               = $uniqueMsgId;
+		$this->apiParas['unique_msg_id'] = $uniqueMsgId;
 	}
 
 	public function getUniqueMsgId()
@@ -191,8 +197,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoLength($videoLength)
 	{
-		$this->videoLength = $videoLength;
-		$this->apiParas["video_length"] = $videoLength;
+		$this->videoLength              = $videoLength;
+		$this->apiParas['video_length'] = $videoLength;
 	}
 
 	public function getVideoLength()
@@ -202,8 +208,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoSamples($videoSamples)
 	{
-		$this->videoSamples = $videoSamples;
-		$this->apiParas["video_samples"] = $videoSamples;
+		$this->videoSamples              = $videoSamples;
+		$this->apiParas['video_samples'] = $videoSamples;
 	}
 
 	public function getVideoSamples()
@@ -213,8 +219,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoSize($videoSize)
 	{
-		$this->videoSize = $videoSize;
-		$this->apiParas["video_size"] = $videoSize;
+		$this->videoSize              = $videoSize;
+		$this->apiParas['video_size'] = $videoSize;
 	}
 
 	public function getVideoSize()
@@ -224,8 +230,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoSource($videoSource)
 	{
-		$this->videoSource = $videoSource;
-		$this->apiParas["video_source"] = $videoSource;
+		$this->videoSource              = $videoSource;
+		$this->apiParas['video_source'] = $videoSource;
 	}
 
 	public function getVideoSource()
@@ -235,8 +241,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoTemporaryUrl($videoTemporaryUrl)
 	{
-		$this->videoTemporaryUrl = $videoTemporaryUrl;
-		$this->apiParas["video_temporary_url"] = $videoTemporaryUrl;
+		$this->videoTemporaryUrl               = $videoTemporaryUrl;
+		$this->apiParas['video_temporary_url'] = $videoTemporaryUrl;
 	}
 
 	public function getVideoTemporaryUrl()
@@ -246,8 +252,8 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setVideoUrl($videoUrl)
 	{
-		$this->videoUrl = $videoUrl;
-		$this->apiParas["video_url"] = $videoUrl;
+		$this->videoUrl              = $videoUrl;
+		$this->apiParas['video_url'] = $videoUrl;
 	}
 
 	public function getVideoUrl()
@@ -257,12 +263,12 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function getApiMethodName()
 	{
-		return "alipay.open.public.life.msg.send";
+		return 'alipay.open.public.life.msg.send';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -272,7 +278,7 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -317,7 +323,7 @@ deadline（int）：文章的失效时间，单位秒
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -327,14 +333,11 @@ deadline（int）：文章的失效时间，单位秒
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

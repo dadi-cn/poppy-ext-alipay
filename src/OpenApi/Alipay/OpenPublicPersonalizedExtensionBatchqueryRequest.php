@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.open.public.personalized.extension.batchquery request
@@ -8,27 +8,32 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-05-11 19:06:52
  */
-class OpenPublicPersonalizedExtensionBatchqueryRequest extends Request
+class OpenPublicPersonalizedExtensionBatchqueryRequest
 {
+	private $apiParas = [];
 
-	private $apiParas = array();
 	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
 
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function getApiMethodName()
 	{
-		return "alipay.open.public.personalized.extension.batchquery";
+		return 'alipay.open.public.personalized.extension.batchquery';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -38,7 +43,7 @@ class OpenPublicPersonalizedExtensionBatchqueryRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -83,7 +88,7 @@ class OpenPublicPersonalizedExtensionBatchqueryRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -93,14 +98,11 @@ class OpenPublicPersonalizedExtensionBatchqueryRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

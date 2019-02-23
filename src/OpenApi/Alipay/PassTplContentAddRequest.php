@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.tpl.content.add request
@@ -8,9 +8,9 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-12-07 16:32:21
  */
-class PassTplContentAddRequest extends Request
+class PassTplContentAddRequest
 {
-	/** 
+	/**
 	 * 支付宝用户识别信息：
 当 recognition_type=1时， recognition_info={“partner_id”:”2088102114633762”,“out_trade_no”:”1234567”}；
 当recognition_type=3时，recognition_info={“mobile”:”136XXXXXXXX“}
@@ -18,35 +18,41 @@ class PassTplContentAddRequest extends Request
 	 **/
 	private $recognitionInfo;
 	
-	/** 
+	/**
 	 * Alipass添加对象识别类型【1--订单信息;3--支付宝用户绑定手机号；4--支付宝OpenId;】
 	 **/
 	private $recognitionType;
 	
-	/** 
+	/**
 	 * 支付宝pass模版ID
 	 **/
 	private $tplId;
 	
-	/** 
+	/**
 	 * 模版动态参数信息【支付宝pass模版参数键值对JSON字符串】
 	 **/
 	private $tplParams;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setRecognitionInfo($recognitionInfo)
 	{
-		$this->recognitionInfo = $recognitionInfo;
-		$this->apiParas["recognition_info"] = $recognitionInfo;
+		$this->recognitionInfo              = $recognitionInfo;
+		$this->apiParas['recognition_info'] = $recognitionInfo;
 	}
 
 	public function getRecognitionInfo()
@@ -56,8 +62,8 @@ class PassTplContentAddRequest extends Request
 
 	public function setRecognitionType($recognitionType)
 	{
-		$this->recognitionType = $recognitionType;
-		$this->apiParas["recognition_type"] = $recognitionType;
+		$this->recognitionType              = $recognitionType;
+		$this->apiParas['recognition_type'] = $recognitionType;
 	}
 
 	public function getRecognitionType()
@@ -67,8 +73,8 @@ class PassTplContentAddRequest extends Request
 
 	public function setTplId($tplId)
 	{
-		$this->tplId = $tplId;
-		$this->apiParas["tpl_id"] = $tplId;
+		$this->tplId              = $tplId;
+		$this->apiParas['tpl_id'] = $tplId;
 	}
 
 	public function getTplId()
@@ -78,8 +84,8 @@ class PassTplContentAddRequest extends Request
 
 	public function setTplParams($tplParams)
 	{
-		$this->tplParams = $tplParams;
-		$this->apiParas["tpl_params"] = $tplParams;
+		$this->tplParams              = $tplParams;
+		$this->apiParas['tpl_params'] = $tplParams;
 	}
 
 	public function getTplParams()
@@ -89,12 +95,12 @@ class PassTplContentAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.tpl.content.add";
+		return 'alipay.pass.tpl.content.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -104,7 +110,7 @@ class PassTplContentAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -149,7 +155,7 @@ class PassTplContentAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -159,14 +165,11 @@ class PassTplContentAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

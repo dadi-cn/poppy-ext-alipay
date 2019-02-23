@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ebpp.bill.search request
@@ -8,58 +8,64 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-04-07 17:13:40
  */
-class EbppBillSearchRequest extends Request
+class EbppBillSearchRequest
 {
-	/** 
+	/**
 	 * 账单流水
 	 **/
 	private $billKey;
 	
-	/** 
+	/**
 	 * 出账机构
 	 **/
 	private $chargeInst;
 	
-	/** 
+	/**
 	 * 销账机构
 	 **/
 	private $chargeoffInst;
 	
-	/** 
+	/**
 	 * 销账机构给出账机构分配的id
 	 **/
 	private $companyId;
 	
-	/** 
+	/**
 	 * 必须以key value形式定义，转为json为格式：{"key1":"value1","key2":"value2","key3":"value3","key4":"value4"}
  后端会直接转换为MAP对象，转换异常会报参数格式错误
 	 **/
 	private $extend;
 	
-	/** 
+	/**
 	 * 业务类型
 	 **/
 	private $orderType;
 	
-	/** 
+	/**
 	 * 子业务类型
 	 **/
 	private $subOrderType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBillKey($billKey)
 	{
-		$this->billKey = $billKey;
-		$this->apiParas["bill_key"] = $billKey;
+		$this->billKey              = $billKey;
+		$this->apiParas['bill_key'] = $billKey;
 	}
 
 	public function getBillKey()
@@ -69,8 +75,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setChargeInst($chargeInst)
 	{
-		$this->chargeInst = $chargeInst;
-		$this->apiParas["charge_inst"] = $chargeInst;
+		$this->chargeInst              = $chargeInst;
+		$this->apiParas['charge_inst'] = $chargeInst;
 	}
 
 	public function getChargeInst()
@@ -80,8 +86,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setChargeoffInst($chargeoffInst)
 	{
-		$this->chargeoffInst = $chargeoffInst;
-		$this->apiParas["chargeoff_inst"] = $chargeoffInst;
+		$this->chargeoffInst              = $chargeoffInst;
+		$this->apiParas['chargeoff_inst'] = $chargeoffInst;
 	}
 
 	public function getChargeoffInst()
@@ -91,8 +97,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setCompanyId($companyId)
 	{
-		$this->companyId = $companyId;
-		$this->apiParas["company_id"] = $companyId;
+		$this->companyId              = $companyId;
+		$this->apiParas['company_id'] = $companyId;
 	}
 
 	public function getCompanyId()
@@ -102,8 +108,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setExtend($extend)
 	{
-		$this->extend = $extend;
-		$this->apiParas["extend"] = $extend;
+		$this->extend             = $extend;
+		$this->apiParas['extend'] = $extend;
 	}
 
 	public function getExtend()
@@ -113,8 +119,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setOrderType($orderType)
 	{
-		$this->orderType = $orderType;
-		$this->apiParas["order_type"] = $orderType;
+		$this->orderType              = $orderType;
+		$this->apiParas['order_type'] = $orderType;
 	}
 
 	public function getOrderType()
@@ -124,8 +130,8 @@ class EbppBillSearchRequest extends Request
 
 	public function setSubOrderType($subOrderType)
 	{
-		$this->subOrderType = $subOrderType;
-		$this->apiParas["sub_order_type"] = $subOrderType;
+		$this->subOrderType               = $subOrderType;
+		$this->apiParas['sub_order_type'] = $subOrderType;
 	}
 
 	public function getSubOrderType()
@@ -135,12 +141,12 @@ class EbppBillSearchRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ebpp.bill.search";
+		return 'alipay.ebpp.bill.search';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -150,7 +156,7 @@ class EbppBillSearchRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -195,7 +201,7 @@ class EbppBillSearchRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -205,14 +211,11 @@ class EbppBillSearchRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

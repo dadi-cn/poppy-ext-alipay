@@ -1,7 +1,7 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Trade;
 
 use Poppy\Extension\Alipay\OpenApi\Alipay\TradeAppPayRequest;
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.trade.app.pay
@@ -11,7 +11,7 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @deprecated
  * @see TradeAppPayRequest
  */
-class AppPay extends Request
+class AppPay
 {
 	/**
 	 * app支付接口2.0

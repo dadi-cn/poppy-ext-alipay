@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.micropay.order.freeze request
@@ -8,47 +8,53 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-06-06 17:49:00
  */
-class MicropayOrderFreezeRequest extends Request
+class MicropayOrderFreezeRequest
 {
-	/** 
+	/**
 	 * 需要冻结金额，[0.01,2000]，必须是正数，最多只能保留小数点两位,单位是元
 	 **/
 	private $amount;
 	
-	/** 
+	/**
 	 * 冻结资金的到期时间，超过此日期，冻结金会自动解冻,时间要求是:[当前时间+24h,订购时间-8h] .
 	 **/
 	private $expireTime;
 	
-	/** 
+	/**
 	 * 冻结备注,maxLength=40
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * 商户订单号,只能由字母和数字组成，最大长度32.此外部订单号与支付宝的冻结订单号对应,注意 应用id和订购者id和外部订单号必须保证唯一性。
 	 **/
 	private $merchantOrderNo;
 	
-	/** 
+	/**
 	 * 在解冻转账的时候的支付方式: NO_CONFIRM：不需要付款确认，调用接口直接扣款 PAY_PASSWORD: 在转账需要付款方用支付密码确认，才可以转账成功
 	 **/
 	private $payConfirm;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAmount($amount)
 	{
-		$this->amount = $amount;
-		$this->apiParas["amount"] = $amount;
+		$this->amount             = $amount;
+		$this->apiParas['amount'] = $amount;
 	}
 
 	public function getAmount()
@@ -58,8 +64,8 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setExpireTime($expireTime)
 	{
-		$this->expireTime = $expireTime;
-		$this->apiParas["expire_time"] = $expireTime;
+		$this->expireTime              = $expireTime;
+		$this->apiParas['expire_time'] = $expireTime;
 	}
 
 	public function getExpireTime()
@@ -69,8 +75,8 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -80,8 +86,8 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setMerchantOrderNo($merchantOrderNo)
 	{
-		$this->merchantOrderNo = $merchantOrderNo;
-		$this->apiParas["merchant_order_no"] = $merchantOrderNo;
+		$this->merchantOrderNo               = $merchantOrderNo;
+		$this->apiParas['merchant_order_no'] = $merchantOrderNo;
 	}
 
 	public function getMerchantOrderNo()
@@ -91,8 +97,8 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setPayConfirm($payConfirm)
 	{
-		$this->payConfirm = $payConfirm;
-		$this->apiParas["pay_confirm"] = $payConfirm;
+		$this->payConfirm              = $payConfirm;
+		$this->apiParas['pay_confirm'] = $payConfirm;
 	}
 
 	public function getPayConfirm()
@@ -102,12 +108,12 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.micropay.order.freeze";
+		return 'alipay.micropay.order.freeze';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -117,7 +123,7 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -162,7 +168,7 @@ class MicropayOrderFreezeRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -172,14 +178,11 @@ class MicropayOrderFreezeRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

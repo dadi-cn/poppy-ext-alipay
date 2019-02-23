@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.zdatafront.datatransfered.send request
@@ -8,37 +8,43 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-05-18 11:27:33
  */
-class ZdatafrontDatatransferedSendRequest extends Request
+class ZdatafrontDatatransferedSendRequest
 {
-	/** 
+	/**
 	 * 数据字段，identity对应的其他数据字段。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
 	 **/
 	private $data;
 	
-	/** 
+	/**
 	 * 合作伙伴的主键数据，同一合作伙伴要保证该字段唯一，若出现重复，后入数据会覆盖先入数据。使用json格式组织，且仅支持字符串类型，其他类型请转为字符串。
 	 **/
 	private $identity;
 	
-	/** 
+	/**
 	 * 合作伙伴标识字段，用来区分数据来源。建议使用公司域名或公司名。
 	 **/
 	private $typeId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setData($data)
 	{
-		$this->data = $data;
-		$this->apiParas["data"] = $data;
+		$this->data             = $data;
+		$this->apiParas['data'] = $data;
 	}
 
 	public function getData()
@@ -48,8 +54,8 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
 	public function setIdentity($identity)
 	{
-		$this->identity = $identity;
-		$this->apiParas["identity"] = $identity;
+		$this->identity             = $identity;
+		$this->apiParas['identity'] = $identity;
 	}
 
 	public function getIdentity()
@@ -59,8 +65,8 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
 	public function setTypeId($typeId)
 	{
-		$this->typeId = $typeId;
-		$this->apiParas["type_id"] = $typeId;
+		$this->typeId              = $typeId;
+		$this->apiParas['type_id'] = $typeId;
 	}
 
 	public function getTypeId()
@@ -70,12 +76,12 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.zdatafront.datatransfered.send";
+		return 'alipay.zdatafront.datatransfered.send';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -85,7 +91,7 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -130,7 +136,7 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -140,14 +146,11 @@ class ZdatafrontDatatransferedSendRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

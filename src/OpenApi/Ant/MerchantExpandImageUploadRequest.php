@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Ant;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: ant.merchant.expand.image.upload request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-05-23 11:30:21
  */
-class MerchantExpandImageUploadRequest extends Request
+class MerchantExpandImageUploadRequest
 {
-	/** 
+	/**
 	 * 图片二进制字节流
 	 **/
 	private $imageContent;
 	
-	/** 
+	/**
 	 * 图片格式
 	 **/
 	private $imageType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setImageContent($imageContent)
 	{
-		$this->imageContent = $imageContent;
-		$this->apiParas["image_content"] = $imageContent;
+		$this->imageContent              = $imageContent;
+		$this->apiParas['image_content'] = $imageContent;
 	}
 
 	public function getImageContent()
@@ -43,8 +49,8 @@ class MerchantExpandImageUploadRequest extends Request
 
 	public function setImageType($imageType)
 	{
-		$this->imageType = $imageType;
-		$this->apiParas["image_type"] = $imageType;
+		$this->imageType              = $imageType;
+		$this->apiParas['image_type'] = $imageType;
 	}
 
 	public function getImageType()
@@ -54,12 +60,12 @@ class MerchantExpandImageUploadRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "ant.merchant.expand.image.upload";
+		return 'ant.merchant.expand.image.upload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class MerchantExpandImageUploadRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class MerchantExpandImageUploadRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class MerchantExpandImageUploadRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

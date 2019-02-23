@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.member.coupon.querylist request
@@ -8,9 +8,9 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-04-14 11:46:40
  */
-class MemberCouponQuerylistRequest extends Request
+class MemberCouponQuerylistRequest
 {
-	/** 
+	/**
 	 * 红包发放者商户信息，json格式。商户可以传自己的PID，平台商可以传其它商户的PID用于查询指定商户的信息
 目前仅支持如下key：
   unique：商户唯一标识
@@ -19,29 +19,29 @@ PID：商户所在平台商的partner id[唯一]
 	 **/
 	private $merchantInfo;
 	
-	/** 
+	/**
 	 * 翻页页码：翻页查询时使用，表明当前要查询第几页，若page_size为0，则此字段不生效
 	 **/
 	private $pageNo;
 	
-	/** 
+	/**
 	 * 翻页每页条数：翻页查询时使用，表明每页返回的记录数量，范围为1至20；为空或者为0时表示不使用翻页查询，返回所有数量
 	 **/
 	private $pageSize;
 	
-	/** 
+	/**
 	 * 优惠券状态列表，如果指定则只返回指定状态的优惠券.
 目前状态主要有以下几种：
 VALID：可使用
 WRITED_OFF：已核销,
 EXPIRED：已过期
-CLOSED：已关闭 
+CLOSED：已关闭
 注意：
 多个状态以逗号隔开
 	 **/
 	private $status;
 	
-	/** 
+	/**
 	 * 劵所有者买家用户信息，必须是支付宝的用户，json格式。
 目前仅支持如下key：
   unique：用户唯一标识
@@ -51,20 +51,26 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 	 **/
 	private $userInfo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setMerchantInfo($merchantInfo)
 	{
-		$this->merchantInfo = $merchantInfo;
-		$this->apiParas["merchant_info"] = $merchantInfo;
+		$this->merchantInfo              = $merchantInfo;
+		$this->apiParas['merchant_info'] = $merchantInfo;
 	}
 
 	public function getMerchantInfo()
@@ -74,8 +80,8 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setPageNo($pageNo)
 	{
-		$this->pageNo = $pageNo;
-		$this->apiParas["page_no"] = $pageNo;
+		$this->pageNo              = $pageNo;
+		$this->apiParas['page_no'] = $pageNo;
 	}
 
 	public function getPageNo()
@@ -85,8 +91,8 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setPageSize($pageSize)
 	{
-		$this->pageSize = $pageSize;
-		$this->apiParas["page_size"] = $pageSize;
+		$this->pageSize              = $pageSize;
+		$this->apiParas['page_size'] = $pageSize;
 	}
 
 	public function getPageSize()
@@ -96,8 +102,8 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setStatus($status)
 	{
-		$this->status = $status;
-		$this->apiParas["status"] = $status;
+		$this->status             = $status;
+		$this->apiParas['status'] = $status;
 	}
 
 	public function getStatus()
@@ -107,8 +113,8 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setUserInfo($userInfo)
 	{
-		$this->userInfo = $userInfo;
-		$this->apiParas["user_info"] = $userInfo;
+		$this->userInfo              = $userInfo;
+		$this->apiParas['user_info'] = $userInfo;
 	}
 
 	public function getUserInfo()
@@ -118,12 +124,12 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function getApiMethodName()
 	{
-		return "alipay.member.coupon.querylist";
+		return 'alipay.member.coupon.querylist';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -133,7 +139,7 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -178,7 +184,7 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -188,14 +194,11 @@ OPENID：用户支付宝账户在某商户下的唯一ID
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

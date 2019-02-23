@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.sync.update request
@@ -8,57 +8,63 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-12-07 20:19:03
  */
-class PassSyncUpdateRequest extends Request
+class PassSyncUpdateRequest
 {
-	/** 
+	/**
 	 * 代理商代替商户发放卡券后，再代替商户更新卡券时，此值为商户的pid/appid；商户自己发券时，此值为空或者商户appId
 	 **/
 	private $channelId;
 	
-	/** 
+	/**
 	 * 用来传递外部交易号等扩展参数信息，格式为json
 	 **/
 	private $extInfo;
 	
-	/** 
+	/**
 	 * 需要修改的pass信息，可以更新全部pass信息，也可以斤更新某一节点。pass信息中的pass.json中的数据格式，如果不需要更新该属性值，设置为null即可。
 	 **/
 	private $pass;
 	
-	/** 
+	/**
 	 * Alipass唯一标识
 	 **/
 	private $serialNumber;
 	
-	/** 
+	/**
 	 * Alipass状态，目前仅支持CLOSED及USED两种数据。status为USED时，verify_type即为核销时的核销方式。
 	 **/
 	private $status;
 	
-	/** 
+	/**
 	 * 核销码串值【当状态变更为USED时，建议传入】
 	 **/
 	private $verifyCode;
 	
-	/** 
+	/**
 	 * 核销方式，目前支持：wave（声波方式）、qrcode（二维码方式）、barcode（条码方式）、input（文本方式，即手工输入方式）。pass和verify_type不能同时为空
 	 **/
 	private $verifyType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setChannelId($channelId)
 	{
-		$this->channelId = $channelId;
-		$this->apiParas["channel_id"] = $channelId;
+		$this->channelId              = $channelId;
+		$this->apiParas['channel_id'] = $channelId;
 	}
 
 	public function getChannelId()
@@ -68,8 +74,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setExtInfo($extInfo)
 	{
-		$this->extInfo = $extInfo;
-		$this->apiParas["ext_info"] = $extInfo;
+		$this->extInfo              = $extInfo;
+		$this->apiParas['ext_info'] = $extInfo;
 	}
 
 	public function getExtInfo()
@@ -79,8 +85,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setPass($pass)
 	{
-		$this->pass = $pass;
-		$this->apiParas["pass"] = $pass;
+		$this->pass             = $pass;
+		$this->apiParas['pass'] = $pass;
 	}
 
 	public function getPass()
@@ -90,8 +96,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setSerialNumber($serialNumber)
 	{
-		$this->serialNumber = $serialNumber;
-		$this->apiParas["serial_number"] = $serialNumber;
+		$this->serialNumber              = $serialNumber;
+		$this->apiParas['serial_number'] = $serialNumber;
 	}
 
 	public function getSerialNumber()
@@ -101,8 +107,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setStatus($status)
 	{
-		$this->status = $status;
-		$this->apiParas["status"] = $status;
+		$this->status             = $status;
+		$this->apiParas['status'] = $status;
 	}
 
 	public function getStatus()
@@ -112,8 +118,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setVerifyCode($verifyCode)
 	{
-		$this->verifyCode = $verifyCode;
-		$this->apiParas["verify_code"] = $verifyCode;
+		$this->verifyCode              = $verifyCode;
+		$this->apiParas['verify_code'] = $verifyCode;
 	}
 
 	public function getVerifyCode()
@@ -123,8 +129,8 @@ class PassSyncUpdateRequest extends Request
 
 	public function setVerifyType($verifyType)
 	{
-		$this->verifyType = $verifyType;
-		$this->apiParas["verify_type"] = $verifyType;
+		$this->verifyType              = $verifyType;
+		$this->apiParas['verify_type'] = $verifyType;
 	}
 
 	public function getVerifyType()
@@ -134,12 +140,12 @@ class PassSyncUpdateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.sync.update";
+		return 'alipay.pass.sync.update';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -149,7 +155,7 @@ class PassSyncUpdateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -194,7 +200,7 @@ class PassSyncUpdateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -204,14 +210,11 @@ class PassSyncUpdateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

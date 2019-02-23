@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.tpl.add request
@@ -8,33 +8,39 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-07-01 15:35:14
  */
-class PassTplAddRequest extends Request
+class PassTplAddRequest
 {
-	/** 
+	/**
 	 * 支付宝pass模版内容【JSON格式】
 具体格式可参考https://alipass.alipay.com中文档中心-格式说明
 	 **/
 	private $tplContent;
 	
-	/** 
+	/**
 	 * 模版外部唯一标识：商户用于控制模版的唯一性。
 	 **/
 	private $uniqueId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setTplContent($tplContent)
 	{
-		$this->tplContent = $tplContent;
-		$this->apiParas["tpl_content"] = $tplContent;
+		$this->tplContent              = $tplContent;
+		$this->apiParas['tpl_content'] = $tplContent;
 	}
 
 	public function getTplContent()
@@ -44,8 +50,8 @@ class PassTplAddRequest extends Request
 
 	public function setUniqueId($uniqueId)
 	{
-		$this->uniqueId = $uniqueId;
-		$this->apiParas["unique_id"] = $uniqueId;
+		$this->uniqueId              = $uniqueId;
+		$this->apiParas['unique_id'] = $uniqueId;
 	}
 
 	public function getUniqueId()
@@ -55,12 +61,12 @@ class PassTplAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.tpl.add";
+		return 'alipay.pass.tpl.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -70,7 +76,7 @@ class PassTplAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -115,7 +121,7 @@ class PassTplAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -125,14 +131,11 @@ class PassTplAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.flashsales.stock.sync.update request
@@ -8,37 +8,43 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2014-08-22 15:32:32
  */
-class FlashsalesStockSyncUpdateRequest extends Request
+class FlashsalesStockSyncUpdateRequest
 {
-	/** 
+	/**
 	 * 商户的商品id
 	 **/
 	private $outProductId;
 	
-	/** 
+	/**
 	 * 服务窗id
 	 **/
 	private $publicId;
 	
-	/** 
+	/**
 	 * 库存数量
 	 **/
 	private $stock;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setOutProductId($outProductId)
 	{
-		$this->outProductId = $outProductId;
-		$this->apiParas["out_product_id"] = $outProductId;
+		$this->outProductId               = $outProductId;
+		$this->apiParas['out_product_id'] = $outProductId;
 	}
 
 	public function getOutProductId()
@@ -48,8 +54,8 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
 	public function setPublicId($publicId)
 	{
-		$this->publicId = $publicId;
-		$this->apiParas["public_id"] = $publicId;
+		$this->publicId              = $publicId;
+		$this->apiParas['public_id'] = $publicId;
 	}
 
 	public function getPublicId()
@@ -59,8 +65,8 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
 	public function setStock($stock)
 	{
-		$this->stock = $stock;
-		$this->apiParas["stock"] = $stock;
+		$this->stock             = $stock;
+		$this->apiParas['stock'] = $stock;
 	}
 
 	public function getStock()
@@ -70,12 +76,12 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.flashsales.stock.sync.update";
+		return 'alipay.flashsales.stock.sync.update';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -85,7 +91,7 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -130,7 +136,7 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -140,14 +146,11 @@ class FlashsalesStockSyncUpdateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

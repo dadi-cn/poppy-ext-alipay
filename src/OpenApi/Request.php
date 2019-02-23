@@ -18,7 +18,9 @@ abstract class Request
 	protected $apiMethodName = '';
 
 	protected $terminalType;
+
 	protected $terminalInfo;
+
 	protected $prodCode;
 
 	/**

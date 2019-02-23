@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.offline.material.image.upload request
@@ -8,42 +8,48 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-05-09 13:39:20
  */
-class OfflineMaterialImageUploadRequest extends Request
+class OfflineMaterialImageUploadRequest
 {
-	/** 
+	/**
 	 * 图片/视频二进制内容，图片/视频大小不能超过5M
 	 **/
 	private $imageContent;
 	
-	/** 
+	/**
 	 * 图片/视频名称
 	 **/
 	private $imageName;
 	
-	/** 
+	/**
 	 * 用于显示指定图片/视频所属的partnerId（支付宝内部使用，外部商户无需填写此字段）
 	 **/
 	private $imagePid;
 	
-	/** 
+	/**
 	 * 图片/视频格式
 	 **/
 	private $imageType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setImageContent($imageContent)
 	{
-		$this->imageContent = $imageContent;
-		$this->apiParas["image_content"] = $imageContent;
+		$this->imageContent              = $imageContent;
+		$this->apiParas['image_content'] = $imageContent;
 	}
 
 	public function getImageContent()
@@ -53,8 +59,8 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function setImageName($imageName)
 	{
-		$this->imageName = $imageName;
-		$this->apiParas["image_name"] = $imageName;
+		$this->imageName              = $imageName;
+		$this->apiParas['image_name'] = $imageName;
 	}
 
 	public function getImageName()
@@ -64,8 +70,8 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function setImagePid($imagePid)
 	{
-		$this->imagePid = $imagePid;
-		$this->apiParas["image_pid"] = $imagePid;
+		$this->imagePid              = $imagePid;
+		$this->apiParas['image_pid'] = $imagePid;
 	}
 
 	public function getImagePid()
@@ -75,8 +81,8 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function setImageType($imageType)
 	{
-		$this->imageType = $imageType;
-		$this->apiParas["image_type"] = $imageType;
+		$this->imageType              = $imageType;
+		$this->apiParas['image_type'] = $imageType;
 	}
 
 	public function getImageType()
@@ -86,12 +92,12 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.offline.material.image.upload";
+		return 'alipay.offline.material.image.upload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -101,7 +107,7 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -146,7 +152,7 @@ class OfflineMaterialImageUploadRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -156,14 +162,11 @@ class OfflineMaterialImageUploadRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.offline.marketing.voucher.code.upload request
@@ -8,37 +8,43 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-01-12 10:57:49
  */
-class OfflineMarketingVoucherCodeUploadRequest extends Request
+class OfflineMarketingVoucherCodeUploadRequest
 {
-	/** 
+	/**
 	 * 约定的扩展参数
 	 **/
 	private $extendParams;
 	
-	/** 
+	/**
 	 * 文件编码
 	 **/
 	private $fileCharset;
 	
-	/** 
+	/**
 	 * 文件二进制内容
 	 **/
 	private $fileContent;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setExtendParams($extendParams)
 	{
-		$this->extendParams = $extendParams;
-		$this->apiParas["extend_params"] = $extendParams;
+		$this->extendParams              = $extendParams;
+		$this->apiParas['extend_params'] = $extendParams;
 	}
 
 	public function getExtendParams()
@@ -48,8 +54,8 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
 	public function setFileCharset($fileCharset)
 	{
-		$this->fileCharset = $fileCharset;
-		$this->apiParas["file_charset"] = $fileCharset;
+		$this->fileCharset              = $fileCharset;
+		$this->apiParas['file_charset'] = $fileCharset;
 	}
 
 	public function getFileCharset()
@@ -59,8 +65,8 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
 	public function setFileContent($fileContent)
 	{
-		$this->fileContent = $fileContent;
-		$this->apiParas["file_content"] = $fileContent;
+		$this->fileContent              = $fileContent;
+		$this->apiParas['file_content'] = $fileContent;
 	}
 
 	public function getFileContent()
@@ -70,12 +76,12 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.offline.marketing.voucher.code.upload";
+		return 'alipay.offline.marketing.voucher.code.upload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -85,7 +91,7 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -130,7 +136,7 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -140,14 +146,11 @@ class OfflineMarketingVoucherCodeUploadRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.zdataservice.unidata.query request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-04-26 16:20:03
  */
-class ZdataserviceUnidataQueryRequest extends Request
+class ZdataserviceUnidataQueryRequest
 {
-	/** 
+	/**
 	 * 通用的查询入参
 	 **/
 	private $queryCondition;
 	
-	/** 
+	/**
 	 * 返回数据的类型，内部业务系统分配
 	 **/
 	private $uniqKey;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setQueryCondition($queryCondition)
 	{
-		$this->queryCondition = $queryCondition;
-		$this->apiParas["query_condition"] = $queryCondition;
+		$this->queryCondition              = $queryCondition;
+		$this->apiParas['query_condition'] = $queryCondition;
 	}
 
 	public function getQueryCondition()
@@ -43,8 +49,8 @@ class ZdataserviceUnidataQueryRequest extends Request
 
 	public function setUniqKey($uniqKey)
 	{
-		$this->uniqKey = $uniqKey;
-		$this->apiParas["uniq_key"] = $uniqKey;
+		$this->uniqKey              = $uniqKey;
+		$this->apiParas['uniq_key'] = $uniqKey;
 	}
 
 	public function getUniqKey()
@@ -54,12 +60,12 @@ class ZdataserviceUnidataQueryRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.zdataservice.unidata.query";
+		return 'alipay.zdataservice.unidata.query';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class ZdataserviceUnidataQueryRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class ZdataserviceUnidataQueryRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class ZdataserviceUnidataQueryRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

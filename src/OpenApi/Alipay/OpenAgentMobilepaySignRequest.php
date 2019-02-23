@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.open.agent.mobilepay.sign request
@@ -8,76 +8,82 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-01-31 21:00:22
  */
-class OpenAgentMobilepaySignRequest extends Request
+class OpenAgentMobilepaySignRequest
 {
-	/** 
+	/**
 	 * APP demo，格式为.apk；或者应用说明文档, 格式为.doc .docx .pdf格式
 	 **/
 	private $appDemo;
 	
-	/** 
+	/**
 	 * 商户的APP应用名称
 	 **/
 	private $appName;
 	
-	/** 
+	/**
 	 * 代商户操作事务编号，通过alipay.open.isv.agent.create接口进行创建。
 	 **/
 	private $batchNo;
 	
-	/** 
+	/**
 	 * 营业执照授权函图片，个体工商户如果使用总公司或其他公司的营业执照认证需上传该授权函图片，最小50KB，图片格式必须为：png、bmp、gif、jpg、jpeg
 	 **/
 	private $businessLicenseAuthPic;
 	
-	/** 
+	/**
 	 * 营业执照号码。
 	 **/
 	private $businessLicenseNo;
 	
-	/** 
+	/**
 	 * 营业执照图片，最小50KB，图片格式必须为：png、bmp、gif、jpg、jpeg
 	 **/
 	private $businessLicensePic;
 	
-	/** 
+	/**
 	 * 营业期限
 	 **/
 	private $dateLimitation;
 	
-	/** 
+	/**
 	 * 营业期限是否长期有效
 	 **/
 	private $longTerm;
 	
-	/** 
+	/**
 	 * 所属MCCCode，详情可参考
 <a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.59bgD2&treeId=222&articleId=105364&docType=1#s1
 ">商家经营类目</a> 中的“经营类目编码”
 	 **/
 	private $mccCode;
 	
-	/** 
+	/**
 	 * 企业特殊资质图片，可参考
 <a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.59bgD2&treeId=222&articleId=105364&docType=1#s1
 ">商家经营类目</a> 中的“需要的特殊资质证书”，最小50KB，图片格式必须为：png、bmp、gif、jpg、jpeg
 	 **/
 	private $specialLicensePic;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAppDemo($appDemo)
 	{
-		$this->appDemo = $appDemo;
-		$this->apiParas["app_demo"] = $appDemo;
+		$this->appDemo              = $appDemo;
+		$this->apiParas['app_demo'] = $appDemo;
 	}
 
 	public function getAppDemo()
@@ -87,8 +93,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setAppName($appName)
 	{
-		$this->appName = $appName;
-		$this->apiParas["app_name"] = $appName;
+		$this->appName              = $appName;
+		$this->apiParas['app_name'] = $appName;
 	}
 
 	public function getAppName()
@@ -98,8 +104,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setBatchNo($batchNo)
 	{
-		$this->batchNo = $batchNo;
-		$this->apiParas["batch_no"] = $batchNo;
+		$this->batchNo              = $batchNo;
+		$this->apiParas['batch_no'] = $batchNo;
 	}
 
 	public function getBatchNo()
@@ -109,8 +115,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setBusinessLicenseAuthPic($businessLicenseAuthPic)
 	{
-		$this->businessLicenseAuthPic = $businessLicenseAuthPic;
-		$this->apiParas["business_license_auth_pic"] = $businessLicenseAuthPic;
+		$this->businessLicenseAuthPic                = $businessLicenseAuthPic;
+		$this->apiParas['business_license_auth_pic'] = $businessLicenseAuthPic;
 	}
 
 	public function getBusinessLicenseAuthPic()
@@ -120,8 +126,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setBusinessLicenseNo($businessLicenseNo)
 	{
-		$this->businessLicenseNo = $businessLicenseNo;
-		$this->apiParas["business_license_no"] = $businessLicenseNo;
+		$this->businessLicenseNo               = $businessLicenseNo;
+		$this->apiParas['business_license_no'] = $businessLicenseNo;
 	}
 
 	public function getBusinessLicenseNo()
@@ -131,8 +137,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setBusinessLicensePic($businessLicensePic)
 	{
-		$this->businessLicensePic = $businessLicensePic;
-		$this->apiParas["business_license_pic"] = $businessLicensePic;
+		$this->businessLicensePic               = $businessLicensePic;
+		$this->apiParas['business_license_pic'] = $businessLicensePic;
 	}
 
 	public function getBusinessLicensePic()
@@ -142,8 +148,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setDateLimitation($dateLimitation)
 	{
-		$this->dateLimitation = $dateLimitation;
-		$this->apiParas["date_limitation"] = $dateLimitation;
+		$this->dateLimitation              = $dateLimitation;
+		$this->apiParas['date_limitation'] = $dateLimitation;
 	}
 
 	public function getDateLimitation()
@@ -153,8 +159,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setLongTerm($longTerm)
 	{
-		$this->longTerm = $longTerm;
-		$this->apiParas["long_term"] = $longTerm;
+		$this->longTerm              = $longTerm;
+		$this->apiParas['long_term'] = $longTerm;
 	}
 
 	public function getLongTerm()
@@ -164,8 +170,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setMccCode($mccCode)
 	{
-		$this->mccCode = $mccCode;
-		$this->apiParas["mcc_code"] = $mccCode;
+		$this->mccCode              = $mccCode;
+		$this->apiParas['mcc_code'] = $mccCode;
 	}
 
 	public function getMccCode()
@@ -175,8 +181,8 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setSpecialLicensePic($specialLicensePic)
 	{
-		$this->specialLicensePic = $specialLicensePic;
-		$this->apiParas["special_license_pic"] = $specialLicensePic;
+		$this->specialLicensePic               = $specialLicensePic;
+		$this->apiParas['special_license_pic'] = $specialLicensePic;
 	}
 
 	public function getSpecialLicensePic()
@@ -186,12 +192,12 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.open.agent.mobilepay.sign";
+		return 'alipay.open.agent.mobilepay.sign';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -201,7 +207,7 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -246,7 +252,7 @@ class OpenAgentMobilepaySignRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -256,14 +262,11 @@ class OpenAgentMobilepaySignRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

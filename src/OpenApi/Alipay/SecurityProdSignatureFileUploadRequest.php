@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.security.prod.signature.file.upload request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-12-20 15:24:53
  */
-class SecurityProdSignatureFileUploadRequest extends Request
+class SecurityProdSignatureFileUploadRequest
 {
-	/** 
+	/**
 	 * 业务唯一标识，由支付宝统一分配，无法自助获取
 	 **/
 	private $bizProduct;
 	
-	/** 
+	/**
 	 * 传入上传的文件流
 	 **/
 	private $fileContent;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBizProduct($bizProduct)
 	{
-		$this->bizProduct = $bizProduct;
-		$this->apiParas["biz_product"] = $bizProduct;
+		$this->bizProduct              = $bizProduct;
+		$this->apiParas['biz_product'] = $bizProduct;
 	}
 
 	public function getBizProduct()
@@ -43,8 +49,8 @@ class SecurityProdSignatureFileUploadRequest extends Request
 
 	public function setFileContent($fileContent)
 	{
-		$this->fileContent = $fileContent;
-		$this->apiParas["file_content"] = $fileContent;
+		$this->fileContent              = $fileContent;
+		$this->apiParas['file_content'] = $fileContent;
 	}
 
 	public function getFileContent()
@@ -54,12 +60,12 @@ class SecurityProdSignatureFileUploadRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.security.prod.signature.file.upload";
+		return 'alipay.security.prod.signature.file.upload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class SecurityProdSignatureFileUploadRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class SecurityProdSignatureFileUploadRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class SecurityProdSignatureFileUploadRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

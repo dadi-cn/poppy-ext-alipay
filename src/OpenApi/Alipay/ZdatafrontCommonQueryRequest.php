@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.zdatafront.common.query request
@@ -8,54 +8,60 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-03-21 11:14:39
  */
-class ZdatafrontCommonQueryRequest extends Request
+class ZdatafrontCommonQueryRequest
 {
-	/** 
+	/**
 	 * 如果cacheInterval<=0,就直接从外部获取数据；
 如果cacheInterval>0,就先判断cache中的数据是否过期，如果没有过期就返回cache中的数据，如果过期再从外部获取数据并刷新cache，然后返回数据。
 单位：秒
 	 **/
 	private $cacheInterval;
 	
-	/** 
+	/**
 	 * 通用查询的入参
 	 **/
 	private $queryConditions;
 	
-	/** 
+	/**
 	 * 服务名称请与相关开发负责人联系
 	 **/
 	private $serviceName;
 	
-	/** 
+	/**
 	 * 访问该服务的业务
 	 **/
 	private $visitBiz;
 	
-	/** 
+	/**
 	 * 访问该服务的业务线
 	 **/
 	private $visitBizLine;
 	
-	/** 
+	/**
 	 * 访问该服务的部门名称
 	 **/
 	private $visitDomain;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setCacheInterval($cacheInterval)
 	{
-		$this->cacheInterval = $cacheInterval;
-		$this->apiParas["cache_interval"] = $cacheInterval;
+		$this->cacheInterval              = $cacheInterval;
+		$this->apiParas['cache_interval'] = $cacheInterval;
 	}
 
 	public function getCacheInterval()
@@ -65,8 +71,8 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setQueryConditions($queryConditions)
 	{
-		$this->queryConditions = $queryConditions;
-		$this->apiParas["query_conditions"] = $queryConditions;
+		$this->queryConditions              = $queryConditions;
+		$this->apiParas['query_conditions'] = $queryConditions;
 	}
 
 	public function getQueryConditions()
@@ -76,8 +82,8 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setServiceName($serviceName)
 	{
-		$this->serviceName = $serviceName;
-		$this->apiParas["service_name"] = $serviceName;
+		$this->serviceName              = $serviceName;
+		$this->apiParas['service_name'] = $serviceName;
 	}
 
 	public function getServiceName()
@@ -87,8 +93,8 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setVisitBiz($visitBiz)
 	{
-		$this->visitBiz = $visitBiz;
-		$this->apiParas["visit_biz"] = $visitBiz;
+		$this->visitBiz              = $visitBiz;
+		$this->apiParas['visit_biz'] = $visitBiz;
 	}
 
 	public function getVisitBiz()
@@ -98,8 +104,8 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setVisitBizLine($visitBizLine)
 	{
-		$this->visitBizLine = $visitBizLine;
-		$this->apiParas["visit_biz_line"] = $visitBizLine;
+		$this->visitBizLine               = $visitBizLine;
+		$this->apiParas['visit_biz_line'] = $visitBizLine;
 	}
 
 	public function getVisitBizLine()
@@ -109,8 +115,8 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setVisitDomain($visitDomain)
 	{
-		$this->visitDomain = $visitDomain;
-		$this->apiParas["visit_domain"] = $visitDomain;
+		$this->visitDomain              = $visitDomain;
+		$this->apiParas['visit_domain'] = $visitDomain;
 	}
 
 	public function getVisitDomain()
@@ -120,12 +126,12 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.zdatafront.common.query";
+		return 'alipay.zdatafront.common.query';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -135,7 +141,7 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -180,7 +186,7 @@ class ZdatafrontCommonQueryRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -190,14 +196,11 @@ class ZdatafrontCommonQueryRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

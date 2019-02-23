@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pcredit.loan.apply.create request
@@ -8,27 +8,33 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-08-25 10:32:50
  */
-class PcreditLoanApplyCreateRequest extends Request
+class PcreditLoanApplyCreateRequest
 {
-	/** 
+	/**
 	 * 用户申贷
 	 **/
 	private $bizContent;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBizContent($bizContent)
 	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+		$this->bizContent              = $bizContent;
+		$this->apiParas['biz_content'] = $bizContent;
 	}
 
 	public function getBizContent()
@@ -38,12 +44,12 @@ class PcreditLoanApplyCreateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pcredit.loan.apply.create";
+		return 'alipay.pcredit.loan.apply.create';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -53,7 +59,7 @@ class PcreditLoanApplyCreateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -98,7 +104,7 @@ class PcreditLoanApplyCreateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -108,14 +114,11 @@ class PcreditLoanApplyCreateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.mobile.recommend.get request
@@ -8,47 +8,53 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2015-03-11 15:19:54
  */
-class MobileRecommendGetRequest extends Request
+class MobileRecommendGetRequest
 {
-	/** 
+	/**
 	 * 请求上下文扩展信息，需要与接口负责人约定。格式为json对象。
 	 **/
 	private $extInfo;
 	
-	/** 
+	/**
 	 * 期望获取的最多推荐数量, 默认获取一个推荐内容, 0表示获取所有推荐内容
 	 **/
 	private $limit;
 	
-	/** 
+	/**
 	 * 所使用的场景id，请向接口负责人申请
 	 **/
 	private $sceneId;
 	
-	/** 
+	/**
 	 * 获取推荐信息的开始位置, 默认从0开始
 	 **/
 	private $startIdx;
 	
-	/** 
+	/**
 	 * 用户openid
 	 **/
 	private $userId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setExtInfo($extInfo)
 	{
-		$this->extInfo = $extInfo;
-		$this->apiParas["ext_info"] = $extInfo;
+		$this->extInfo              = $extInfo;
+		$this->apiParas['ext_info'] = $extInfo;
 	}
 
 	public function getExtInfo()
@@ -58,8 +64,8 @@ class MobileRecommendGetRequest extends Request
 
 	public function setLimit($limit)
 	{
-		$this->limit = $limit;
-		$this->apiParas["limit"] = $limit;
+		$this->limit             = $limit;
+		$this->apiParas['limit'] = $limit;
 	}
 
 	public function getLimit()
@@ -69,8 +75,8 @@ class MobileRecommendGetRequest extends Request
 
 	public function setSceneId($sceneId)
 	{
-		$this->sceneId = $sceneId;
-		$this->apiParas["scene_id"] = $sceneId;
+		$this->sceneId              = $sceneId;
+		$this->apiParas['scene_id'] = $sceneId;
 	}
 
 	public function getSceneId()
@@ -80,8 +86,8 @@ class MobileRecommendGetRequest extends Request
 
 	public function setStartIdx($startIdx)
 	{
-		$this->startIdx = $startIdx;
-		$this->apiParas["start_idx"] = $startIdx;
+		$this->startIdx              = $startIdx;
+		$this->apiParas['start_idx'] = $startIdx;
 	}
 
 	public function getStartIdx()
@@ -91,8 +97,8 @@ class MobileRecommendGetRequest extends Request
 
 	public function setUserId($userId)
 	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+		$this->userId              = $userId;
+		$this->apiParas['user_id'] = $userId;
 	}
 
 	public function getUserId()
@@ -102,12 +108,12 @@ class MobileRecommendGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.mobile.recommend.get";
+		return 'alipay.mobile.recommend.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -117,7 +123,7 @@ class MobileRecommendGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -162,7 +168,7 @@ class MobileRecommendGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -172,14 +178,11 @@ class MobileRecommendGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.transfer.thirdparty.bill.create request
@@ -8,50 +8,50 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2014-06-25 17:00:56
  */
-class TransferThirdpartyBillCreateRequest extends Request
+class TransferThirdpartyBillCreateRequest
 {
-	/** 
+	/**
 	 * 收款金额，单位：分
 	 **/
 	private $amount;
 	
-	/** 
+	/**
 	 * 收款币种，默认为156（人民币）目前只允许转账人民币
 	 **/
 	private $currency;
 	
-	/** 
+	/**
 	 * 扩展参数
 	 **/
 	private $extParam;
 	
-	/** 
+	/**
 	 * 转账备注
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * 合作方的支付宝帐号UID
 	 **/
 	private $partnerId;
 	
-	/** 
+	/**
 	 * 外部系统收款方UID，付款人和收款人不能是同一个帐户
 	 **/
 	private $payeeAccount;
 	
-	/** 
+	/**
 	 * （同payer_type所列举的）
 目前限制payer_type和payee_type必须一致
 	 **/
 	private $payeeType;
 	
-	/** 
+	/**
 	 * 外部系统付款方的UID
 	 **/
 	private $payerAccount;
 	
-	/** 
+	/**
 	 * 1-支付宝帐户
 2-淘宝帐户
 10001-新浪微博帐户
@@ -60,37 +60,43 @@ class TransferThirdpartyBillCreateRequest extends Request
 	 **/
 	private $payerType;
 	
-	/** 
+	/**
 	 * 发起支付交易来源方定义的交易ID，用于将支付回执通知给来源方。不同来源方给出的ID可以重复，同一个来源方给出的ID唯一性由来源方保证。
 	 **/
 	private $paymentId;
 	
-	/** 
+	/**
 	 * 支付来源
 10001-新浪微博
 10002-阿里云
 	 **/
 	private $paymentSource;
 	
-	/** 
+	/**
 	 * 支付款项的标题
 	 **/
 	private $title;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAmount($amount)
 	{
-		$this->amount = $amount;
-		$this->apiParas["amount"] = $amount;
+		$this->amount             = $amount;
+		$this->apiParas['amount'] = $amount;
 	}
 
 	public function getAmount()
@@ -100,8 +106,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setCurrency($currency)
 	{
-		$this->currency = $currency;
-		$this->apiParas["currency"] = $currency;
+		$this->currency             = $currency;
+		$this->apiParas['currency'] = $currency;
 	}
 
 	public function getCurrency()
@@ -111,8 +117,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setExtParam($extParam)
 	{
-		$this->extParam = $extParam;
-		$this->apiParas["ext_param"] = $extParam;
+		$this->extParam              = $extParam;
+		$this->apiParas['ext_param'] = $extParam;
 	}
 
 	public function getExtParam()
@@ -122,8 +128,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -133,8 +139,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPartnerId($partnerId)
 	{
-		$this->partnerId = $partnerId;
-		$this->apiParas["partner_id"] = $partnerId;
+		$this->partnerId              = $partnerId;
+		$this->apiParas['partner_id'] = $partnerId;
 	}
 
 	public function getPartnerId()
@@ -144,8 +150,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPayeeAccount($payeeAccount)
 	{
-		$this->payeeAccount = $payeeAccount;
-		$this->apiParas["payee_account"] = $payeeAccount;
+		$this->payeeAccount              = $payeeAccount;
+		$this->apiParas['payee_account'] = $payeeAccount;
 	}
 
 	public function getPayeeAccount()
@@ -155,8 +161,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPayeeType($payeeType)
 	{
-		$this->payeeType = $payeeType;
-		$this->apiParas["payee_type"] = $payeeType;
+		$this->payeeType              = $payeeType;
+		$this->apiParas['payee_type'] = $payeeType;
 	}
 
 	public function getPayeeType()
@@ -166,8 +172,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPayerAccount($payerAccount)
 	{
-		$this->payerAccount = $payerAccount;
-		$this->apiParas["payer_account"] = $payerAccount;
+		$this->payerAccount              = $payerAccount;
+		$this->apiParas['payer_account'] = $payerAccount;
 	}
 
 	public function getPayerAccount()
@@ -177,8 +183,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPayerType($payerType)
 	{
-		$this->payerType = $payerType;
-		$this->apiParas["payer_type"] = $payerType;
+		$this->payerType              = $payerType;
+		$this->apiParas['payer_type'] = $payerType;
 	}
 
 	public function getPayerType()
@@ -188,8 +194,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPaymentId($paymentId)
 	{
-		$this->paymentId = $paymentId;
-		$this->apiParas["payment_id"] = $paymentId;
+		$this->paymentId              = $paymentId;
+		$this->apiParas['payment_id'] = $paymentId;
 	}
 
 	public function getPaymentId()
@@ -199,8 +205,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setPaymentSource($paymentSource)
 	{
-		$this->paymentSource = $paymentSource;
-		$this->apiParas["payment_source"] = $paymentSource;
+		$this->paymentSource              = $paymentSource;
+		$this->apiParas['payment_source'] = $paymentSource;
 	}
 
 	public function getPaymentSource()
@@ -210,8 +216,8 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setTitle($title)
 	{
-		$this->title = $title;
-		$this->apiParas["title"] = $title;
+		$this->title             = $title;
+		$this->apiParas['title'] = $title;
 	}
 
 	public function getTitle()
@@ -221,12 +227,12 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.transfer.thirdparty.bill.create";
+		return 'alipay.transfer.thirdparty.bill.create';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -236,7 +242,7 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -281,7 +287,7 @@ class TransferThirdpartyBillCreateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -291,14 +297,11 @@ class TransferThirdpartyBillCreateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

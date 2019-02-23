@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.fund.trans.toaccount.transfer request
@@ -8,7 +8,7 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since  1.0, 2018-07-03 21:37:30
  */
-class FundTransToaccountTransferRequest extends Request
+class FundTransToaccountTransferRequest
 {
 	/**
 	 * 单笔转账到支付宝账户接口
@@ -16,14 +16,20 @@ class FundTransToaccountTransferRequest extends Request
 	private $bizContent;
 
 	private $apiParas;
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion  = '1.0';
-	private $notifyUrl;
-	private $returnUrl;
-	private $needEncrypt = false;
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion  = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 
 	public function setBizContent($bizContent)
 	{
@@ -108,14 +114,11 @@ class FundTransToaccountTransferRequest extends Request
 
 	public function setNeedEncrypt($needEncrypt)
 	{
-
 		$this->needEncrypt = $needEncrypt;
-
 	}
 
 	public function getNeedEncrypt()
 	{
 		return $this->needEncrypt;
 	}
-
 }

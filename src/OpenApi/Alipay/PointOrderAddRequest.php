@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.point.order.add request
@@ -8,52 +8,58 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-07-11 11:00:47
  */
-class PointOrderAddRequest extends Request
+class PointOrderAddRequest
 {
-	/** 
+	/**
 	 * 向用户展示集分宝发放备注
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * isv提供的发放订单号，由数字和字母组成，最大长度为32位，需要保证每笔订单发放的唯一性，支付宝对该参数做唯一性校验。如果订单号已存在，支付宝将返回订单号已经存在的错误
 	 **/
 	private $merchantOrderNo;
 	
-	/** 
+	/**
 	 * 发放集分宝时间
 	 **/
 	private $orderTime;
 	
-	/** 
+	/**
 	 * 发放集分宝的数量
 	 **/
 	private $pointCount;
 	
-	/** 
+	/**
 	 * 用户标识符，用于指定集分宝发放的用户，和user_symbol_type一起使用，确定一个唯一的支付宝用户
 	 **/
 	private $userSymbol;
 	
-	/** 
+	/**
 	 * 用户标识符类型，现在支持ALIPAY_USER_ID:表示支付宝用户ID,ALIPAY_LOGON_ID:表示支付宝登陆号
 	 **/
 	private $userSymbolType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -63,8 +69,8 @@ class PointOrderAddRequest extends Request
 
 	public function setMerchantOrderNo($merchantOrderNo)
 	{
-		$this->merchantOrderNo = $merchantOrderNo;
-		$this->apiParas["merchant_order_no"] = $merchantOrderNo;
+		$this->merchantOrderNo               = $merchantOrderNo;
+		$this->apiParas['merchant_order_no'] = $merchantOrderNo;
 	}
 
 	public function getMerchantOrderNo()
@@ -74,8 +80,8 @@ class PointOrderAddRequest extends Request
 
 	public function setOrderTime($orderTime)
 	{
-		$this->orderTime = $orderTime;
-		$this->apiParas["order_time"] = $orderTime;
+		$this->orderTime              = $orderTime;
+		$this->apiParas['order_time'] = $orderTime;
 	}
 
 	public function getOrderTime()
@@ -85,8 +91,8 @@ class PointOrderAddRequest extends Request
 
 	public function setPointCount($pointCount)
 	{
-		$this->pointCount = $pointCount;
-		$this->apiParas["point_count"] = $pointCount;
+		$this->pointCount              = $pointCount;
+		$this->apiParas['point_count'] = $pointCount;
 	}
 
 	public function getPointCount()
@@ -96,8 +102,8 @@ class PointOrderAddRequest extends Request
 
 	public function setUserSymbol($userSymbol)
 	{
-		$this->userSymbol = $userSymbol;
-		$this->apiParas["user_symbol"] = $userSymbol;
+		$this->userSymbol              = $userSymbol;
+		$this->apiParas['user_symbol'] = $userSymbol;
 	}
 
 	public function getUserSymbol()
@@ -107,8 +113,8 @@ class PointOrderAddRequest extends Request
 
 	public function setUserSymbolType($userSymbolType)
 	{
-		$this->userSymbolType = $userSymbolType;
-		$this->apiParas["user_symbol_type"] = $userSymbolType;
+		$this->userSymbolType               = $userSymbolType;
+		$this->apiParas['user_symbol_type'] = $userSymbolType;
 	}
 
 	public function getUserSymbolType()
@@ -118,12 +124,12 @@ class PointOrderAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.point.order.add";
+		return 'alipay.point.order.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -133,7 +139,7 @@ class PointOrderAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -178,7 +184,7 @@ class PointOrderAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -188,14 +194,11 @@ class PointOrderAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

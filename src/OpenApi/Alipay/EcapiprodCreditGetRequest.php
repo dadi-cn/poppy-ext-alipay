@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ecapiprod.credit.get request
@@ -8,47 +8,53 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2015-04-02 16:44:25
  */
-class EcapiprodCreditGetRequest extends Request
+class EcapiprodCreditGetRequest
 {
-	/** 
+	/**
 	 * 授信编号
 	 **/
 	private $creditNo;
 	
-	/** 
+	/**
 	 * 身份证号码
 	 **/
 	private $entityCode;
 	
-	/** 
+	/**
 	 * 客户的姓名
 	 **/
 	private $entityName;
 	
-	/** 
+	/**
 	 * 每一个对接融资平台的系统提供商都有一个机构号
 	 **/
 	private $isvCode;
 	
-	/** 
+	/**
 	 * 融资平台分配给小贷公司的机构编码
 	 **/
 	private $orgCode;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setCreditNo($creditNo)
 	{
-		$this->creditNo = $creditNo;
-		$this->apiParas["credit_no"] = $creditNo;
+		$this->creditNo              = $creditNo;
+		$this->apiParas['credit_no'] = $creditNo;
 	}
 
 	public function getCreditNo()
@@ -58,8 +64,8 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setEntityCode($entityCode)
 	{
-		$this->entityCode = $entityCode;
-		$this->apiParas["entity_code"] = $entityCode;
+		$this->entityCode              = $entityCode;
+		$this->apiParas['entity_code'] = $entityCode;
 	}
 
 	public function getEntityCode()
@@ -69,8 +75,8 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setEntityName($entityName)
 	{
-		$this->entityName = $entityName;
-		$this->apiParas["entity_name"] = $entityName;
+		$this->entityName              = $entityName;
+		$this->apiParas['entity_name'] = $entityName;
 	}
 
 	public function getEntityName()
@@ -80,8 +86,8 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setIsvCode($isvCode)
 	{
-		$this->isvCode = $isvCode;
-		$this->apiParas["isv_code"] = $isvCode;
+		$this->isvCode              = $isvCode;
+		$this->apiParas['isv_code'] = $isvCode;
 	}
 
 	public function getIsvCode()
@@ -91,8 +97,8 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setOrgCode($orgCode)
 	{
-		$this->orgCode = $orgCode;
-		$this->apiParas["org_code"] = $orgCode;
+		$this->orgCode              = $orgCode;
+		$this->apiParas['org_code'] = $orgCode;
 	}
 
 	public function getOrgCode()
@@ -102,12 +108,12 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ecapiprod.credit.get";
+		return 'alipay.ecapiprod.credit.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -117,7 +123,7 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -162,7 +168,7 @@ class EcapiprodCreditGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -172,14 +178,11 @@ class EcapiprodCreditGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

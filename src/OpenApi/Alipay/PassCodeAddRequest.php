@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.code.add request
@@ -8,46 +8,52 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2014-06-12 17:16:12
  */
-class PassCodeAddRequest extends Request
+class PassCodeAddRequest
 {
-	/** 
+	/**
 	 * alipass文件Base64编码后的内容。
 	 **/
 	private $fileContent;
 	
-	/** 
+	/**
 	 * 识别信息
 当 recognition_type=1时， recognition_info={“partner_id”:”2088102114633762”,“out_trade_no”:”1234567”}
 当recognition_type=2时， recognition_info={“user_id”:”2088102114633761“ }
 	 **/
 	private $recognitionInfo;
 	
-	/** 
+	/**
 	 * 发放对象识别类型
 1-	订单信息
 2-	支付宝userId
 	 **/
 	private $recognitionType;
 	
-	/** 
+	/**
 	 * 该pass的核销方式,如果为空，则默认为["wave","qrcode"]
 	 **/
 	private $verifyType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setFileContent($fileContent)
 	{
-		$this->fileContent = $fileContent;
-		$this->apiParas["file_content"] = $fileContent;
+		$this->fileContent              = $fileContent;
+		$this->apiParas['file_content'] = $fileContent;
 	}
 
 	public function getFileContent()
@@ -57,8 +63,8 @@ class PassCodeAddRequest extends Request
 
 	public function setRecognitionInfo($recognitionInfo)
 	{
-		$this->recognitionInfo = $recognitionInfo;
-		$this->apiParas["recognition_info"] = $recognitionInfo;
+		$this->recognitionInfo              = $recognitionInfo;
+		$this->apiParas['recognition_info'] = $recognitionInfo;
 	}
 
 	public function getRecognitionInfo()
@@ -68,8 +74,8 @@ class PassCodeAddRequest extends Request
 
 	public function setRecognitionType($recognitionType)
 	{
-		$this->recognitionType = $recognitionType;
-		$this->apiParas["recognition_type"] = $recognitionType;
+		$this->recognitionType              = $recognitionType;
+		$this->apiParas['recognition_type'] = $recognitionType;
 	}
 
 	public function getRecognitionType()
@@ -79,8 +85,8 @@ class PassCodeAddRequest extends Request
 
 	public function setVerifyType($verifyType)
 	{
-		$this->verifyType = $verifyType;
-		$this->apiParas["verify_type"] = $verifyType;
+		$this->verifyType              = $verifyType;
+		$this->apiParas['verify_type'] = $verifyType;
 	}
 
 	public function getVerifyType()
@@ -90,12 +96,12 @@ class PassCodeAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.code.add";
+		return 'alipay.pass.code.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -105,7 +111,7 @@ class PassCodeAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -150,7 +156,7 @@ class PassCodeAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -160,14 +166,11 @@ class PassCodeAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

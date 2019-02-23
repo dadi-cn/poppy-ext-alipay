@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ecapiprod.data.put request
@@ -8,67 +8,73 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2015-04-02 16:45:23
  */
-class EcapiprodDataPutRequest extends Request
+class EcapiprodDataPutRequest
 {
-	/** 
+	/**
 	 * 数据类型
 	 **/
 	private $category;
 	
-	/** 
+	/**
 	 * 数据字符编码，默认UTF-8
 	 **/
 	private $charSet;
 	
-	/** 
+	/**
 	 * 数据采集平台生成的采集任务编号
 	 **/
 	private $collectingTaskId;
 	
-	/** 
+	/**
 	 * 身份证，工商注册号等
 	 **/
 	private $entityCode;
 	
-	/** 
+	/**
 	 * 姓名或公司名等，name和code不能同时为空
 	 **/
 	private $entityName;
 	
-	/** 
+	/**
 	 * 人或公司等
 	 **/
 	private $entityType;
 	
-	/** 
+	/**
 	 * 渠道商
 	 **/
 	private $isvCode;
 	
-	/** 
+	/**
 	 * 数据主体,以json格式传输的数据
 	 **/
 	private $jsonData;
 	
-	/** 
+	/**
 	 * 数据合作方
 	 **/
 	private $orgCode;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setCategory($category)
 	{
-		$this->category = $category;
-		$this->apiParas["category"] = $category;
+		$this->category             = $category;
+		$this->apiParas['category'] = $category;
 	}
 
 	public function getCategory()
@@ -78,8 +84,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setCharSet($charSet)
 	{
-		$this->charSet = $charSet;
-		$this->apiParas["char_set"] = $charSet;
+		$this->charSet              = $charSet;
+		$this->apiParas['char_set'] = $charSet;
 	}
 
 	public function getCharSet()
@@ -89,8 +95,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setCollectingTaskId($collectingTaskId)
 	{
-		$this->collectingTaskId = $collectingTaskId;
-		$this->apiParas["collecting_task_id"] = $collectingTaskId;
+		$this->collectingTaskId               = $collectingTaskId;
+		$this->apiParas['collecting_task_id'] = $collectingTaskId;
 	}
 
 	public function getCollectingTaskId()
@@ -100,8 +106,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setEntityCode($entityCode)
 	{
-		$this->entityCode = $entityCode;
-		$this->apiParas["entity_code"] = $entityCode;
+		$this->entityCode              = $entityCode;
+		$this->apiParas['entity_code'] = $entityCode;
 	}
 
 	public function getEntityCode()
@@ -111,8 +117,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setEntityName($entityName)
 	{
-		$this->entityName = $entityName;
-		$this->apiParas["entity_name"] = $entityName;
+		$this->entityName              = $entityName;
+		$this->apiParas['entity_name'] = $entityName;
 	}
 
 	public function getEntityName()
@@ -122,8 +128,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setEntityType($entityType)
 	{
-		$this->entityType = $entityType;
-		$this->apiParas["entity_type"] = $entityType;
+		$this->entityType              = $entityType;
+		$this->apiParas['entity_type'] = $entityType;
 	}
 
 	public function getEntityType()
@@ -133,8 +139,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setIsvCode($isvCode)
 	{
-		$this->isvCode = $isvCode;
-		$this->apiParas["isv_code"] = $isvCode;
+		$this->isvCode              = $isvCode;
+		$this->apiParas['isv_code'] = $isvCode;
 	}
 
 	public function getIsvCode()
@@ -144,8 +150,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setJsonData($jsonData)
 	{
-		$this->jsonData = $jsonData;
-		$this->apiParas["json_data"] = $jsonData;
+		$this->jsonData              = $jsonData;
+		$this->apiParas['json_data'] = $jsonData;
 	}
 
 	public function getJsonData()
@@ -155,8 +161,8 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setOrgCode($orgCode)
 	{
-		$this->orgCode = $orgCode;
-		$this->apiParas["org_code"] = $orgCode;
+		$this->orgCode              = $orgCode;
+		$this->apiParas['org_code'] = $orgCode;
 	}
 
 	public function getOrgCode()
@@ -166,12 +172,12 @@ class EcapiprodDataPutRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ecapiprod.data.put";
+		return 'alipay.ecapiprod.data.put';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -181,7 +187,7 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -226,7 +232,7 @@ class EcapiprodDataPutRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -236,14 +242,11 @@ class EcapiprodDataPutRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

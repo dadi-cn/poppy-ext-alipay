@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.mobile.code.create request
@@ -8,68 +8,74 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-06-14 11:34:41
  */
-class MobileCodeCreateRequest extends Request
+class MobileCodeCreateRequest
 {
-	/** 
+	/**
 	 * 业务关联ID。比如订单号,userId，业务连接等
 	 **/
 	private $bizLinkedId;
 	
-	/** 
+	/**
 	 * 类似产品名称，根据该值决定码存储类型；新接业务需要找码平台技术配置
 	 **/
 	private $bizType;
 	
-	/** 
+	/**
 	 * 业务自定义,码平台不用理解。一定要传json字符串。
 	 **/
 	private $contextStr;
 	
-	/** 
+	/**
 	 * 如果是true，则扫一扫下发跳转地址直接取自bizLinkedId
 否则，从路由信息里取跳转地址
 	 **/
 	private $isDirect;
 	
-	/** 
+	/**
 	 * 备注信息字段
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * 发码来源，业务自定
 	 **/
 	private $sourceId;
 	
-	/** 
+	/**
 	 * 编码启动时间（yyy-MM-dd hh:mm:ss），为空表示立即启用
 	 **/
 	private $startDate;
 	
-	/** 
+	/**
 	 * 超时时间,单位秒；若不传则为永久。发码超时时间需要找码平台技术评估
 	 **/
 	private $timeout;
 	
-	/** 
+	/**
 	 * 支付宝用户id
 	 **/
 	private $userId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBizLinkedId($bizLinkedId)
 	{
-		$this->bizLinkedId = $bizLinkedId;
-		$this->apiParas["biz_linked_id"] = $bizLinkedId;
+		$this->bizLinkedId               = $bizLinkedId;
+		$this->apiParas['biz_linked_id'] = $bizLinkedId;
 	}
 
 	public function getBizLinkedId()
@@ -79,8 +85,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setBizType($bizType)
 	{
-		$this->bizType = $bizType;
-		$this->apiParas["biz_type"] = $bizType;
+		$this->bizType              = $bizType;
+		$this->apiParas['biz_type'] = $bizType;
 	}
 
 	public function getBizType()
@@ -90,8 +96,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setContextStr($contextStr)
 	{
-		$this->contextStr = $contextStr;
-		$this->apiParas["context_str"] = $contextStr;
+		$this->contextStr              = $contextStr;
+		$this->apiParas['context_str'] = $contextStr;
 	}
 
 	public function getContextStr()
@@ -101,8 +107,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setIsDirect($isDirect)
 	{
-		$this->isDirect = $isDirect;
-		$this->apiParas["is_direct"] = $isDirect;
+		$this->isDirect              = $isDirect;
+		$this->apiParas['is_direct'] = $isDirect;
 	}
 
 	public function getIsDirect()
@@ -112,8 +118,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -123,8 +129,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setSourceId($sourceId)
 	{
-		$this->sourceId = $sourceId;
-		$this->apiParas["source_id"] = $sourceId;
+		$this->sourceId              = $sourceId;
+		$this->apiParas['source_id'] = $sourceId;
 	}
 
 	public function getSourceId()
@@ -134,8 +140,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setStartDate($startDate)
 	{
-		$this->startDate = $startDate;
-		$this->apiParas["start_date"] = $startDate;
+		$this->startDate              = $startDate;
+		$this->apiParas['start_date'] = $startDate;
 	}
 
 	public function getStartDate()
@@ -145,8 +151,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setTimeout($timeout)
 	{
-		$this->timeout = $timeout;
-		$this->apiParas["timeout"] = $timeout;
+		$this->timeout             = $timeout;
+		$this->apiParas['timeout'] = $timeout;
 	}
 
 	public function getTimeout()
@@ -156,8 +162,8 @@ class MobileCodeCreateRequest extends Request
 
 	public function setUserId($userId)
 	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+		$this->userId              = $userId;
+		$this->apiParas['user_id'] = $userId;
 	}
 
 	public function getUserId()
@@ -167,12 +173,12 @@ class MobileCodeCreateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.mobile.code.create";
+		return 'alipay.mobile.code.create';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -182,7 +188,7 @@ class MobileCodeCreateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -227,7 +233,7 @@ class MobileCodeCreateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -237,14 +243,11 @@ class MobileCodeCreateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

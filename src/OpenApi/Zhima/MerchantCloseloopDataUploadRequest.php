@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Zhima;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: zhima.merchant.closeloop.data.upload request
@@ -8,44 +8,44 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-01-11 15:47:27
  */
-class MerchantCloseloopDataUploadRequest extends Request
+class MerchantCloseloopDataUploadRequest
 {
-	/** 
+	/**
 	 * 公用回传参数（非必填），该参数会透传给商户，商户可以用于业务逻辑处理，请使用json格式。
 	 **/
 	private $bizExtParams;
 	
-	/** 
+	/**
 	 * 单条数据的数据列，多个列以逗号隔开。
 	 **/
 	private $columns;
 	
-	/** 
+	/**
 	 * 传入的json格式的文件，其中records属性必填。json中的字段可以通过如下步骤获取：首先调用zhima.merchant.data.upload.initialize接口获取数据模板，该接口会返回一个数据模板文件的url地址，如：http://zmxymerchant-prod.oss-cn-shenzhen.zmxy.com.cn/openApi/openDoc/信用护航-负面记录和信用足迹商户数据模板V1.0.xlsx，该数据模板文件详细列出了需要传入的字段，及各字段的要求，data中的各字段就是该文件中列出的字段编码。
 	 **/
 	private $file;
 	
-	/** 
+	/**
 	 * 文件的编码，如果文件格式是UTF-8，则填写UTF-8，如果文件格式是GBK，则填写GBK。
 	 **/
 	private $fileCharset;
 	
-	/** 
+	/**
 	 * 芝麻平台服务商模式下的二级商户标识（即二级商户PID），如果是直连商户调用该接口，不需要设置
 	 **/
 	private $linkedMerchantId;
 	
-	/** 
+	/**
 	 * 主键列使用传入字段进行组合，也可以使用传入的某个单字段（确保主键稳定，而且可以很好的区分不同的数据）。例如order_no,pay_month或者order_no,bill_month组合，对于一个order_no只会有一条数据的情况，直接使用order_no作为主键列。
 	 **/
 	private $primaryKeyColumns;
 	
-	/** 
+	/**
 	 * 文件数据记录条数，如file字段中的record数组有10条数据，那么就填10。
 	 **/
 	private $records;
 	
-	/** 
+	/**
 	 * 数据应用的场景编码，场景码和场景名称（数字或字符串为场景码）如下：
 8：数据反馈
 32：骑行
@@ -54,20 +54,26 @@ CAR_RENTING：租车行业解决方案
 	 **/
 	private $sceneCode;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBizExtParams($bizExtParams)
 	{
-		$this->bizExtParams = $bizExtParams;
-		$this->apiParas["biz_ext_params"] = $bizExtParams;
+		$this->bizExtParams               = $bizExtParams;
+		$this->apiParas['biz_ext_params'] = $bizExtParams;
 	}
 
 	public function getBizExtParams()
@@ -77,8 +83,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setColumns($columns)
 	{
-		$this->columns = $columns;
-		$this->apiParas["columns"] = $columns;
+		$this->columns             = $columns;
+		$this->apiParas['columns'] = $columns;
 	}
 
 	public function getColumns()
@@ -88,8 +94,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setFile($file)
 	{
-		$this->file = $file;
-		$this->apiParas["file"] = $file;
+		$this->file             = $file;
+		$this->apiParas['file'] = $file;
 	}
 
 	public function getFile()
@@ -99,8 +105,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setFileCharset($fileCharset)
 	{
-		$this->fileCharset = $fileCharset;
-		$this->apiParas["file_charset"] = $fileCharset;
+		$this->fileCharset              = $fileCharset;
+		$this->apiParas['file_charset'] = $fileCharset;
 	}
 
 	public function getFileCharset()
@@ -110,8 +116,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setLinkedMerchantId($linkedMerchantId)
 	{
-		$this->linkedMerchantId = $linkedMerchantId;
-		$this->apiParas["linked_merchant_id"] = $linkedMerchantId;
+		$this->linkedMerchantId               = $linkedMerchantId;
+		$this->apiParas['linked_merchant_id'] = $linkedMerchantId;
 	}
 
 	public function getLinkedMerchantId()
@@ -121,8 +127,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setPrimaryKeyColumns($primaryKeyColumns)
 	{
-		$this->primaryKeyColumns = $primaryKeyColumns;
-		$this->apiParas["primary_key_columns"] = $primaryKeyColumns;
+		$this->primaryKeyColumns               = $primaryKeyColumns;
+		$this->apiParas['primary_key_columns'] = $primaryKeyColumns;
 	}
 
 	public function getPrimaryKeyColumns()
@@ -132,8 +138,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setRecords($records)
 	{
-		$this->records = $records;
-		$this->apiParas["records"] = $records;
+		$this->records             = $records;
+		$this->apiParas['records'] = $records;
 	}
 
 	public function getRecords()
@@ -143,8 +149,8 @@ CAR_RENTING：租车行业解决方案
 
 	public function setSceneCode($sceneCode)
 	{
-		$this->sceneCode = $sceneCode;
-		$this->apiParas["scene_code"] = $sceneCode;
+		$this->sceneCode              = $sceneCode;
+		$this->apiParas['scene_code'] = $sceneCode;
 	}
 
 	public function getSceneCode()
@@ -154,12 +160,12 @@ CAR_RENTING：租车行业解决方案
 
 	public function getApiMethodName()
 	{
-		return "zhima.merchant.closeloop.data.upload";
+		return 'zhima.merchant.closeloop.data.upload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -169,7 +175,7 @@ CAR_RENTING：租车行业解决方案
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -214,7 +220,7 @@ CAR_RENTING：租车行业解决方案
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -224,14 +230,11 @@ CAR_RENTING：租车行业解决方案
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

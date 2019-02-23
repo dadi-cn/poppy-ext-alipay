@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.acquire.query request
@@ -8,34 +8,40 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-04-18 17:54:57
  */
-class AcquireQueryRequest extends Request
+class AcquireQueryRequest
 {
-	/** 
+	/**
 	 * 支付宝合作商户网站唯一订单号
 	 **/
 	private $outTradeNo;
 	
-	/** 
+	/**
 	 * 该交易在支付宝系统中的交易流水号。
 最短16位，最长64位。
 如果同时传了out_trade_no和trade_no，则以trade_no为准。
 	 **/
 	private $tradeNo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setOutTradeNo($outTradeNo)
 	{
-		$this->outTradeNo = $outTradeNo;
-		$this->apiParas["out_trade_no"] = $outTradeNo;
+		$this->outTradeNo               = $outTradeNo;
+		$this->apiParas['out_trade_no'] = $outTradeNo;
 	}
 
 	public function getOutTradeNo()
@@ -45,8 +51,8 @@ class AcquireQueryRequest extends Request
 
 	public function setTradeNo($tradeNo)
 	{
-		$this->tradeNo = $tradeNo;
-		$this->apiParas["trade_no"] = $tradeNo;
+		$this->tradeNo              = $tradeNo;
+		$this->apiParas['trade_no'] = $tradeNo;
 	}
 
 	public function getTradeNo()
@@ -56,12 +62,12 @@ class AcquireQueryRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.acquire.query";
+		return 'alipay.acquire.query';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -71,7 +77,7 @@ class AcquireQueryRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -116,7 +122,7 @@ class AcquireQueryRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -126,14 +132,11 @@ class AcquireQueryRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

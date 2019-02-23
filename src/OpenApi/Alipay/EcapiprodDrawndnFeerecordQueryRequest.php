@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ecapiprod.drawndn.feerecord.query request
@@ -8,57 +8,63 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-03-29 11:34:27
  */
-class EcapiprodDrawndnFeerecordQueryRequest extends Request
+class EcapiprodDrawndnFeerecordQueryRequest
 {
-	/** 
+	/**
 	 * 支用编号
 	 **/
 	private $drawndnNo;
 	
-	/** 
+	/**
 	 * 费用还款记录的终止时间，终止时间与起始时间的范围不能超过31天
 	 **/
 	private $end;
 	
-	/** 
+	/**
 	 * 客户身份证号码，为18位，最后X必须为大写
 	 **/
 	private $entityCode;
 	
-	/** 
+	/**
 	 * 客户姓名
 	 **/
 	private $entityName;
 	
-	/** 
+	/**
 	 * 融资平台分配给ISV的编码
 	 **/
 	private $isvCode;
 	
-	/** 
+	/**
 	 * 融资平台分配给小贷公司的机构编码
 	 **/
 	private $orgCode;
 	
-	/** 
+	/**
 	 * 费用还款记录的起始时间（距离当前时间不能大于183天，只能在【0-183】之间）
 	 **/
 	private $start;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setDrawndnNo($drawndnNo)
 	{
-		$this->drawndnNo = $drawndnNo;
-		$this->apiParas["drawndn_no"] = $drawndnNo;
+		$this->drawndnNo              = $drawndnNo;
+		$this->apiParas['drawndn_no'] = $drawndnNo;
 	}
 
 	public function getDrawndnNo()
@@ -68,8 +74,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setEnd($end)
 	{
-		$this->end = $end;
-		$this->apiParas["end"] = $end;
+		$this->end             = $end;
+		$this->apiParas['end'] = $end;
 	}
 
 	public function getEnd()
@@ -79,8 +85,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setEntityCode($entityCode)
 	{
-		$this->entityCode = $entityCode;
-		$this->apiParas["entity_code"] = $entityCode;
+		$this->entityCode              = $entityCode;
+		$this->apiParas['entity_code'] = $entityCode;
 	}
 
 	public function getEntityCode()
@@ -90,8 +96,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setEntityName($entityName)
 	{
-		$this->entityName = $entityName;
-		$this->apiParas["entity_name"] = $entityName;
+		$this->entityName              = $entityName;
+		$this->apiParas['entity_name'] = $entityName;
 	}
 
 	public function getEntityName()
@@ -101,8 +107,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setIsvCode($isvCode)
 	{
-		$this->isvCode = $isvCode;
-		$this->apiParas["isv_code"] = $isvCode;
+		$this->isvCode              = $isvCode;
+		$this->apiParas['isv_code'] = $isvCode;
 	}
 
 	public function getIsvCode()
@@ -112,8 +118,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setOrgCode($orgCode)
 	{
-		$this->orgCode = $orgCode;
-		$this->apiParas["org_code"] = $orgCode;
+		$this->orgCode              = $orgCode;
+		$this->apiParas['org_code'] = $orgCode;
 	}
 
 	public function getOrgCode()
@@ -123,8 +129,8 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setStart($start)
 	{
-		$this->start = $start;
-		$this->apiParas["start"] = $start;
+		$this->start             = $start;
+		$this->apiParas['start'] = $start;
 	}
 
 	public function getStart()
@@ -134,12 +140,12 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ecapiprod.drawndn.feerecord.query";
+		return 'alipay.ecapiprod.drawndn.feerecord.query';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -149,7 +155,7 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -194,7 +200,7 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -204,14 +210,11 @@ class EcapiprodDrawndnFeerecordQueryRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

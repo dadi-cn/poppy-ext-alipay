@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ebpp.pdeduct.pay request
@@ -8,34 +8,34 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-05-18 17:15:00
  */
-class EbppPdeductPayRequest extends Request
+class EbppPdeductPayRequest
 {
-	/** 
+	/**
 	 * 渠道码，如用户通过机构通过服务窗进来签约则是PUBLICFORM，此值可随意传，只要不空就行
 	 **/
 	private $agentChannel;
 	
-	/** 
+	/**
 	 * 二级渠道码，预留字段
 	 **/
 	private $agentCode;
 	
-	/** 
+	/**
 	 * 支付宝代扣协议Id
 	 **/
 	private $agreementId;
 	
-	/** 
+	/**
 	 * 账期
 	 **/
 	private $billDate;
 	
-	/** 
+	/**
 	 * 户号，缴费单位用于标识每一户的唯一性的
 	 **/
 	private $billKey;
 	
-	/** 
+	/**
 	 * 扩展参数。必须以key value形式定义，
 转为json为格式：{"key1":"value1","key2":"value2",
 "key3":"value3","key4":"value4"}
@@ -43,50 +43,56 @@ class EbppPdeductPayRequest extends Request
 	 **/
 	private $extendField;
 	
-	/** 
+	/**
 	 * 滞纳金
 	 **/
 	private $fineAmount;
 	
-	/** 
+	/**
 	 * 备注信息
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * 商户外部业务流水号
 	 **/
 	private $outOrderNo;
 	
-	/** 
+	/**
 	 * 扣款金额，支付总金额，包含滞纳金
 	 **/
 	private $payAmount;
 	
-	/** 
+	/**
 	 * 商户PartnerId
 	 **/
 	private $pid;
 	
-	/** 
+	/**
 	 * 用户ID
 	 **/
 	private $userId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAgentChannel($agentChannel)
 	{
-		$this->agentChannel = $agentChannel;
-		$this->apiParas["agent_channel"] = $agentChannel;
+		$this->agentChannel              = $agentChannel;
+		$this->apiParas['agent_channel'] = $agentChannel;
 	}
 
 	public function getAgentChannel()
@@ -96,8 +102,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setAgentCode($agentCode)
 	{
-		$this->agentCode = $agentCode;
-		$this->apiParas["agent_code"] = $agentCode;
+		$this->agentCode              = $agentCode;
+		$this->apiParas['agent_code'] = $agentCode;
 	}
 
 	public function getAgentCode()
@@ -107,8 +113,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setAgreementId($agreementId)
 	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+		$this->agreementId              = $agreementId;
+		$this->apiParas['agreement_id'] = $agreementId;
 	}
 
 	public function getAgreementId()
@@ -118,8 +124,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setBillDate($billDate)
 	{
-		$this->billDate = $billDate;
-		$this->apiParas["bill_date"] = $billDate;
+		$this->billDate              = $billDate;
+		$this->apiParas['bill_date'] = $billDate;
 	}
 
 	public function getBillDate()
@@ -129,8 +135,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setBillKey($billKey)
 	{
-		$this->billKey = $billKey;
-		$this->apiParas["bill_key"] = $billKey;
+		$this->billKey              = $billKey;
+		$this->apiParas['bill_key'] = $billKey;
 	}
 
 	public function getBillKey()
@@ -140,8 +146,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setExtendField($extendField)
 	{
-		$this->extendField = $extendField;
-		$this->apiParas["extend_field"] = $extendField;
+		$this->extendField              = $extendField;
+		$this->apiParas['extend_field'] = $extendField;
 	}
 
 	public function getExtendField()
@@ -151,8 +157,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setFineAmount($fineAmount)
 	{
-		$this->fineAmount = $fineAmount;
-		$this->apiParas["fine_amount"] = $fineAmount;
+		$this->fineAmount              = $fineAmount;
+		$this->apiParas['fine_amount'] = $fineAmount;
 	}
 
 	public function getFineAmount()
@@ -162,8 +168,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -173,8 +179,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setOutOrderNo($outOrderNo)
 	{
-		$this->outOrderNo = $outOrderNo;
-		$this->apiParas["out_order_no"] = $outOrderNo;
+		$this->outOrderNo               = $outOrderNo;
+		$this->apiParas['out_order_no'] = $outOrderNo;
 	}
 
 	public function getOutOrderNo()
@@ -184,8 +190,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setPayAmount($payAmount)
 	{
-		$this->payAmount = $payAmount;
-		$this->apiParas["pay_amount"] = $payAmount;
+		$this->payAmount              = $payAmount;
+		$this->apiParas['pay_amount'] = $payAmount;
 	}
 
 	public function getPayAmount()
@@ -195,8 +201,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setPid($pid)
 	{
-		$this->pid = $pid;
-		$this->apiParas["pid"] = $pid;
+		$this->pid             = $pid;
+		$this->apiParas['pid'] = $pid;
 	}
 
 	public function getPid()
@@ -206,8 +212,8 @@ class EbppPdeductPayRequest extends Request
 
 	public function setUserId($userId)
 	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+		$this->userId              = $userId;
+		$this->apiParas['user_id'] = $userId;
 	}
 
 	public function getUserId()
@@ -217,12 +223,12 @@ class EbppPdeductPayRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ebpp.pdeduct.pay";
+		return 'alipay.ebpp.pdeduct.pay';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -232,7 +238,7 @@ class EbppPdeductPayRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -277,7 +283,7 @@ class EbppPdeductPayRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -287,14 +293,11 @@ class EbppPdeductPayRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

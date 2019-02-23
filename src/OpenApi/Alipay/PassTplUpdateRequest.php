@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.tpl.update request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-07-01 15:35:58
  */
-class PassTplUpdateRequest extends Request
+class PassTplUpdateRequest
 {
-	/** 
+	/**
 	 * 模版内容
 	 **/
 	private $tplContent;
 	
-	/** 
+	/**
 	 * 模版ID
 	 **/
 	private $tplId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setTplContent($tplContent)
 	{
-		$this->tplContent = $tplContent;
-		$this->apiParas["tpl_content"] = $tplContent;
+		$this->tplContent              = $tplContent;
+		$this->apiParas['tpl_content'] = $tplContent;
 	}
 
 	public function getTplContent()
@@ -43,8 +49,8 @@ class PassTplUpdateRequest extends Request
 
 	public function setTplId($tplId)
 	{
-		$this->tplId = $tplId;
-		$this->apiParas["tpl_id"] = $tplId;
+		$this->tplId              = $tplId;
+		$this->apiParas['tpl_id'] = $tplId;
 	}
 
 	public function getTplId()
@@ -54,12 +60,12 @@ class PassTplUpdateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.tpl.update";
+		return 'alipay.pass.tpl.update';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class PassTplUpdateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class PassTplUpdateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class PassTplUpdateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.micropay.order.confirmpayurl.get request
@@ -8,47 +8,53 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-06-06 17:53:18
  */
-class MicropayOrderConfirmpayurlGetRequest extends Request
+class MicropayOrderConfirmpayurlGetRequest
 {
-	/** 
+	/**
 	 * 支付宝订单号，冻结流水号.这个是创建冻结订单支付宝返回的
 	 **/
 	private $alipayOrderNo;
 	
-	/** 
+	/**
 	 * 支付金额,区间必须在[0.01,30]，只能保留小数点后两位
 	 **/
 	private $amount;
 	
-	/** 
+	/**
 	 * 支付备注
 	 **/
 	private $memo;
 	
-	/** 
+	/**
 	 * 收款方的支付宝ID
 	 **/
 	private $receiveUserId;
 	
-	/** 
+	/**
 	 * 本次转账的外部单据号（只能由字母和数字组成,maxlength=32）
 	 **/
 	private $transferOutOrderNo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAlipayOrderNo($alipayOrderNo)
 	{
-		$this->alipayOrderNo = $alipayOrderNo;
-		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
+		$this->alipayOrderNo               = $alipayOrderNo;
+		$this->apiParas['alipay_order_no'] = $alipayOrderNo;
 	}
 
 	public function getAlipayOrderNo()
@@ -58,8 +64,8 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setAmount($amount)
 	{
-		$this->amount = $amount;
-		$this->apiParas["amount"] = $amount;
+		$this->amount             = $amount;
+		$this->apiParas['amount'] = $amount;
 	}
 
 	public function getAmount()
@@ -69,8 +75,8 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -80,8 +86,8 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setReceiveUserId($receiveUserId)
 	{
-		$this->receiveUserId = $receiveUserId;
-		$this->apiParas["receive_user_id"] = $receiveUserId;
+		$this->receiveUserId               = $receiveUserId;
+		$this->apiParas['receive_user_id'] = $receiveUserId;
 	}
 
 	public function getReceiveUserId()
@@ -91,8 +97,8 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setTransferOutOrderNo($transferOutOrderNo)
 	{
-		$this->transferOutOrderNo = $transferOutOrderNo;
-		$this->apiParas["transfer_out_order_no"] = $transferOutOrderNo;
+		$this->transferOutOrderNo                = $transferOutOrderNo;
+		$this->apiParas['transfer_out_order_no'] = $transferOutOrderNo;
 	}
 
 	public function getTransferOutOrderNo()
@@ -102,12 +108,12 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.micropay.order.confirmpayurl.get";
+		return 'alipay.micropay.order.confirmpayurl.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -117,7 +123,7 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -162,7 +168,7 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -172,14 +178,11 @@ class MicropayOrderConfirmpayurlGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

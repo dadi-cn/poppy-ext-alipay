@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.mobile.bksigntoken.verify request
@@ -8,37 +8,43 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-04-07 18:08:15
  */
-class MobileBksigntokenVerifyRequest extends Request
+class MobileBksigntokenVerifyRequest
 {
-	/** 
+	/**
 	 * 设备标识
 	 **/
 	private $deviceid;
 	
-	/** 
+	/**
 	 * 调用来源
 	 **/
 	private $source;
 	
-	/** 
+	/**
 	 * 查询token
 	 **/
 	private $token;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setDeviceid($deviceid)
 	{
-		$this->deviceid = $deviceid;
-		$this->apiParas["deviceid"] = $deviceid;
+		$this->deviceid             = $deviceid;
+		$this->apiParas['deviceid'] = $deviceid;
 	}
 
 	public function getDeviceid()
@@ -48,8 +54,8 @@ class MobileBksigntokenVerifyRequest extends Request
 
 	public function setSource($source)
 	{
-		$this->source = $source;
-		$this->apiParas["source"] = $source;
+		$this->source             = $source;
+		$this->apiParas['source'] = $source;
 	}
 
 	public function getSource()
@@ -59,8 +65,8 @@ class MobileBksigntokenVerifyRequest extends Request
 
 	public function setToken($token)
 	{
-		$this->token = $token;
-		$this->apiParas["token"] = $token;
+		$this->token             = $token;
+		$this->apiParas['token'] = $token;
 	}
 
 	public function getToken()
@@ -70,12 +76,12 @@ class MobileBksigntokenVerifyRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.mobile.bksigntoken.verify";
+		return 'alipay.mobile.bksigntoken.verify';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -85,7 +91,7 @@ class MobileBksigntokenVerifyRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -130,7 +136,7 @@ class MobileBksigntokenVerifyRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -140,14 +146,11 @@ class MobileBksigntokenVerifyRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

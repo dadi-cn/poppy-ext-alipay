@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.tpl.content.update request
@@ -8,52 +8,58 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-12-07 16:33:36
  */
-class PassTplContentUpdateRequest extends Request
+class PassTplContentUpdateRequest
 {
-	/** 
+	/**
 	 * 代理商代替商户发放卡券后，再代替商户更新卡券时，此值为商户的pid/appid
 	 **/
 	private $channelId;
 	
-	/** 
+	/**
 	 * 支付宝pass唯一标识
 	 **/
 	private $serialNumber;
 	
-	/** 
+	/**
 	 * 券状态,支持更新为USED,CLOSED两种状态
 	 **/
 	private $status;
 	
-	/** 
+	/**
 	 * 模版动态参数信息【支付宝pass模版参数键值对JSON字符串】
 	 **/
 	private $tplParams;
 	
-	/** 
+	/**
 	 * 核销码串值【当状态变更为USED时，建议传入】
 	 **/
 	private $verifyCode;
 	
-	/** 
+	/**
 	 * 核销方式，目前支持：wave（声波方式）、qrcode（二维码方式）、barcode（条码方式）、input（文本方式，即手工输入方式）。pass和verify_type不能同时为空
 	 **/
 	private $verifyType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setChannelId($channelId)
 	{
-		$this->channelId = $channelId;
-		$this->apiParas["channel_id"] = $channelId;
+		$this->channelId              = $channelId;
+		$this->apiParas['channel_id'] = $channelId;
 	}
 
 	public function getChannelId()
@@ -63,8 +69,8 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setSerialNumber($serialNumber)
 	{
-		$this->serialNumber = $serialNumber;
-		$this->apiParas["serial_number"] = $serialNumber;
+		$this->serialNumber              = $serialNumber;
+		$this->apiParas['serial_number'] = $serialNumber;
 	}
 
 	public function getSerialNumber()
@@ -74,8 +80,8 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setStatus($status)
 	{
-		$this->status = $status;
-		$this->apiParas["status"] = $status;
+		$this->status             = $status;
+		$this->apiParas['status'] = $status;
 	}
 
 	public function getStatus()
@@ -85,8 +91,8 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setTplParams($tplParams)
 	{
-		$this->tplParams = $tplParams;
-		$this->apiParas["tpl_params"] = $tplParams;
+		$this->tplParams              = $tplParams;
+		$this->apiParas['tpl_params'] = $tplParams;
 	}
 
 	public function getTplParams()
@@ -96,8 +102,8 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setVerifyCode($verifyCode)
 	{
-		$this->verifyCode = $verifyCode;
-		$this->apiParas["verify_code"] = $verifyCode;
+		$this->verifyCode              = $verifyCode;
+		$this->apiParas['verify_code'] = $verifyCode;
 	}
 
 	public function getVerifyCode()
@@ -107,8 +113,8 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setVerifyType($verifyType)
 	{
-		$this->verifyType = $verifyType;
-		$this->apiParas["verify_type"] = $verifyType;
+		$this->verifyType              = $verifyType;
+		$this->apiParas['verify_type'] = $verifyType;
 	}
 
 	public function getVerifyType()
@@ -118,12 +124,12 @@ class PassTplContentUpdateRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.tpl.content.update";
+		return 'alipay.pass.tpl.content.update';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -133,7 +139,7 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -178,7 +184,7 @@ class PassTplContentUpdateRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -188,14 +194,11 @@ class PassTplContentUpdateRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

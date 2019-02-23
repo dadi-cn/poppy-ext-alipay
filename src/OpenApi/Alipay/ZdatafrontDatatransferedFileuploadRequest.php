@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.zdatafront.datatransfered.fileupload request
@@ -8,62 +8,68 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-05-02 14:41:11
  */
-class ZdatafrontDatatransferedFileuploadRequest extends Request
+class ZdatafrontDatatransferedFileuploadRequest
 {
-	/** 
+	/**
 	 * 合作伙伴上传文件中的各字段,使用英文半角","分隔，file_type为json_data时必选
 	 **/
 	private $columns;
 	
-	/** 
+	/**
 	 * 二进制字节数组，由文件转出，最大支持50M文件的上传
 	 **/
 	private $file;
 	
-	/** 
+	/**
 	 * 文件描述信息，非解析数据类型必选
 	 **/
 	private $fileDescription;
 	
-	/** 
+	/**
 	 * 文件摘要，算法SHA
 	 **/
 	private $fileDigest;
 	
-	/** 
+	/**
 	 * 描述上传文件的类型
 	 **/
 	private $fileType;
 	
-	/** 
+	/**
 	 * 上传数据文件的主键字段，注意该pk若出现重复则后入数据会覆盖前面的，file_type为json_data时必选
 	 **/
 	private $primaryKey;
 	
-	/** 
+	/**
 	 * 上传数据文件包含的记录数，file_type为json_data时必选
 	 **/
 	private $records;
 	
-	/** 
+	/**
 	 * 外部公司的数据源标识信息，由联接网络分配
 	 **/
 	private $typeId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setColumns($columns)
 	{
-		$this->columns = $columns;
-		$this->apiParas["columns"] = $columns;
+		$this->columns             = $columns;
+		$this->apiParas['columns'] = $columns;
 	}
 
 	public function getColumns()
@@ -73,8 +79,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setFile($file)
 	{
-		$this->file = $file;
-		$this->apiParas["file"] = $file;
+		$this->file             = $file;
+		$this->apiParas['file'] = $file;
 	}
 
 	public function getFile()
@@ -84,8 +90,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setFileDescription($fileDescription)
 	{
-		$this->fileDescription = $fileDescription;
-		$this->apiParas["file_description"] = $fileDescription;
+		$this->fileDescription              = $fileDescription;
+		$this->apiParas['file_description'] = $fileDescription;
 	}
 
 	public function getFileDescription()
@@ -95,8 +101,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setFileDigest($fileDigest)
 	{
-		$this->fileDigest = $fileDigest;
-		$this->apiParas["file_digest"] = $fileDigest;
+		$this->fileDigest              = $fileDigest;
+		$this->apiParas['file_digest'] = $fileDigest;
 	}
 
 	public function getFileDigest()
@@ -106,8 +112,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setFileType($fileType)
 	{
-		$this->fileType = $fileType;
-		$this->apiParas["file_type"] = $fileType;
+		$this->fileType              = $fileType;
+		$this->apiParas['file_type'] = $fileType;
 	}
 
 	public function getFileType()
@@ -117,8 +123,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setPrimaryKey($primaryKey)
 	{
-		$this->primaryKey = $primaryKey;
-		$this->apiParas["primary_key"] = $primaryKey;
+		$this->primaryKey              = $primaryKey;
+		$this->apiParas['primary_key'] = $primaryKey;
 	}
 
 	public function getPrimaryKey()
@@ -128,8 +134,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setRecords($records)
 	{
-		$this->records = $records;
-		$this->apiParas["records"] = $records;
+		$this->records             = $records;
+		$this->apiParas['records'] = $records;
 	}
 
 	public function getRecords()
@@ -139,8 +145,8 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setTypeId($typeId)
 	{
-		$this->typeId = $typeId;
-		$this->apiParas["type_id"] = $typeId;
+		$this->typeId              = $typeId;
+		$this->apiParas['type_id'] = $typeId;
 	}
 
 	public function getTypeId()
@@ -150,12 +156,12 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.zdatafront.datatransfered.fileupload";
+		return 'alipay.zdatafront.datatransfered.fileupload';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -165,7 +171,7 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -210,7 +216,7 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -220,14 +226,11 @@ class ZdatafrontDatatransferedFileuploadRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.code.verify request
@@ -8,46 +8,52 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2014-06-12 17:16:11
  */
-class PassCodeVerifyRequest extends Request
+class PassCodeVerifyRequest
 {
-	/** 
+	/**
 	 * 商户核销操作扩展信息
 	 **/
 	private $extInfo;
 	
-	/** 
+	/**
 	 * 操作员id
 如果operator_type为1，则此id代表核销人员id
 如果operator_type为2，则此id代表核销机具id
 	 **/
 	private $operatorId;
 	
-	/** 
+	/**
 	 * 操作员类型
 1 核销人员
 2 核销机具
 	 **/
 	private $operatorType;
 	
-	/** 
+	/**
 	 * Alipass对应的核销码串
 	 **/
 	private $verifyCode;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setExtInfo($extInfo)
 	{
-		$this->extInfo = $extInfo;
-		$this->apiParas["ext_info"] = $extInfo;
+		$this->extInfo              = $extInfo;
+		$this->apiParas['ext_info'] = $extInfo;
 	}
 
 	public function getExtInfo()
@@ -57,8 +63,8 @@ class PassCodeVerifyRequest extends Request
 
 	public function setOperatorId($operatorId)
 	{
-		$this->operatorId = $operatorId;
-		$this->apiParas["operator_id"] = $operatorId;
+		$this->operatorId              = $operatorId;
+		$this->apiParas['operator_id'] = $operatorId;
 	}
 
 	public function getOperatorId()
@@ -68,8 +74,8 @@ class PassCodeVerifyRequest extends Request
 
 	public function setOperatorType($operatorType)
 	{
-		$this->operatorType = $operatorType;
-		$this->apiParas["operator_type"] = $operatorType;
+		$this->operatorType              = $operatorType;
+		$this->apiParas['operator_type'] = $operatorType;
 	}
 
 	public function getOperatorType()
@@ -79,8 +85,8 @@ class PassCodeVerifyRequest extends Request
 
 	public function setVerifyCode($verifyCode)
 	{
-		$this->verifyCode = $verifyCode;
-		$this->apiParas["verify_code"] = $verifyCode;
+		$this->verifyCode              = $verifyCode;
+		$this->apiParas['verify_code'] = $verifyCode;
 	}
 
 	public function getVerifyCode()
@@ -90,12 +96,12 @@ class PassCodeVerifyRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.code.verify";
+		return 'alipay.pass.code.verify';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -105,7 +111,7 @@ class PassCodeVerifyRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -150,7 +156,7 @@ class PassCodeVerifyRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -160,14 +166,11 @@ class PassCodeVerifyRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

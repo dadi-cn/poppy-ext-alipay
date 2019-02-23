@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.operator.mobile.bind request
@@ -8,56 +8,62 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-05-03 16:48:39
  */
-class OperatorMobileBindRequest extends Request
+class OperatorMobileBindRequest
 {
-	/** 
+	/**
 	 * 标识该运营商是否需要验证用户的手机号绑定过快捷卡
 1：需要
 0：不需要
 	 **/
 	private $checkSigncard;
 	
-	/** 
+	/**
 	 * 支付宝处理完请求后，如验证失败，当前页面自动跳转到商户网站里指定页面的http路径。
 	 **/
 	private $fReturnUrl;
 	
-	/** 
+	/**
 	 * 标识该运营商是否提供了查询手机归属的spi接口。
 1：提供了
 0：没提供
 	 **/
 	private $hasSpi;
 	
-	/** 
+	/**
 	 * 标识该运营商名称
 	 **/
 	private $operatorName;
 	
-	/** 
+	/**
 	 * 标识该运营商所在省份
 	 **/
 	private $provinceName;
 	
-	/** 
+	/**
 	 * 支付宝处理完请求后，如验证成功，当前页面自动跳转到商户网站里指定页面的http路径。
 	 **/
 	private $sReturnUrl;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setCheckSigncard($checkSigncard)
 	{
-		$this->checkSigncard = $checkSigncard;
-		$this->apiParas["check_signcard"] = $checkSigncard;
+		$this->checkSigncard              = $checkSigncard;
+		$this->apiParas['check_signcard'] = $checkSigncard;
 	}
 
 	public function getCheckSigncard()
@@ -67,8 +73,8 @@ class OperatorMobileBindRequest extends Request
 
 	public function setfReturnUrl($fReturnUrl)
 	{
-		$this->fReturnUrl = $fReturnUrl;
-		$this->apiParas["f_return_url"] = $fReturnUrl;
+		$this->fReturnUrl               = $fReturnUrl;
+		$this->apiParas['f_return_url'] = $fReturnUrl;
 	}
 
 	public function getfReturnUrl()
@@ -78,8 +84,8 @@ class OperatorMobileBindRequest extends Request
 
 	public function setHasSpi($hasSpi)
 	{
-		$this->hasSpi = $hasSpi;
-		$this->apiParas["has_spi"] = $hasSpi;
+		$this->hasSpi              = $hasSpi;
+		$this->apiParas['has_spi'] = $hasSpi;
 	}
 
 	public function getHasSpi()
@@ -89,8 +95,8 @@ class OperatorMobileBindRequest extends Request
 
 	public function setOperatorName($operatorName)
 	{
-		$this->operatorName = $operatorName;
-		$this->apiParas["operator_name"] = $operatorName;
+		$this->operatorName              = $operatorName;
+		$this->apiParas['operator_name'] = $operatorName;
 	}
 
 	public function getOperatorName()
@@ -100,8 +106,8 @@ class OperatorMobileBindRequest extends Request
 
 	public function setProvinceName($provinceName)
 	{
-		$this->provinceName = $provinceName;
-		$this->apiParas["province_name"] = $provinceName;
+		$this->provinceName              = $provinceName;
+		$this->apiParas['province_name'] = $provinceName;
 	}
 
 	public function getProvinceName()
@@ -111,8 +117,8 @@ class OperatorMobileBindRequest extends Request
 
 	public function setsReturnUrl($sReturnUrl)
 	{
-		$this->sReturnUrl = $sReturnUrl;
-		$this->apiParas["s_return_url"] = $sReturnUrl;
+		$this->sReturnUrl               = $sReturnUrl;
+		$this->apiParas['s_return_url'] = $sReturnUrl;
 	}
 
 	public function getsReturnUrl()
@@ -122,12 +128,12 @@ class OperatorMobileBindRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.operator.mobile.bind";
+		return 'alipay.operator.mobile.bind';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -137,7 +143,7 @@ class OperatorMobileBindRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -182,7 +188,7 @@ class OperatorMobileBindRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -192,14 +198,11 @@ class OperatorMobileBindRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

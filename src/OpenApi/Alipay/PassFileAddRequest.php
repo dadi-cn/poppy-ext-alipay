@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.pass.file.add request
@@ -8,14 +8,14 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-12-07 20:13:48
  */
-class PassFileAddRequest extends Request
+class PassFileAddRequest
 {
-	/** 
+	/**
 	 * 支付宝pass文件二进制Base64加密字符串
 	 **/
 	private $fileContent;
 	
-	/** 
+	/**
 	 * 支付宝用户识别信息：
 当 recognition_type=1时， recognition_info={“partner_id”:”2088102114633762”,“out_trade_no”:”1234567”}；
 当recognition_type=2时， recognition_info={“user_id”:”2088102114633761“}
@@ -23,25 +23,31 @@ class PassFileAddRequest extends Request
 	 **/
 	private $recognitionInfo;
 	
-	/** 
+	/**
 	 * Alipass添加对象识别类型【1--订单信息；2--支付宝userId;3--支付宝绑定手机号】
 	 **/
 	private $recognitionType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setFileContent($fileContent)
 	{
-		$this->fileContent = $fileContent;
-		$this->apiParas["file_content"] = $fileContent;
+		$this->fileContent              = $fileContent;
+		$this->apiParas['file_content'] = $fileContent;
 	}
 
 	public function getFileContent()
@@ -51,8 +57,8 @@ class PassFileAddRequest extends Request
 
 	public function setRecognitionInfo($recognitionInfo)
 	{
-		$this->recognitionInfo = $recognitionInfo;
-		$this->apiParas["recognition_info"] = $recognitionInfo;
+		$this->recognitionInfo              = $recognitionInfo;
+		$this->apiParas['recognition_info'] = $recognitionInfo;
 	}
 
 	public function getRecognitionInfo()
@@ -62,8 +68,8 @@ class PassFileAddRequest extends Request
 
 	public function setRecognitionType($recognitionType)
 	{
-		$this->recognitionType = $recognitionType;
-		$this->apiParas["recognition_type"] = $recognitionType;
+		$this->recognitionType              = $recognitionType;
+		$this->apiParas['recognition_type'] = $recognitionType;
 	}
 
 	public function getRecognitionType()
@@ -73,12 +79,12 @@ class PassFileAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.pass.file.add";
+		return 'alipay.pass.file.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -88,7 +94,7 @@ class PassFileAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -133,7 +139,7 @@ class PassFileAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -143,14 +149,11 @@ class PassFileAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

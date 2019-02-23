@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.security.risk.detect request
@@ -8,302 +8,308 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-03-04 14:55:25
  */
-class SecurityRiskDetectRequest extends Request
+class SecurityRiskDetectRequest
 {
-	/** 
+	/**
 	 * 买家账户编号
 	 **/
 	private $buyerAccountNo;
 	
-	/** 
+	/**
 	 * 买家绑定银行卡号
 	 **/
 	private $buyerBindBankcard;
 	
-	/** 
+	/**
 	 * 买家绑定银行卡的卡类型
 	 **/
 	private $buyerBindBankcardType;
 	
-	/** 
+	/**
 	 * 买家绑定手机号
 	 **/
 	private $buyerBindMobile;
 	
-	/** 
+	/**
 	 * 买家账户在商家的等级，范围：VIP（高级买家）, NORMAL(普通买家）。为空默认NORMAL
 	 **/
 	private $buyerGrade;
 	
-	/** 
+	/**
 	 * 买家证件号码
 	 **/
 	private $buyerIdentityNo;
 	
-	/** 
+	/**
 	 * 买家证件类型
 	 **/
 	private $buyerIdentityType;
 	
-	/** 
+	/**
 	 * 买家真实姓名
 	 **/
 	private $buyerRealName;
 	
-	/** 
+	/**
 	 * 买家注册时间
 	 **/
 	private $buyerRegDate;
 	
-	/** 
+	/**
 	 * 买家注册时留的Email
 	 **/
 	private $buyerRegEmail;
 	
-	/** 
+	/**
 	 * 买家注册手机号
 	 **/
 	private $buyerRegMobile;
 	
-	/** 
+	/**
 	 * 买家业务处理时使用的银行卡号
 	 **/
 	private $buyerSceneBankcard;
 	
-	/** 
+	/**
 	 * 买家业务处理时使用的银行卡类型
 	 **/
 	private $buyerSceneBankcardType;
 	
-	/** 
+	/**
 	 * 买家业务处理时使用的邮箱
 	 **/
 	private $buyerSceneEmail;
 	
-	/** 
+	/**
 	 * 买家业务处理时使用的手机号
 	 **/
 	private $buyerSceneMobile;
 	
-	/** 
+	/**
 	 * 币种
 	 **/
 	private $currency;
 	
-	/** 
+	/**
 	 * 客户端的基带版本
 	 **/
 	private $envClientBaseBand;
 	
-	/** 
+	/**
 	 * 客户端连接的基站信息,格式为：CELLID^LAC
 	 **/
 	private $envClientBaseStation;
 	
-	/** 
+	/**
 	 * 客户端的经纬度坐标,格式为：精度^维度
 	 **/
 	private $envClientCoordinates;
 	
-	/** 
+	/**
 	 * 操作的客户端的imei
 	 **/
 	private $envClientImei;
 	
-	/** 
+	/**
 	 * 操作的客户端IMSI识别码
 	 **/
 	private $envClientImsi;
 	
-	/** 
+	/**
 	 * IOS设备的UDID
 	 **/
 	private $envClientIosUdid;
 	
-	/** 
+	/**
 	 * 操作的客户端ip
 	 **/
 	private $envClientIp;
 	
-	/** 
+	/**
 	 * 操作的客户端mac
 	 **/
 	private $envClientMac;
 	
-	/** 
+	/**
 	 * 操作的客户端分辨率，格式为：水平像素^垂直像素；如：800^600
 	 **/
 	private $envClientScreen;
 	
-	/** 
+	/**
 	 * 客户端设备的统一识别码UUID
 	 **/
 	private $envClientUuid;
 	
-	/** 
+	/**
 	 * 订单产品数量，购买产品的数量（不可为小数）
 	 **/
 	private $itemQuantity;
 	
-	/** 
+	/**
 	 * 订单产品单价，取值范围为[0.01,100000000.00]，精确到小数点后两位。 curren...
 	 **/
 	private $itemUnitPrice;
 	
-	/** 
+	/**
 	 * JS SDK生成的 tokenID
 	 **/
 	private $jsTokenId;
 	
-	/** 
+	/**
 	 * 订单总金额，取值范围为[0.01,100000000.00]，精确到小数点后两位。
 	 **/
 	private $orderAmount;
 	
-	/** 
+	/**
 	 * 订单商品所在类目
 	 **/
 	private $orderCategory;
 	
-	/** 
+	/**
 	 * 订单下单时间
 	 **/
 	private $orderCredateTime;
 	
-	/** 
+	/**
 	 * 订单商品所在城市
 	 **/
 	private $orderItemCity;
 	
-	/** 
+	/**
 	 * 订单产品名称
 	 **/
 	private $orderItemName;
 	
-	/** 
+	/**
 	 * 商户订单唯一标识号
 	 **/
 	private $orderNo;
 	
-	/** 
+	/**
 	 * 签约的支付宝账号对应的支付宝唯一用户号
 	 **/
 	private $partnerId;
 	
-	/** 
+	/**
 	 * 订单收货人地址
 	 **/
 	private $receiverAddress;
 	
-	/** 
+	/**
 	 * 订单收货人地址城市
 	 **/
 	private $receiverCity;
 	
-	/** 
+	/**
 	 * 订单收货人地址所在区
 	 **/
 	private $receiverDistrict;
 	
-	/** 
+	/**
 	 * 订单收货人邮箱
 	 **/
 	private $receiverEmail;
 	
-	/** 
+	/**
 	 * 订单收货人手机
 	 **/
 	private $receiverMobile;
 	
-	/** 
+	/**
 	 * 订单收货人姓名
 	 **/
 	private $receiverName;
 	
-	/** 
+	/**
 	 * 订单收货人地址省份
 	 **/
 	private $receiverState;
 	
-	/** 
+	/**
 	 * 订单收货人地址邮编
 	 **/
 	private $receiverZip;
 	
-	/** 
+	/**
 	 * 场景编码
 	 **/
 	private $sceneCode;
 	
-	/** 
+	/**
 	 * 卖家账户编号
 	 **/
 	private $sellerAccountNo;
 	
-	/** 
+	/**
 	 * 卖家绑定银行卡号
 	 **/
 	private $sellerBindBankcard;
 	
-	/** 
+	/**
 	 * 卖家绑定的银行卡的卡类型
 	 **/
 	private $sellerBindBankcardType;
 	
-	/** 
+	/**
 	 * 卖家绑定手机号
 	 **/
 	private $sellerBindMobile;
 	
-	/** 
+	/**
 	 * 卖家证件号码
 	 **/
 	private $sellerIdentityNo;
 	
-	/** 
+	/**
 	 * 卖家证件类型
 	 **/
 	private $sellerIdentityType;
 	
-	/** 
+	/**
 	 * 卖家真实姓名
 	 **/
 	private $sellerRealName;
 	
-	/** 
+	/**
 	 * 卖家注册时间,格式为：yyyy-MM-dd。
 	 **/
 	private $sellerRegDate;
 	
-	/** 
+	/**
 	 * 卖家注册Email
 	 **/
 	private $sellerRegEmail;
 	
-	/** 
+	/**
 	 * 卖家注册手机号
 	 **/
 	private $sellerRegMoile;
 	
-	/** 
+	/**
 	 * 订单物流方式
 	 **/
 	private $transportType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBuyerAccountNo($buyerAccountNo)
 	{
-		$this->buyerAccountNo = $buyerAccountNo;
-		$this->apiParas["buyer_account_no"] = $buyerAccountNo;
+		$this->buyerAccountNo               = $buyerAccountNo;
+		$this->apiParas['buyer_account_no'] = $buyerAccountNo;
 	}
 
 	public function getBuyerAccountNo()
@@ -313,8 +319,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerBindBankcard($buyerBindBankcard)
 	{
-		$this->buyerBindBankcard = $buyerBindBankcard;
-		$this->apiParas["buyer_bind_bankcard"] = $buyerBindBankcard;
+		$this->buyerBindBankcard               = $buyerBindBankcard;
+		$this->apiParas['buyer_bind_bankcard'] = $buyerBindBankcard;
 	}
 
 	public function getBuyerBindBankcard()
@@ -324,8 +330,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerBindBankcardType($buyerBindBankcardType)
 	{
-		$this->buyerBindBankcardType = $buyerBindBankcardType;
-		$this->apiParas["buyer_bind_bankcard_type"] = $buyerBindBankcardType;
+		$this->buyerBindBankcardType                = $buyerBindBankcardType;
+		$this->apiParas['buyer_bind_bankcard_type'] = $buyerBindBankcardType;
 	}
 
 	public function getBuyerBindBankcardType()
@@ -335,8 +341,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerBindMobile($buyerBindMobile)
 	{
-		$this->buyerBindMobile = $buyerBindMobile;
-		$this->apiParas["buyer_bind_mobile"] = $buyerBindMobile;
+		$this->buyerBindMobile               = $buyerBindMobile;
+		$this->apiParas['buyer_bind_mobile'] = $buyerBindMobile;
 	}
 
 	public function getBuyerBindMobile()
@@ -346,8 +352,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerGrade($buyerGrade)
 	{
-		$this->buyerGrade = $buyerGrade;
-		$this->apiParas["buyer_grade"] = $buyerGrade;
+		$this->buyerGrade              = $buyerGrade;
+		$this->apiParas['buyer_grade'] = $buyerGrade;
 	}
 
 	public function getBuyerGrade()
@@ -357,8 +363,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerIdentityNo($buyerIdentityNo)
 	{
-		$this->buyerIdentityNo = $buyerIdentityNo;
-		$this->apiParas["buyer_identity_no"] = $buyerIdentityNo;
+		$this->buyerIdentityNo               = $buyerIdentityNo;
+		$this->apiParas['buyer_identity_no'] = $buyerIdentityNo;
 	}
 
 	public function getBuyerIdentityNo()
@@ -368,8 +374,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerIdentityType($buyerIdentityType)
 	{
-		$this->buyerIdentityType = $buyerIdentityType;
-		$this->apiParas["buyer_identity_type"] = $buyerIdentityType;
+		$this->buyerIdentityType               = $buyerIdentityType;
+		$this->apiParas['buyer_identity_type'] = $buyerIdentityType;
 	}
 
 	public function getBuyerIdentityType()
@@ -379,8 +385,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerRealName($buyerRealName)
 	{
-		$this->buyerRealName = $buyerRealName;
-		$this->apiParas["buyer_real_name"] = $buyerRealName;
+		$this->buyerRealName               = $buyerRealName;
+		$this->apiParas['buyer_real_name'] = $buyerRealName;
 	}
 
 	public function getBuyerRealName()
@@ -390,8 +396,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerRegDate($buyerRegDate)
 	{
-		$this->buyerRegDate = $buyerRegDate;
-		$this->apiParas["buyer_reg_date"] = $buyerRegDate;
+		$this->buyerRegDate               = $buyerRegDate;
+		$this->apiParas['buyer_reg_date'] = $buyerRegDate;
 	}
 
 	public function getBuyerRegDate()
@@ -401,8 +407,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerRegEmail($buyerRegEmail)
 	{
-		$this->buyerRegEmail = $buyerRegEmail;
-		$this->apiParas["buyer_reg_email"] = $buyerRegEmail;
+		$this->buyerRegEmail               = $buyerRegEmail;
+		$this->apiParas['buyer_reg_email'] = $buyerRegEmail;
 	}
 
 	public function getBuyerRegEmail()
@@ -412,8 +418,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerRegMobile($buyerRegMobile)
 	{
-		$this->buyerRegMobile = $buyerRegMobile;
-		$this->apiParas["buyer_reg_mobile"] = $buyerRegMobile;
+		$this->buyerRegMobile               = $buyerRegMobile;
+		$this->apiParas['buyer_reg_mobile'] = $buyerRegMobile;
 	}
 
 	public function getBuyerRegMobile()
@@ -423,8 +429,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerSceneBankcard($buyerSceneBankcard)
 	{
-		$this->buyerSceneBankcard = $buyerSceneBankcard;
-		$this->apiParas["buyer_scene_bankcard"] = $buyerSceneBankcard;
+		$this->buyerSceneBankcard               = $buyerSceneBankcard;
+		$this->apiParas['buyer_scene_bankcard'] = $buyerSceneBankcard;
 	}
 
 	public function getBuyerSceneBankcard()
@@ -434,8 +440,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerSceneBankcardType($buyerSceneBankcardType)
 	{
-		$this->buyerSceneBankcardType = $buyerSceneBankcardType;
-		$this->apiParas["buyer_scene_bankcard_type"] = $buyerSceneBankcardType;
+		$this->buyerSceneBankcardType                = $buyerSceneBankcardType;
+		$this->apiParas['buyer_scene_bankcard_type'] = $buyerSceneBankcardType;
 	}
 
 	public function getBuyerSceneBankcardType()
@@ -445,8 +451,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerSceneEmail($buyerSceneEmail)
 	{
-		$this->buyerSceneEmail = $buyerSceneEmail;
-		$this->apiParas["buyer_scene_email"] = $buyerSceneEmail;
+		$this->buyerSceneEmail               = $buyerSceneEmail;
+		$this->apiParas['buyer_scene_email'] = $buyerSceneEmail;
 	}
 
 	public function getBuyerSceneEmail()
@@ -456,8 +462,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setBuyerSceneMobile($buyerSceneMobile)
 	{
-		$this->buyerSceneMobile = $buyerSceneMobile;
-		$this->apiParas["buyer_scene_mobile"] = $buyerSceneMobile;
+		$this->buyerSceneMobile               = $buyerSceneMobile;
+		$this->apiParas['buyer_scene_mobile'] = $buyerSceneMobile;
 	}
 
 	public function getBuyerSceneMobile()
@@ -467,8 +473,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setCurrency($currency)
 	{
-		$this->currency = $currency;
-		$this->apiParas["currency"] = $currency;
+		$this->currency             = $currency;
+		$this->apiParas['currency'] = $currency;
 	}
 
 	public function getCurrency()
@@ -478,8 +484,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientBaseBand($envClientBaseBand)
 	{
-		$this->envClientBaseBand = $envClientBaseBand;
-		$this->apiParas["env_client_base_band"] = $envClientBaseBand;
+		$this->envClientBaseBand                = $envClientBaseBand;
+		$this->apiParas['env_client_base_band'] = $envClientBaseBand;
 	}
 
 	public function getEnvClientBaseBand()
@@ -489,8 +495,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientBaseStation($envClientBaseStation)
 	{
-		$this->envClientBaseStation = $envClientBaseStation;
-		$this->apiParas["env_client_base_station"] = $envClientBaseStation;
+		$this->envClientBaseStation                = $envClientBaseStation;
+		$this->apiParas['env_client_base_station'] = $envClientBaseStation;
 	}
 
 	public function getEnvClientBaseStation()
@@ -500,8 +506,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientCoordinates($envClientCoordinates)
 	{
-		$this->envClientCoordinates = $envClientCoordinates;
-		$this->apiParas["env_client_coordinates"] = $envClientCoordinates;
+		$this->envClientCoordinates               = $envClientCoordinates;
+		$this->apiParas['env_client_coordinates'] = $envClientCoordinates;
 	}
 
 	public function getEnvClientCoordinates()
@@ -511,8 +517,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientImei($envClientImei)
 	{
-		$this->envClientImei = $envClientImei;
-		$this->apiParas["env_client_imei"] = $envClientImei;
+		$this->envClientImei               = $envClientImei;
+		$this->apiParas['env_client_imei'] = $envClientImei;
 	}
 
 	public function getEnvClientImei()
@@ -522,8 +528,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientImsi($envClientImsi)
 	{
-		$this->envClientImsi = $envClientImsi;
-		$this->apiParas["env_client_imsi"] = $envClientImsi;
+		$this->envClientImsi               = $envClientImsi;
+		$this->apiParas['env_client_imsi'] = $envClientImsi;
 	}
 
 	public function getEnvClientImsi()
@@ -533,8 +539,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientIosUdid($envClientIosUdid)
 	{
-		$this->envClientIosUdid = $envClientIosUdid;
-		$this->apiParas["env_client_ios_udid"] = $envClientIosUdid;
+		$this->envClientIosUdid                = $envClientIosUdid;
+		$this->apiParas['env_client_ios_udid'] = $envClientIosUdid;
 	}
 
 	public function getEnvClientIosUdid()
@@ -544,8 +550,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientIp($envClientIp)
 	{
-		$this->envClientIp = $envClientIp;
-		$this->apiParas["env_client_ip"] = $envClientIp;
+		$this->envClientIp               = $envClientIp;
+		$this->apiParas['env_client_ip'] = $envClientIp;
 	}
 
 	public function getEnvClientIp()
@@ -555,8 +561,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientMac($envClientMac)
 	{
-		$this->envClientMac = $envClientMac;
-		$this->apiParas["env_client_mac"] = $envClientMac;
+		$this->envClientMac               = $envClientMac;
+		$this->apiParas['env_client_mac'] = $envClientMac;
 	}
 
 	public function getEnvClientMac()
@@ -566,8 +572,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientScreen($envClientScreen)
 	{
-		$this->envClientScreen = $envClientScreen;
-		$this->apiParas["env_client_screen"] = $envClientScreen;
+		$this->envClientScreen               = $envClientScreen;
+		$this->apiParas['env_client_screen'] = $envClientScreen;
 	}
 
 	public function getEnvClientScreen()
@@ -577,8 +583,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setEnvClientUuid($envClientUuid)
 	{
-		$this->envClientUuid = $envClientUuid;
-		$this->apiParas["env_client_uuid"] = $envClientUuid;
+		$this->envClientUuid               = $envClientUuid;
+		$this->apiParas['env_client_uuid'] = $envClientUuid;
 	}
 
 	public function getEnvClientUuid()
@@ -588,8 +594,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setItemQuantity($itemQuantity)
 	{
-		$this->itemQuantity = $itemQuantity;
-		$this->apiParas["item_quantity"] = $itemQuantity;
+		$this->itemQuantity              = $itemQuantity;
+		$this->apiParas['item_quantity'] = $itemQuantity;
 	}
 
 	public function getItemQuantity()
@@ -599,8 +605,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setItemUnitPrice($itemUnitPrice)
 	{
-		$this->itemUnitPrice = $itemUnitPrice;
-		$this->apiParas["item_unit_price"] = $itemUnitPrice;
+		$this->itemUnitPrice               = $itemUnitPrice;
+		$this->apiParas['item_unit_price'] = $itemUnitPrice;
 	}
 
 	public function getItemUnitPrice()
@@ -610,8 +616,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setJsTokenId($jsTokenId)
 	{
-		$this->jsTokenId = $jsTokenId;
-		$this->apiParas["js_token_id"] = $jsTokenId;
+		$this->jsTokenId               = $jsTokenId;
+		$this->apiParas['js_token_id'] = $jsTokenId;
 	}
 
 	public function getJsTokenId()
@@ -621,8 +627,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderAmount($orderAmount)
 	{
-		$this->orderAmount = $orderAmount;
-		$this->apiParas["order_amount"] = $orderAmount;
+		$this->orderAmount              = $orderAmount;
+		$this->apiParas['order_amount'] = $orderAmount;
 	}
 
 	public function getOrderAmount()
@@ -632,8 +638,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderCategory($orderCategory)
 	{
-		$this->orderCategory = $orderCategory;
-		$this->apiParas["order_category"] = $orderCategory;
+		$this->orderCategory              = $orderCategory;
+		$this->apiParas['order_category'] = $orderCategory;
 	}
 
 	public function getOrderCategory()
@@ -643,8 +649,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderCredateTime($orderCredateTime)
 	{
-		$this->orderCredateTime = $orderCredateTime;
-		$this->apiParas["order_credate_time"] = $orderCredateTime;
+		$this->orderCredateTime               = $orderCredateTime;
+		$this->apiParas['order_credate_time'] = $orderCredateTime;
 	}
 
 	public function getOrderCredateTime()
@@ -654,8 +660,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderItemCity($orderItemCity)
 	{
-		$this->orderItemCity = $orderItemCity;
-		$this->apiParas["order_item_city"] = $orderItemCity;
+		$this->orderItemCity               = $orderItemCity;
+		$this->apiParas['order_item_city'] = $orderItemCity;
 	}
 
 	public function getOrderItemCity()
@@ -665,8 +671,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderItemName($orderItemName)
 	{
-		$this->orderItemName = $orderItemName;
-		$this->apiParas["order_item_name"] = $orderItemName;
+		$this->orderItemName               = $orderItemName;
+		$this->apiParas['order_item_name'] = $orderItemName;
 	}
 
 	public function getOrderItemName()
@@ -676,8 +682,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setOrderNo($orderNo)
 	{
-		$this->orderNo = $orderNo;
-		$this->apiParas["order_no"] = $orderNo;
+		$this->orderNo              = $orderNo;
+		$this->apiParas['order_no'] = $orderNo;
 	}
 
 	public function getOrderNo()
@@ -687,8 +693,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setPartnerId($partnerId)
 	{
-		$this->partnerId = $partnerId;
-		$this->apiParas["partner_id"] = $partnerId;
+		$this->partnerId              = $partnerId;
+		$this->apiParas['partner_id'] = $partnerId;
 	}
 
 	public function getPartnerId()
@@ -698,8 +704,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverAddress($receiverAddress)
 	{
-		$this->receiverAddress = $receiverAddress;
-		$this->apiParas["receiver_address"] = $receiverAddress;
+		$this->receiverAddress              = $receiverAddress;
+		$this->apiParas['receiver_address'] = $receiverAddress;
 	}
 
 	public function getReceiverAddress()
@@ -709,8 +715,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverCity($receiverCity)
 	{
-		$this->receiverCity = $receiverCity;
-		$this->apiParas["receiver_city"] = $receiverCity;
+		$this->receiverCity              = $receiverCity;
+		$this->apiParas['receiver_city'] = $receiverCity;
 	}
 
 	public function getReceiverCity()
@@ -720,8 +726,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverDistrict($receiverDistrict)
 	{
-		$this->receiverDistrict = $receiverDistrict;
-		$this->apiParas["receiver_district"] = $receiverDistrict;
+		$this->receiverDistrict              = $receiverDistrict;
+		$this->apiParas['receiver_district'] = $receiverDistrict;
 	}
 
 	public function getReceiverDistrict()
@@ -731,8 +737,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverEmail($receiverEmail)
 	{
-		$this->receiverEmail = $receiverEmail;
-		$this->apiParas["receiver_email"] = $receiverEmail;
+		$this->receiverEmail              = $receiverEmail;
+		$this->apiParas['receiver_email'] = $receiverEmail;
 	}
 
 	public function getReceiverEmail()
@@ -742,8 +748,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverMobile($receiverMobile)
 	{
-		$this->receiverMobile = $receiverMobile;
-		$this->apiParas["receiver_mobile"] = $receiverMobile;
+		$this->receiverMobile              = $receiverMobile;
+		$this->apiParas['receiver_mobile'] = $receiverMobile;
 	}
 
 	public function getReceiverMobile()
@@ -753,8 +759,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverName($receiverName)
 	{
-		$this->receiverName = $receiverName;
-		$this->apiParas["receiver_name"] = $receiverName;
+		$this->receiverName              = $receiverName;
+		$this->apiParas['receiver_name'] = $receiverName;
 	}
 
 	public function getReceiverName()
@@ -764,8 +770,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverState($receiverState)
 	{
-		$this->receiverState = $receiverState;
-		$this->apiParas["receiver_state"] = $receiverState;
+		$this->receiverState              = $receiverState;
+		$this->apiParas['receiver_state'] = $receiverState;
 	}
 
 	public function getReceiverState()
@@ -775,8 +781,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReceiverZip($receiverZip)
 	{
-		$this->receiverZip = $receiverZip;
-		$this->apiParas["receiver_zip"] = $receiverZip;
+		$this->receiverZip              = $receiverZip;
+		$this->apiParas['receiver_zip'] = $receiverZip;
 	}
 
 	public function getReceiverZip()
@@ -786,8 +792,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSceneCode($sceneCode)
 	{
-		$this->sceneCode = $sceneCode;
-		$this->apiParas["scene_code"] = $sceneCode;
+		$this->sceneCode              = $sceneCode;
+		$this->apiParas['scene_code'] = $sceneCode;
 	}
 
 	public function getSceneCode()
@@ -797,8 +803,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerAccountNo($sellerAccountNo)
 	{
-		$this->sellerAccountNo = $sellerAccountNo;
-		$this->apiParas["seller_account_no"] = $sellerAccountNo;
+		$this->sellerAccountNo               = $sellerAccountNo;
+		$this->apiParas['seller_account_no'] = $sellerAccountNo;
 	}
 
 	public function getSellerAccountNo()
@@ -808,8 +814,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerBindBankcard($sellerBindBankcard)
 	{
-		$this->sellerBindBankcard = $sellerBindBankcard;
-		$this->apiParas["seller_bind_bankcard"] = $sellerBindBankcard;
+		$this->sellerBindBankcard               = $sellerBindBankcard;
+		$this->apiParas['seller_bind_bankcard'] = $sellerBindBankcard;
 	}
 
 	public function getSellerBindBankcard()
@@ -819,8 +825,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerBindBankcardType($sellerBindBankcardType)
 	{
-		$this->sellerBindBankcardType = $sellerBindBankcardType;
-		$this->apiParas["seller_bind_bankcard_type"] = $sellerBindBankcardType;
+		$this->sellerBindBankcardType                = $sellerBindBankcardType;
+		$this->apiParas['seller_bind_bankcard_type'] = $sellerBindBankcardType;
 	}
 
 	public function getSellerBindBankcardType()
@@ -830,8 +836,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerBindMobile($sellerBindMobile)
 	{
-		$this->sellerBindMobile = $sellerBindMobile;
-		$this->apiParas["seller_bind_mobile"] = $sellerBindMobile;
+		$this->sellerBindMobile               = $sellerBindMobile;
+		$this->apiParas['seller_bind_mobile'] = $sellerBindMobile;
 	}
 
 	public function getSellerBindMobile()
@@ -841,8 +847,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerIdentityNo($sellerIdentityNo)
 	{
-		$this->sellerIdentityNo = $sellerIdentityNo;
-		$this->apiParas["seller_identity_no"] = $sellerIdentityNo;
+		$this->sellerIdentityNo               = $sellerIdentityNo;
+		$this->apiParas['seller_identity_no'] = $sellerIdentityNo;
 	}
 
 	public function getSellerIdentityNo()
@@ -852,8 +858,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerIdentityType($sellerIdentityType)
 	{
-		$this->sellerIdentityType = $sellerIdentityType;
-		$this->apiParas["seller_identity_type"] = $sellerIdentityType;
+		$this->sellerIdentityType               = $sellerIdentityType;
+		$this->apiParas['seller_identity_type'] = $sellerIdentityType;
 	}
 
 	public function getSellerIdentityType()
@@ -863,8 +869,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerRealName($sellerRealName)
 	{
-		$this->sellerRealName = $sellerRealName;
-		$this->apiParas["seller_real_name"] = $sellerRealName;
+		$this->sellerRealName               = $sellerRealName;
+		$this->apiParas['seller_real_name'] = $sellerRealName;
 	}
 
 	public function getSellerRealName()
@@ -874,8 +880,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerRegDate($sellerRegDate)
 	{
-		$this->sellerRegDate = $sellerRegDate;
-		$this->apiParas["seller_reg_date"] = $sellerRegDate;
+		$this->sellerRegDate               = $sellerRegDate;
+		$this->apiParas['seller_reg_date'] = $sellerRegDate;
 	}
 
 	public function getSellerRegDate()
@@ -885,8 +891,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerRegEmail($sellerRegEmail)
 	{
-		$this->sellerRegEmail = $sellerRegEmail;
-		$this->apiParas["seller_reg_email"] = $sellerRegEmail;
+		$this->sellerRegEmail               = $sellerRegEmail;
+		$this->apiParas['seller_reg_email'] = $sellerRegEmail;
 	}
 
 	public function getSellerRegEmail()
@@ -896,8 +902,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setSellerRegMoile($sellerRegMoile)
 	{
-		$this->sellerRegMoile = $sellerRegMoile;
-		$this->apiParas["seller_reg_moile"] = $sellerRegMoile;
+		$this->sellerRegMoile               = $sellerRegMoile;
+		$this->apiParas['seller_reg_moile'] = $sellerRegMoile;
 	}
 
 	public function getSellerRegMoile()
@@ -907,8 +913,8 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setTransportType($transportType)
 	{
-		$this->transportType = $transportType;
-		$this->apiParas["transport_type"] = $transportType;
+		$this->transportType              = $transportType;
+		$this->apiParas['transport_type'] = $transportType;
 	}
 
 	public function getTransportType()
@@ -918,12 +924,12 @@ class SecurityRiskDetectRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.security.risk.detect";
+		return 'alipay.security.risk.detect';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -933,7 +939,7 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -978,7 +984,7 @@ class SecurityRiskDetectRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -988,14 +994,11 @@ class SecurityRiskDetectRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.mobile.public.account.add request
@@ -8,52 +8,58 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-04-14 15:25:33
  */
-class MobilePublicAccountAddRequest extends Request
+class MobilePublicAccountAddRequest
 {
-	/** 
+	/**
 	 * 协议号
 	 **/
 	private $agreementId;
 	
-	/** 
+	/**
 	 * 绑定账户
 	 **/
 	private $bindAccountNo;
 	
-	/** 
+	/**
 	 * json
 	 **/
 	private $bizContent;
 	
-	/** 
+	/**
 	 * 绑定账户的名
 	 **/
 	private $displayName;
 	
-	/** 
+	/**
 	 * 关注者标识
 	 **/
 	private $fromUserId;
 	
-	/** 
+	/**
 	 * 绑定账户的用户名
 	 **/
 	private $realName;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAgreementId($agreementId)
 	{
-		$this->agreementId = $agreementId;
-		$this->apiParas["agreement_id"] = $agreementId;
+		$this->agreementId              = $agreementId;
+		$this->apiParas['agreement_id'] = $agreementId;
 	}
 
 	public function getAgreementId()
@@ -63,8 +69,8 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setBindAccountNo($bindAccountNo)
 	{
-		$this->bindAccountNo = $bindAccountNo;
-		$this->apiParas["bind_account_no"] = $bindAccountNo;
+		$this->bindAccountNo               = $bindAccountNo;
+		$this->apiParas['bind_account_no'] = $bindAccountNo;
 	}
 
 	public function getBindAccountNo()
@@ -74,8 +80,8 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setBizContent($bizContent)
 	{
-		$this->bizContent = $bizContent;
-		$this->apiParas["biz_content"] = $bizContent;
+		$this->bizContent              = $bizContent;
+		$this->apiParas['biz_content'] = $bizContent;
 	}
 
 	public function getBizContent()
@@ -85,8 +91,8 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setDisplayName($displayName)
 	{
-		$this->displayName = $displayName;
-		$this->apiParas["display_name"] = $displayName;
+		$this->displayName              = $displayName;
+		$this->apiParas['display_name'] = $displayName;
 	}
 
 	public function getDisplayName()
@@ -96,8 +102,8 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setFromUserId($fromUserId)
 	{
-		$this->fromUserId = $fromUserId;
-		$this->apiParas["from_user_id"] = $fromUserId;
+		$this->fromUserId               = $fromUserId;
+		$this->apiParas['from_user_id'] = $fromUserId;
 	}
 
 	public function getFromUserId()
@@ -107,8 +113,8 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setRealName($realName)
 	{
-		$this->realName = $realName;
-		$this->apiParas["real_name"] = $realName;
+		$this->realName              = $realName;
+		$this->apiParas['real_name'] = $realName;
 	}
 
 	public function getRealName()
@@ -118,12 +124,12 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.mobile.public.account.add";
+		return 'alipay.mobile.public.account.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -133,7 +139,7 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -178,7 +184,7 @@ class MobilePublicAccountAddRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -188,14 +194,11 @@ class MobilePublicAccountAddRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

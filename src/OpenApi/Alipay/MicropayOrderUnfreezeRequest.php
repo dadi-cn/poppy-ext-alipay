@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.micropay.order.unfreeze request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-06-06 17:54:23
  */
-class MicropayOrderUnfreezeRequest extends Request
+class MicropayOrderUnfreezeRequest
 {
-	/** 
+	/**
 	 * 冻结资金流水号,在创建资金订单时支付宝返回的流水号
 	 **/
 	private $alipayOrderNo;
 	
-	/** 
+	/**
 	 * 冻结备注
 	 **/
 	private $memo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAlipayOrderNo($alipayOrderNo)
 	{
-		$this->alipayOrderNo = $alipayOrderNo;
-		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
+		$this->alipayOrderNo               = $alipayOrderNo;
+		$this->apiParas['alipay_order_no'] = $alipayOrderNo;
 	}
 
 	public function getAlipayOrderNo()
@@ -43,8 +49,8 @@ class MicropayOrderUnfreezeRequest extends Request
 
 	public function setMemo($memo)
 	{
-		$this->memo = $memo;
-		$this->apiParas["memo"] = $memo;
+		$this->memo             = $memo;
+		$this->apiParas['memo'] = $memo;
 	}
 
 	public function getMemo()
@@ -54,12 +60,12 @@ class MicropayOrderUnfreezeRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.micropay.order.unfreeze";
+		return 'alipay.micropay.order.unfreeze';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class MicropayOrderUnfreezeRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class MicropayOrderUnfreezeRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class MicropayOrderUnfreezeRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

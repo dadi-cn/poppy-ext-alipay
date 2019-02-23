@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.trust.user.auth.send request
@@ -8,27 +8,33 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2015-05-15 09:36:22
  */
-class TrustUserAuthSendRequest extends Request
+class TrustUserAuthSendRequest
 {
-	/** 
+	/**
 	 * 申请授权的用户信息
 	 **/
 	private $aliTrustUserInfo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAliTrustUserInfo($aliTrustUserInfo)
 	{
-		$this->aliTrustUserInfo = $aliTrustUserInfo;
-		$this->apiParas["ali_trust_user_info"] = $aliTrustUserInfo;
+		$this->aliTrustUserInfo                = $aliTrustUserInfo;
+		$this->apiParas['ali_trust_user_info'] = $aliTrustUserInfo;
 	}
 
 	public function getAliTrustUserInfo()
@@ -38,12 +44,12 @@ class TrustUserAuthSendRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.trust.user.auth.send";
+		return 'alipay.trust.user.auth.send';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -53,7 +59,7 @@ class TrustUserAuthSendRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -98,7 +104,7 @@ class TrustUserAuthSendRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -108,14 +114,11 @@ class TrustUserAuthSendRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

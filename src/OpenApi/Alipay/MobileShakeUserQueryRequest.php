@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.mobile.shake.user.query request
@@ -8,14 +8,14 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-01-03 16:35:37
  */
-class MobileShakeUserQueryRequest extends Request
+class MobileShakeUserQueryRequest
 {
-	/** 
+	/**
 	 * 动态ID
 	 **/
 	private $dynamicId;
 	
-	/** 
+	/**
 	 * 动态ID类型：
 wave_code：声波
 qr_code：二维码
@@ -23,20 +23,26 @@ bar_code：条码
 	 **/
 	private $dynamicIdType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setDynamicId($dynamicId)
 	{
-		$this->dynamicId = $dynamicId;
-		$this->apiParas["dynamic_id"] = $dynamicId;
+		$this->dynamicId              = $dynamicId;
+		$this->apiParas['dynamic_id'] = $dynamicId;
 	}
 
 	public function getDynamicId()
@@ -46,8 +52,8 @@ bar_code：条码
 
 	public function setDynamicIdType($dynamicIdType)
 	{
-		$this->dynamicIdType = $dynamicIdType;
-		$this->apiParas["dynamic_id_type"] = $dynamicIdType;
+		$this->dynamicIdType               = $dynamicIdType;
+		$this->apiParas['dynamic_id_type'] = $dynamicIdType;
 	}
 
 	public function getDynamicIdType()
@@ -57,12 +63,12 @@ bar_code：条码
 
 	public function getApiMethodName()
 	{
-		return "alipay.mobile.shake.user.query";
+		return 'alipay.mobile.shake.user.query';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -72,7 +78,7 @@ bar_code：条码
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -117,7 +123,7 @@ bar_code：条码
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -127,14 +133,11 @@ bar_code：条码
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

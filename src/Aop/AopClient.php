@@ -10,6 +10,7 @@ use Poppy\Framework\Classes\Traits\AppTrait;
 class AopClient
 {
 	use AppTrait;
+
 	/**
 	 * @var string 应用ID
 	 */
@@ -374,7 +375,7 @@ class AopClient
 			foreach ($postFields as $k => $v) {
 				if ('@' != substr($v, 0, 1)) //判断是不是文件上传
 				{
-					$postBodyString .= "$k=" . urlencode($this->charset($v, $this->postCharset)) . '&';
+					$postBodyString  .= "$k=" . urlencode($this->charset($v, $this->postCharset)) . '&';
 					$encodeArray[$k] = $this->charset($v, $this->postCharset);
 				}
 				else //文件上传用multipart/form-data，否则用www-form-urlencoded
@@ -406,12 +407,12 @@ class AopClient
 		if (curl_errno($ch)) {
 			throw new \Exception(curl_error($ch), 0);
 		}
-		 
-			$httpStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-			if (200 !== $httpStatusCode) {
-				throw new \Exception($response, $httpStatusCode);
-			}
-		
+
+		$httpStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		if (200 !== $httpStatusCode) {
+			throw new \Exception($response, $httpStatusCode);
+		}
+
 		curl_close($ch);
 
 		return $response;
@@ -430,9 +431,9 @@ class AopClient
 
 	/**
 	 * 开始执行
-	 * @param Request $request
-	 * @param null    $authToken
-	 * @param null    $appInfoAuthToken
+	 * @param object $request
+	 * @param null   $authToken
+	 * @param null   $appInfoAuthToken
 	 * @return bool|mixed|\SimpleXMLElement
 	 * @throws \Exception
 	 * @author Antonio
@@ -640,8 +641,8 @@ class AopClient
 			if (isset($rInnerObject->sub_code)) {
 				return $rInnerObject->sub_code;
 			}
-			 
-				return null;
+
+			return null;
 		}
 		elseif ('xml' == $format) {
 			// xml格式sub_code在同一层级
@@ -688,8 +689,8 @@ class AopClient
 		elseif ($errorIndex > 0) {
 			return $this->parserJSONSource($responseContent, $this->ERROR_RESPONSE, $errorIndex);
 		}
-		 
-			return null;
+
+		return null;
 	}
 
 	/**
@@ -759,8 +760,8 @@ class AopClient
 		elseif ($errorIndex > 0) {
 			return $this->parserXMLSource($responseContent, $this->ERROR_RESPONSE, $errorIndex);
 		}
-		 
-			return null;
+
+		return null;
 	}
 
 	/**
@@ -854,7 +855,7 @@ class AopClient
 
 	/**
 	 * 设置编码格式
-	 * @param Request $request
+	 * @param \stdClass $request
 	 * @author Antonio
 	 */
 	private function setupCharsets($request)
@@ -905,8 +906,8 @@ class AopClient
 		elseif ($errorIndex > 0) {
 			return $this->parserEncryptJSONItem($responseContent, $this->ERROR_RESPONSE, $errorIndex);
 		}
-		 
-			return null;
+
+		return null;
 	}
 
 	private function parserEncryptJSONItem($responseContent, $nodeName, $nodeIndex)
@@ -973,8 +974,8 @@ class AopClient
 		elseif ($errorIndex > 0) {
 			return $this->parserEncryptXMLItem($responseContent, $this->ERROR_RESPONSE, $errorIndex);
 		}
-		 
-			return null;
+
+		return null;
 	}
 
 	/**
@@ -1015,12 +1016,12 @@ class AopClient
 
 	/**
 	 * 页面提交执行方法
-	 * @param Request $request     跳转类接口的request
-	 * @param string  $http_method 提交方式。两个值可选：post、get
+	 * @param object $request     跳转类接口的request
+	 * @param string $http_method 提交方式。两个值可选：post、get
 	 * @return string 构建好的、签名后的最终跳转URL（GET）或String形式的form（POST）
 	 * @throws \Exception
 	 */
-	public function pageExecute($request, $http_method = 'POST')
+	public function pageExecute($request, $http_method = 'POST'): string
 	{
 		$this->setupCharsets($request);
 
@@ -1090,9 +1091,9 @@ class AopClient
 
 			return $requestUrl;
 		}
-		 
-			//拼接表单字符串
-			return $this->buildRequestForm($totalParams);
+
+		//拼接表单字符串
+		return $this->buildRequestForm($totalParams);
 	}
 
 	public function printDebug($content)
@@ -1209,11 +1210,11 @@ class AopClient
 
 	/**
 	 * 生成用于调用收银台SDK的字符串
-	 * @param Request $request SDK接口的请求参数对象
+	 * @param object $request SDK接口的请求参数对象
 	 * @return string
 	 * @author guofa.tgf
 	 */
-	public function sdkExecute($request)
+	public function sdkExecute($request): string
 	{
 		$this->setupCharsets($request);
 
@@ -1235,7 +1236,7 @@ class AopClient
 		$dict                  = $request->getApiParas();
 		$params['biz_content'] = $dict['biz_content'];
 
-		ksort($params);
+		ksort($params, SORT_STRING);
 
 		$params['sign'] = $this->generateSign($params, $this->signType);
 

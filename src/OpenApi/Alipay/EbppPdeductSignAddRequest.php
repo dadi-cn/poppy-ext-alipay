@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ebpp.pdeduct.sign.add request
@@ -8,25 +8,25 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2018-05-16 11:50:00
  */
-class EbppPdeductSignAddRequest extends Request
+class EbppPdeductSignAddRequest
 {
-	/** 
+	/**
 	 * 机构签约代扣来源渠道
 PUBLICPLATFORM：服务窗
 	 **/
 	private $agentChannel;
 	
-	/** 
+	/**
 	 * 从服务窗发起则为publicId的值
 	 **/
 	private $agentCode;
 	
-	/** 
+	/**
 	 * 户号，机构针对于每户的水、电都会有唯一的标识户号
 	 **/
 	private $billKey;
 	
-	/** 
+	/**
 	 * 业务类型。
 JF：缴水、电、燃气、固话宽带、有线电视、交通罚款费用
 WUYE：缴物业费
@@ -36,24 +36,24 @@ IND: 保险
 	 **/
 	private $bizType;
 	
-	/** 
+	/**
 	 * 支付宝缴费系统中的出账机构ID
 	 **/
 	private $chargeInst;
 	
-	/** 
+	/**
 	 * 代扣产品码, 由技术同学分配。 目前在缴费业务场景中，传入INST_DIRECT_DEDUCT; 在保险业务场景中, 传入INSURANCE_MERCHANT_DEDUCT
 	 **/
 	private $deductProdCode;
 	
-	/** 
+	/**
 	 * 签约类型可为空
 	 **/
 	private $deductType;
 	
-	/** 
-	 * 外部用户实名认证相关信息, 用于做签约时的实名校验。 
-注： 
+	/**
+	 * 外部用户实名认证相关信息, 用于做签约时的实名校验。
+注：
 
 name: 姓名
 cert_type: 身份证：IDENTITY_CARD、护照：PASSPORT、军官证：OFFICER_CARD、士兵证：SOLDIER_CARD、户口本：HOKOU等
@@ -64,47 +64,47 @@ min_age: 允许的最小买家年龄,min_age为整数，必须大于等于0.
 	 **/
 	private $extUserInfo;
 	
-	/** 
+	/**
 	 * 扩展字段
 	 **/
 	private $extendField;
 	
-	/** 
+	/**
 	 * 通知方式设置，可为空
 	 **/
 	private $notifyConfig;
 	
-	/** 
+	/**
 	 * 外部产生的协议ID
 	 **/
 	private $outAgreementId;
 	
-	/** 
+	/**
 	 * 户名，户主真实姓名
 	 **/
 	private $ownerName;
 	
-	/** 
+	/**
 	 * 支付工具设置，目前可为空
 	 **/
 	private $payConfig;
 	
-	/** 
+	/**
 	 * 用户签约时，跳转到支付宝独立密码校验页面，校验成功后会将token和对应的用户ID缓存下来，然后跳回到机构页面生成token带回给机构，机构签约时必须传入token
 	 **/
 	private $payPasswordToken;
 	
-	/** 
+	/**
 	 * 商户ID
 	 **/
 	private $pid;
 	
-	/** 
+	/**
 	 * 签约到期时间。空表示无限期，一期固定传空。
 	 **/
 	private $signExpireDate;
 	
-	/** 
+	/**
 	 * 业务子类型。
 WATER：缴水费
 ELECTRIC：缴电费
@@ -115,31 +115,37 @@ TRAFFIC：缴交通罚款
 WUYE：缴物业费
 HK：信用卡还款
 CZ：手机充值
-CAR：车险 
-LIFE：寿险 
+CAR：车险
+LIFE：寿险
 HEALTH：健康险
 	 **/
 	private $subBizType;
 	
-	/** 
+	/**
 	 * 用户ID
 	 **/
 	private $userId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAgentChannel($agentChannel)
 	{
-		$this->agentChannel = $agentChannel;
-		$this->apiParas["agent_channel"] = $agentChannel;
+		$this->agentChannel              = $agentChannel;
+		$this->apiParas['agent_channel'] = $agentChannel;
 	}
 
 	public function getAgentChannel()
@@ -149,8 +155,8 @@ HEALTH：健康险
 
 	public function setAgentCode($agentCode)
 	{
-		$this->agentCode = $agentCode;
-		$this->apiParas["agent_code"] = $agentCode;
+		$this->agentCode              = $agentCode;
+		$this->apiParas['agent_code'] = $agentCode;
 	}
 
 	public function getAgentCode()
@@ -160,8 +166,8 @@ HEALTH：健康险
 
 	public function setBillKey($billKey)
 	{
-		$this->billKey = $billKey;
-		$this->apiParas["bill_key"] = $billKey;
+		$this->billKey              = $billKey;
+		$this->apiParas['bill_key'] = $billKey;
 	}
 
 	public function getBillKey()
@@ -171,8 +177,8 @@ HEALTH：健康险
 
 	public function setBizType($bizType)
 	{
-		$this->bizType = $bizType;
-		$this->apiParas["biz_type"] = $bizType;
+		$this->bizType              = $bizType;
+		$this->apiParas['biz_type'] = $bizType;
 	}
 
 	public function getBizType()
@@ -182,8 +188,8 @@ HEALTH：健康险
 
 	public function setChargeInst($chargeInst)
 	{
-		$this->chargeInst = $chargeInst;
-		$this->apiParas["charge_inst"] = $chargeInst;
+		$this->chargeInst              = $chargeInst;
+		$this->apiParas['charge_inst'] = $chargeInst;
 	}
 
 	public function getChargeInst()
@@ -193,8 +199,8 @@ HEALTH：健康险
 
 	public function setDeductProdCode($deductProdCode)
 	{
-		$this->deductProdCode = $deductProdCode;
-		$this->apiParas["deduct_prod_code"] = $deductProdCode;
+		$this->deductProdCode               = $deductProdCode;
+		$this->apiParas['deduct_prod_code'] = $deductProdCode;
 	}
 
 	public function getDeductProdCode()
@@ -204,8 +210,8 @@ HEALTH：健康险
 
 	public function setDeductType($deductType)
 	{
-		$this->deductType = $deductType;
-		$this->apiParas["deduct_type"] = $deductType;
+		$this->deductType              = $deductType;
+		$this->apiParas['deduct_type'] = $deductType;
 	}
 
 	public function getDeductType()
@@ -215,8 +221,8 @@ HEALTH：健康险
 
 	public function setExtUserInfo($extUserInfo)
 	{
-		$this->extUserInfo = $extUserInfo;
-		$this->apiParas["ext_user_info"] = $extUserInfo;
+		$this->extUserInfo               = $extUserInfo;
+		$this->apiParas['ext_user_info'] = $extUserInfo;
 	}
 
 	public function getExtUserInfo()
@@ -226,8 +232,8 @@ HEALTH：健康险
 
 	public function setExtendField($extendField)
 	{
-		$this->extendField = $extendField;
-		$this->apiParas["extend_field"] = $extendField;
+		$this->extendField              = $extendField;
+		$this->apiParas['extend_field'] = $extendField;
 	}
 
 	public function getExtendField()
@@ -237,8 +243,8 @@ HEALTH：健康险
 
 	public function setNotifyConfig($notifyConfig)
 	{
-		$this->notifyConfig = $notifyConfig;
-		$this->apiParas["notify_config"] = $notifyConfig;
+		$this->notifyConfig              = $notifyConfig;
+		$this->apiParas['notify_config'] = $notifyConfig;
 	}
 
 	public function getNotifyConfig()
@@ -248,8 +254,8 @@ HEALTH：健康险
 
 	public function setOutAgreementId($outAgreementId)
 	{
-		$this->outAgreementId = $outAgreementId;
-		$this->apiParas["out_agreement_id"] = $outAgreementId;
+		$this->outAgreementId               = $outAgreementId;
+		$this->apiParas['out_agreement_id'] = $outAgreementId;
 	}
 
 	public function getOutAgreementId()
@@ -259,8 +265,8 @@ HEALTH：健康险
 
 	public function setOwnerName($ownerName)
 	{
-		$this->ownerName = $ownerName;
-		$this->apiParas["owner_name"] = $ownerName;
+		$this->ownerName              = $ownerName;
+		$this->apiParas['owner_name'] = $ownerName;
 	}
 
 	public function getOwnerName()
@@ -270,8 +276,8 @@ HEALTH：健康险
 
 	public function setPayConfig($payConfig)
 	{
-		$this->payConfig = $payConfig;
-		$this->apiParas["pay_config"] = $payConfig;
+		$this->payConfig              = $payConfig;
+		$this->apiParas['pay_config'] = $payConfig;
 	}
 
 	public function getPayConfig()
@@ -281,8 +287,8 @@ HEALTH：健康险
 
 	public function setPayPasswordToken($payPasswordToken)
 	{
-		$this->payPasswordToken = $payPasswordToken;
-		$this->apiParas["pay_password_token"] = $payPasswordToken;
+		$this->payPasswordToken               = $payPasswordToken;
+		$this->apiParas['pay_password_token'] = $payPasswordToken;
 	}
 
 	public function getPayPasswordToken()
@@ -292,8 +298,8 @@ HEALTH：健康险
 
 	public function setPid($pid)
 	{
-		$this->pid = $pid;
-		$this->apiParas["pid"] = $pid;
+		$this->pid             = $pid;
+		$this->apiParas['pid'] = $pid;
 	}
 
 	public function getPid()
@@ -303,8 +309,8 @@ HEALTH：健康险
 
 	public function setSignExpireDate($signExpireDate)
 	{
-		$this->signExpireDate = $signExpireDate;
-		$this->apiParas["sign_expire_date"] = $signExpireDate;
+		$this->signExpireDate               = $signExpireDate;
+		$this->apiParas['sign_expire_date'] = $signExpireDate;
 	}
 
 	public function getSignExpireDate()
@@ -314,8 +320,8 @@ HEALTH：健康险
 
 	public function setSubBizType($subBizType)
 	{
-		$this->subBizType = $subBizType;
-		$this->apiParas["sub_biz_type"] = $subBizType;
+		$this->subBizType               = $subBizType;
+		$this->apiParas['sub_biz_type'] = $subBizType;
 	}
 
 	public function getSubBizType()
@@ -325,8 +331,8 @@ HEALTH：健康险
 
 	public function setUserId($userId)
 	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+		$this->userId              = $userId;
+		$this->apiParas['user_id'] = $userId;
 	}
 
 	public function getUserId()
@@ -336,12 +342,12 @@ HEALTH：健康险
 
 	public function getApiMethodName()
 	{
-		return "alipay.ebpp.pdeduct.sign.add";
+		return 'alipay.ebpp.pdeduct.sign.add';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -351,7 +357,7 @@ HEALTH：健康险
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -396,7 +402,7 @@ HEALTH：健康险
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -406,14 +412,11 @@ HEALTH：健康险
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

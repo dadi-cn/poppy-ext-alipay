@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.micropay.order.freezepayurl.get request
@@ -8,27 +8,33 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-06-06 17:52:18
  */
-class MicropayOrderFreezepayurlGetRequest extends Request
+class MicropayOrderFreezepayurlGetRequest
 {
-	/** 
+	/**
 	 * 冻结订单号,创建冻结订单时支付宝返回的
 	 **/
 	private $alipayOrderNo;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setAlipayOrderNo($alipayOrderNo)
 	{
-		$this->alipayOrderNo = $alipayOrderNo;
-		$this->apiParas["alipay_order_no"] = $alipayOrderNo;
+		$this->alipayOrderNo               = $alipayOrderNo;
+		$this->apiParas['alipay_order_no'] = $alipayOrderNo;
 	}
 
 	public function getAlipayOrderNo()
@@ -38,12 +44,12 @@ class MicropayOrderFreezepayurlGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.micropay.order.freezepayurl.get";
+		return 'alipay.micropay.order.freezepayurl.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -53,7 +59,7 @@ class MicropayOrderFreezepayurlGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -98,7 +104,7 @@ class MicropayOrderFreezepayurlGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -108,14 +114,11 @@ class MicropayOrderFreezepayurlGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

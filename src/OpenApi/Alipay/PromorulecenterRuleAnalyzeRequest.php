@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.promorulecenter.rule.analyze request
@@ -8,37 +8,43 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-10-09 17:38:20
  */
-class PromorulecenterRuleAnalyzeRequest extends Request
+class PromorulecenterRuleAnalyzeRequest
 {
-	/** 
+	/**
 	 * 业务id
 	 **/
 	private $bizId;
 	
-	/** 
+	/**
 	 * 规则id
 	 **/
 	private $ruleUuid;
 	
-	/** 
+	/**
 	 * 支付宝用户id
 	 **/
 	private $userId;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setBizId($bizId)
 	{
-		$this->bizId = $bizId;
-		$this->apiParas["biz_id"] = $bizId;
+		$this->bizId              = $bizId;
+		$this->apiParas['biz_id'] = $bizId;
 	}
 
 	public function getBizId()
@@ -48,8 +54,8 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
 	public function setRuleUuid($ruleUuid)
 	{
-		$this->ruleUuid = $ruleUuid;
-		$this->apiParas["rule_uuid"] = $ruleUuid;
+		$this->ruleUuid              = $ruleUuid;
+		$this->apiParas['rule_uuid'] = $ruleUuid;
 	}
 
 	public function getRuleUuid()
@@ -59,8 +65,8 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
 	public function setUserId($userId)
 	{
-		$this->userId = $userId;
-		$this->apiParas["user_id"] = $userId;
+		$this->userId              = $userId;
+		$this->apiParas['user_id'] = $userId;
 	}
 
 	public function getUserId()
@@ -70,12 +76,12 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.promorulecenter.rule.analyze";
+		return 'alipay.promorulecenter.rule.analyze';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -85,7 +91,7 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -130,7 +136,7 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -140,14 +146,11 @@ class PromorulecenterRuleAnalyzeRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

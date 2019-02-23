@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.ebpp.bill.get request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2017-06-30 10:54:34
  */
-class EbppBillGetRequest extends Request
+class EbppBillGetRequest
 {
-	/** 
+	/**
 	 * 输出机构的业务流水号，需要保证唯一性。
 	 **/
 	private $merchantOrderNo;
 	
-	/** 
+	/**
 	 * 支付宝订单类型。公共事业缴纳JF,信用卡还款HK
 	 **/
 	private $orderType;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setMerchantOrderNo($merchantOrderNo)
 	{
-		$this->merchantOrderNo = $merchantOrderNo;
-		$this->apiParas["merchant_order_no"] = $merchantOrderNo;
+		$this->merchantOrderNo               = $merchantOrderNo;
+		$this->apiParas['merchant_order_no'] = $merchantOrderNo;
 	}
 
 	public function getMerchantOrderNo()
@@ -43,8 +49,8 @@ class EbppBillGetRequest extends Request
 
 	public function setOrderType($orderType)
 	{
-		$this->orderType = $orderType;
-		$this->apiParas["order_type"] = $orderType;
+		$this->orderType              = $orderType;
+		$this->apiParas['order_type'] = $orderType;
 	}
 
 	public function getOrderType()
@@ -54,12 +60,12 @@ class EbppBillGetRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.ebpp.bill.get";
+		return 'alipay.ebpp.bill.get';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class EbppBillGetRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class EbppBillGetRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class EbppBillGetRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }

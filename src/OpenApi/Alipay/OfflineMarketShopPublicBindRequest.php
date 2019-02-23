@@ -1,6 +1,6 @@
 <?php namespace Poppy\Extension\Alipay\OpenApi\Alipay;
 
-use Poppy\Extension\Alipay\OpenApi\Request;
+
 
 /**
  * ALIPAY API: alipay.offline.market.shop.public.bind request
@@ -8,32 +8,38 @@ use Poppy\Extension\Alipay\OpenApi\Request;
  * @author auto create
  * @since 1.0, 2016-07-29 19:57:30
  */
-class OfflineMarketShopPublicBindRequest extends Request
+class OfflineMarketShopPublicBindRequest
 {
-	/** 
+	/**
 	 * 是否绑定所有门店，T表示绑定所有门店，F表示绑定指定shop_ids的门店
 	 **/
 	private $isAll;
 	
-	/** 
+	/**
 	 * 门店ID列表，一次最多绑定500个门店，is_all为T时表示绑定本商家下所有门店，即门店列表无需通过本参数shop_ids传入，由系统自动查询;is_all为F时该参数为必填
 	 **/
 	private $shopIds;
 
-	private $apiParas = array();
-	private $terminalType;
-	private $terminalInfo;
-	private $prodCode;
-	private $apiVersion="1.0";
-	private $notifyUrl;
-	private $returnUrl;
-    private $needEncrypt=false;
+	private $apiParas = [];
 
+	private $terminalType;
+
+	private $terminalInfo;
+
+	private $prodCode;
+
+	private $apiVersion = '1.0';
+
+	private $notifyUrl;
+
+	private $returnUrl;
+
+	private $needEncrypt = false;
 	
 	public function setIsAll($isAll)
 	{
-		$this->isAll = $isAll;
-		$this->apiParas["is_all"] = $isAll;
+		$this->isAll              = $isAll;
+		$this->apiParas['is_all'] = $isAll;
 	}
 
 	public function getIsAll()
@@ -43,8 +49,8 @@ class OfflineMarketShopPublicBindRequest extends Request
 
 	public function setShopIds($shopIds)
 	{
-		$this->shopIds = $shopIds;
-		$this->apiParas["shop_ids"] = $shopIds;
+		$this->shopIds              = $shopIds;
+		$this->apiParas['shop_ids'] = $shopIds;
 	}
 
 	public function getShopIds()
@@ -54,12 +60,12 @@ class OfflineMarketShopPublicBindRequest extends Request
 
 	public function getApiMethodName()
 	{
-		return "alipay.offline.market.shop.public.bind";
+		return 'alipay.offline.market.shop.public.bind';
 	}
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -69,7 +75,7 @@ class OfflineMarketShopPublicBindRequest extends Request
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -114,7 +120,7 @@ class OfflineMarketShopPublicBindRequest extends Request
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -124,14 +130,11 @@ class OfflineMarketShopPublicBindRequest extends Request
 
   public function setNeedEncrypt($needEncrypt)
   {
-
-     $this->needEncrypt=$needEncrypt;
-
+	 $this->needEncrypt = $needEncrypt;
   }
 
   public function getNeedEncrypt()
   {
-    return $this->needEncrypt;
+	return $this->needEncrypt;
   }
-
 }
