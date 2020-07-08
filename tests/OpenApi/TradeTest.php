@@ -1,6 +1,7 @@
 <?php namespace Poppy\Extension\Alipay\Tests\OpenApi;
 
 use Carbon\Carbon;
+use Exception;
 use Poppy\Extension\Alipay\Aop\AopClient;
 use Poppy\Extension\Alipay\OpenApi\Trade\AppPay;
 use Poppy\Framework\Application\TestCase;
@@ -21,7 +22,7 @@ class TradeTest extends TestCase
 	private $rsaPublicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3LqVQEmw38EBpZLFwaT2RFmziS3klluT7ekHfdda4t7q87MueVN2I+VBoE/XDTYZ67HZEHmOAFTxFYwAXWuWKczxo54Bg+SaWw+qWhWxrIz2dmbDCEsTfWVIncBnHGaMK9ZkAvs+waMap77WXTFsw9Ak3eSoeLkLkxfhzjEvk/elLyLThngfkfoKHegw5W5tcfjh5eWGHmRxTk5qVHTB6f9DEyBUqaLpu2kjX4TNoSTgDgnEBAeGE4SxY3FfYTj/Zo5blZxQ3H+IkjCDuV2C9y70CvtP8T8uPjddGq5mqV0XYSwv10rsyNW5VEiJSha4i4ESmsg2H2QUP/dT8J7Q0wIDAQAB';
 
 	/**
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function testAppPay()
 	{

@@ -81,13 +81,13 @@ public function webNotify()
 }
 
     // 判断通知类型。
-    switch (Input::get('trade_status')) {
+    switch (Request::get('trade_status')) {
         case 'TRADE_SUCCESS':
         case 'TRADE_FINISHED':
             // TODO: 支付成功，取得订单号进行其它相关操作。
             Log::debug('Alipay notify post data verification success.', [
-                'out_trade_no' => Input::get('out_trade_no'),
-                'trade_no' => Input::get('trade_no')
+                'out_trade_no' => Request::get('out_trade_no'),
+                'trade_no' => Request::get('trade_no')
             ]);
         break;
     }
@@ -108,13 +108,13 @@ public function webReturn()
     }
 
     // 判断通知类型。
-    switch (Input::get('trade_status')) {
+    switch (Request::get('trade_status')) {
         case 'TRADE_SUCCESS':
         case 'TRADE_FINISHED':
             // TODO: 支付成功，取得订单号进行其它相关操作。
             Log::debug('Alipay notify get data verification success.', [
-                'out_trade_no' => Input::get('out_trade_no'),
-                'trade_no' => Input::get('trade_no')
+                'out_trade_no' => Request::get('out_trade_no'),
+                'trade_no' => Request::get('trade_no')
             ]);
             break;
     }

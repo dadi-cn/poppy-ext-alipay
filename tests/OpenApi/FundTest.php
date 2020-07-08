@@ -1,6 +1,7 @@
 <?php namespace Poppy\Extension\Alipay\Tests\OpenApi;
 
 use Carbon\Carbon;
+use Exception;
 use Poppy\Extension\Alipay\Aop\AopClient;
 use Poppy\Extension\Alipay\OpenApi\Fund\TransToAccountTransfer;
 use Poppy\Framework\Application\TestCase;
@@ -24,7 +25,7 @@ class FundTest extends TestCase
 	private $realname = '沙箱环境';
 
 	/**
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function testTransToAccountTransfer()
 	{
@@ -64,7 +65,7 @@ class FundTest extends TestCase
 	}
 
 	/**
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function testTransToAccountTransferError()
 	{

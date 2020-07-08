@@ -1,7 +1,12 @@
 <?php namespace Poppy\Extension\Alipay\Aop;
 
+use CURLFile;
+use Exception;
+use Log;
 use Poppy\Extension\Alipay\OpenApi\Request;
 use Poppy\Framework\Classes\Traits\AppTrait;
+use SimpleXMLElement;
+use stdClass;
 
 /**
  * Aop = Ali Open Platform
@@ -357,7 +362,7 @@ class AopClient
 	 * @param      $url
 	 * @param null $postFields
 	 * @return mixed
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	protected function curl($url, $postFields = null)
 	{
@@ -381,7 +386,7 @@ class AopClient
 				else //文件上传用multipart/form-data，否则用www-form-urlencoded
 				{
 					$postMultipart   = true;
-					$encodeArray[$k] = new \CURLFile(substr($v, 1));
+					$encodeArray[$k] = new CURLFile(substr($v, 1));
 				}
 			}
 			unset($k, $v);
@@ -405,12 +410,12 @@ class AopClient
 		$response = curl_exec($ch);
 
 		if (curl_errno($ch)) {
-			throw new \Exception(curl_error($ch), 0);
+			throw new Exception(curl_error($ch), 0);
 		}
 
 		$httpStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		if (200 !== $httpStatusCode) {
-			throw new \Exception($response, $httpStatusCode);
+			throw new Exception($response, $httpStatusCode);
 		}
 
 		curl_close($ch);
@@ -434,8 +439,8 @@ class AopClient
 	 * @param object $request
 	 * @param null   $authToken
 	 * @param null   $appInfoAuthToken
-	 * @return bool|mixed|\SimpleXMLElement
-	 * @throws \Exception
+	 * @return bool|mixed|SimpleXMLElement
+	 * @throws Exception
 	 * @author Antonio
 	 */
 	public function execute($request, $authToken = null, $appInfoAuthToken = null)
@@ -445,7 +450,7 @@ class AopClient
 		//  如果两者编码不一致，会出现签名验签或者乱码
 		if (strcasecmp($this->fileCharset, $this->postCharset)) {
 			// writeLog("本地文件字符集编码与表单提交编码不一致，请务必设置成一样，属性名分别为postCharset!");
-			throw new \Exception('文件编码：[' . $this->fileCharset . '] 与表单提交编码：[' . $this->postCharset . ']两者不一致!');
+			throw new Exception('文件编码：[' . $this->fileCharset . '] 与表单提交编码：[' . $this->postCharset . ']两者不一致!');
 		}
 
 		$iv = null;
@@ -480,15 +485,15 @@ class AopClient
 			$sysParams['encrypt_type'] = $this->encryptType;
 
 			if ($this->checkEmpty($apiParams['biz_content'])) {
-				throw new \Exception(' api request Fail! The reason : encrypt request is not supperted!');
+				throw new Exception(' api request Fail! The reason : encrypt request is not supperted!');
 			}
 
 			if ($this->checkEmpty($this->encryptKey) || $this->checkEmpty($this->encryptType)) {
-				throw new \Exception(' encryptType and encryptKey must not null! ');
+				throw new Exception(' encryptType and encryptKey must not null! ');
 			}
 
 			if ('AES' != $this->encryptType) {
-				throw new \Exception('加密类型只支持AES');
+				throw new Exception('加密类型只支持AES');
 			}
 
 			// 执行加密
@@ -513,7 +518,7 @@ class AopClient
 		//发起HTTP请求
 		try {
 			$resp = $this->curl($requestUrl, $apiParams);
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			return $this->setError($e->getMessage());
 		}
 
@@ -542,7 +547,7 @@ class AopClient
 
 		//返回的HTTP文本不是标准JSON或者XML，记下错误日志
 		if (false === $respWellFormed) {
-			\Log::debug([$sysParams['method'], $requestUrl, 'HTTP_RESPONSE_NOT_WELL_FORMED', $resp]);
+			Log::debug([$sysParams['method'], $requestUrl, 'HTTP_RESPONSE_NOT_WELL_FORMED', $resp]);
 
 			return false;
 		}
@@ -820,13 +825,13 @@ class AopClient
 	 * @param $signData
 	 * @param $resp
 	 * @param $respObject
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function checkResponseSign($request, $signData, $resp, $respObject)
 	{
 		if (!$this->checkEmpty($this->alipayPublicKeyPath) || !$this->checkEmpty($this->alipayRsaPublicKeyString)) {
 			if ($signData == null || $this->checkEmpty($signData->sign) || $this->checkEmpty($signData->signSourceData)) {
-				throw new \Exception(' check sign Fail! The reason : signData is Empty');
+				throw new Exception(' check sign Fail! The reason : signData is Empty');
 			}
 
 			// 获取结果sub_code
@@ -842,11 +847,11 @@ class AopClient
 						$checkResult = $this->verify($signData->signSourceData, $signData->sign, $this->signType);
 
 						if (!$checkResult) {
-							throw new \Exception('check sign Fail! [sign=' . $signData->sign . ', signSourceData=' . $signData->signSourceData . ']');
+							throw new Exception('check sign Fail! [sign=' . $signData->sign . ', signSourceData=' . $signData->signSourceData . ']');
 						}
 					}
 					else {
-						throw new \Exception('check sign Fail! [sign=' . $signData->sign . ', signSourceData=' . $signData->signSourceData . ']');
+						throw new Exception('check sign Fail! [sign=' . $signData->sign . ', signSourceData=' . $signData->signSourceData . ']');
 					}
 				}
 			}
@@ -855,7 +860,7 @@ class AopClient
 
 	/**
 	 * 设置编码格式
-	 * @param \stdClass $request
+	 * @param stdClass $request
 	 * @author Antonio
 	 */
 	private function setupCharsets($request)
@@ -1019,7 +1024,7 @@ class AopClient
 	 * @param object $request     跳转类接口的request
 	 * @param string $http_method 提交方式。两个值可选：post、get
 	 * @return string 构建好的、签名后的最终跳转URL（GET）或String形式的form（POST）
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function pageExecute($request, $http_method = 'POST'): string
 	{
@@ -1027,7 +1032,7 @@ class AopClient
 
 		if (strcasecmp($this->fileCharset, $this->postCharset)) {
 			// writeLog("本地文件字符集编码与表单提交编码不一致，请务必设置成一样，属性名分别为postCharset!");
-			throw new \Exception('文件编码：[' . $this->fileCharset . '] 与表单提交编码：[' . $this->postCharset . ']两者不一致!');
+			throw new Exception('文件编码：[' . $this->fileCharset . '] 与表单提交编码：[' . $this->postCharset . ']两者不一致!');
 		}
 
 		$iv = null;
@@ -1061,15 +1066,15 @@ class AopClient
 			$sysParams['encrypt_type'] = $this->encryptType;
 
 			if ($this->checkEmpty($apiParams['biz_content'])) {
-				throw new \Exception(' api request Fail! The reason : encrypt request is not supperted!');
+				throw new Exception(' api request Fail! The reason : encrypt request is not supperted!');
 			}
 
 			if ($this->checkEmpty($this->encryptKey) || $this->checkEmpty($this->encryptType)) {
-				throw new \Exception(' encryptType and encryptKey must not null! ');
+				throw new Exception(' encryptType and encryptKey must not null! ');
 			}
 
 			if ('AES' != $this->encryptType) {
-				throw new \Exception('加密类型只支持AES');
+				throw new Exception('加密类型只支持AES');
 			}
 
 			// 执行加密

@@ -6,6 +6,9 @@
  * @author     Mark <zhaody901@126.com>
  * @copyright  Copyright (c) 2013-2015 Sour Lemon Team
  */
+
+use DOMDocument;
+
 class SdkPayment
 {
 	/** @type string 支付宝网关地址（新） */
@@ -680,7 +683,7 @@ class SdkPayment
 	{
 		$url = $this->__gateway_new . 'service=query_timestamp&partner=' . trim(strtolower($this->partner)) . '&_input_charset=' . trim(strtolower($this->_input_charset));
 
-		$doc = new \DOMDocument();
+		$doc = new DOMDocument();
 		$doc->load($url);
 		$itemEncrypt_key = $doc->getElementsByTagName('encrypt_key');
 		$encrypt_key     = $itemEncrypt_key->item(0)->nodeValue;
