@@ -1,7 +1,7 @@
 <?php namespace Poppy\Extension\Alipay\Aop;
 
 /**
- *   加密工具类
+ * 加密工具类, 此工具类仅仅用于 AopClient 使用
  */
 class AopEncrypt
 {
