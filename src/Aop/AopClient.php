@@ -3,7 +3,6 @@
 use CURLFile;
 use Exception;
 use Log;
-use Poppy\Extension\Alipay\OpenApi\Request;
 use Poppy\Framework\Classes\Traits\AppTrait;
 use SimpleXMLElement;
 use stdClass;
@@ -11,6 +10,8 @@ use stdClass;
 /**
  * Aop = Ali Open Platform
  * 文档地址: https://docs.open.alipay.com/200
+ * @deprecated
+ * @see AopCertClient
  */
 class AopClient
 {
@@ -429,7 +430,7 @@ class AopClient
 	 */
 	protected function getMillisecond()
 	{
-		list($s1, $s2) = explode(' ', microtime());
+		[$s1, $s2] = explode(' ', microtime());
 
 		return (float) sprintf('%.0f', (floatval($s1) + floatval($s2)) * 1000);
 	}
@@ -614,7 +615,7 @@ class AopClient
 	}
 
 	/**
-	 * @param Request         $request
+	 * @param object          $request
 	 * @param                 $responseContent
 	 * @param                 $respObject
 	 * @param                 $format
@@ -675,7 +676,7 @@ class AopClient
 	}
 
 	/**
-	 * @param Request                  $request
+	 * @param object                   $request
 	 * @param                          $responseContent
 	 * @return null|string
 	 * @author Antonio
@@ -745,7 +746,7 @@ class AopClient
 	}
 
 	/**
-	 * @param Request                  $request
+	 * @param object                   $request
 	 * @param                          $responseContent
 	 * @return null|string
 	 */
@@ -892,7 +893,7 @@ class AopClient
 	}
 
 	/**
-	 * @param Request                  $request
+	 * @param object                   $request
 	 * @param                          $responseContent
 	 * @return EncryptParseItem|null
 	 * @author Antonio
@@ -958,7 +959,7 @@ class AopClient
 	}
 
 	/**
-	 * @param Request                  $request
+	 * @param object                   $request
 	 * @param                          $responseContent
 	 * @return EncryptParseItem|null
 	 * @author Antonio

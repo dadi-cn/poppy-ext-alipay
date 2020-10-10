@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Exception;
 use Poppy\Extension\Alipay\Aop\AopClient;
-use Poppy\Extension\Alipay\OpenApi\Fund\TransToAccountTransfer;
+use Poppy\Extension\Alipay\Aop\Request\AlipayFundTransToaccountTransferRequest;
 use Poppy\Framework\Application\TestCase;
 
 class FundTest extends TestCase
@@ -38,7 +38,7 @@ class FundTest extends TestCase
 		$aop->setRsaPrivateKey($this->rsaPrivateKey);
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
-		$request = new TransToAccountTransfer();
+		$request = new AlipayFundTransToaccountTransferRequest();
 		$data    = [
 			'out_biz_no'      => $this->genNo('SandboxFundTrans'),
 			'payee_type'      => 'ALIPAY_LOGONID',
@@ -78,7 +78,7 @@ class FundTest extends TestCase
 		$aop->setRsaPrivateKey($this->rsaPrivateKey);
 		// 请填写支付宝公钥，一行字符串
 		$aop->setRsaPublicKey($this->rsaPublicKey);
-		$request = new TransToAccountTransfer();
+		$request = new AlipayFundTransToaccountTransferRequest();
 
 		$data = [
 			'out_biz_no'      => $this->genNo('SandboxFundTrans'),
