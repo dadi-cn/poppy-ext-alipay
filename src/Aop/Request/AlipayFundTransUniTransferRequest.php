@@ -4,7 +4,8 @@
  * ALIPAY API: alipay.fund.trans.uni.transfer request
  *
  * @author auto create
- * @since 1.0, 2020-07-31 19:07:03
+ * @since  1.0, 2020-07-31 19:07:03
+ * @url https://opendocs.alipay.com/apis/api_28/alipay.fund.trans.uni.transfer/
  */
 class AlipayFundTransUniTransferRequest
 {
@@ -13,19 +14,19 @@ class AlipayFundTransUniTransferRequest
 	 **/
 	private $bizContent;
 
-	private $apiParas = array();
+	private $apiParas    = [];
 	private $terminalType;
 	private $terminalInfo;
 	private $prodCode;
-	private $apiVersion="1.0";
+	private $apiVersion  = "1.0";
 	private $notifyUrl;
 	private $returnUrl;
-	private $needEncrypt=false;
+	private $needEncrypt = false;
 
 
 	public function setBizContent($bizContent)
 	{
-		$this->bizContent = $bizContent;
+		$this->bizContent              = $bizContent;
 		$this->apiParas["biz_content"] = $bizContent;
 	}
 
@@ -41,7 +42,7 @@ class AlipayFundTransUniTransferRequest
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -51,7 +52,7 @@ class AlipayFundTransUniTransferRequest
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -96,7 +97,7 @@ class AlipayFundTransUniTransferRequest
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -107,7 +108,7 @@ class AlipayFundTransUniTransferRequest
 	public function setNeedEncrypt($needEncrypt)
 	{
 
-		$this->needEncrypt=$needEncrypt;
+		$this->needEncrypt = $needEncrypt;
 
 	}
 
