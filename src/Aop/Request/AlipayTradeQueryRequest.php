@@ -3,29 +3,30 @@
  * ALIPAY API: alipay.trade.query request
  *
  * @author auto create
- * @since 1.0, 2020-08-20 16:53:53
+ * @since  1.0, 2020-08-20 16:53:53
+ * @url https://opendocs.alipay.com/apis/api_1/alipay.trade.query
  */
 class AlipayTradeQueryRequest
 {
-	/** 
+	/**
 	 * 统一收单线下交易查询
-修改路由策略到R
+	 * 修改路由策略到R
 	 **/
 	private $bizContent;
 
-	private $apiParas = array();
+	private $apiParas    = [];
 	private $terminalType;
 	private $terminalInfo;
 	private $prodCode;
-	private $apiVersion="1.0";
+	private $apiVersion  = "1.0";
 	private $notifyUrl;
 	private $returnUrl;
-    private $needEncrypt=false;
+	private $needEncrypt = false;
 
-	
+
 	public function setBizContent($bizContent)
 	{
-		$this->bizContent = $bizContent;
+		$this->bizContent              = $bizContent;
 		$this->apiParas["biz_content"] = $bizContent;
 	}
 
@@ -41,7 +42,7 @@ class AlipayTradeQueryRequest
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -51,7 +52,7 @@ class AlipayTradeQueryRequest
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -96,7 +97,7 @@ class AlipayTradeQueryRequest
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -104,16 +105,16 @@ class AlipayTradeQueryRequest
 		return $this->apiVersion;
 	}
 
-  public function setNeedEncrypt($needEncrypt)
-  {
+	public function setNeedEncrypt($needEncrypt)
+	{
 
-     $this->needEncrypt=$needEncrypt;
+		$this->needEncrypt = $needEncrypt;
 
-  }
+	}
 
-  public function getNeedEncrypt()
-  {
-    return $this->needEncrypt;
-  }
+	public function getNeedEncrypt()
+	{
+		return $this->needEncrypt;
+	}
 
 }

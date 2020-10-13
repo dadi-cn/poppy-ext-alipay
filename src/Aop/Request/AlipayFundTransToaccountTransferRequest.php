@@ -2,29 +2,32 @@
 /**
  * ALIPAY API: alipay.fund.trans.toaccount.transfer request
  *
- * @author auto create
- * @since 1.0, 2019-12-17 20:57:45
+ * @author     auto create
+ * @since      1.0, 2019-12-17 20:57:45
+ * @deprecated 2020-10-13
+ * @see        AlipayFundTransUniTransferRequest
+ * @url        https://opendocs.alipay.com/apis/api_28/alipay.fund.trans.toaccount.transfer
  */
 class AlipayFundTransToaccountTransferRequest
 {
-	/** 
+	/**
 	 * 单笔转账到支付宝账户接口
 	 **/
 	private $bizContent;
 
-	private $apiParas = array();
+	private $apiParas    = [];
 	private $terminalType;
 	private $terminalInfo;
 	private $prodCode;
-	private $apiVersion="1.0";
+	private $apiVersion  = "1.0";
 	private $notifyUrl;
 	private $returnUrl;
-    private $needEncrypt=false;
+	private $needEncrypt = false;
 
-	
+
 	public function setBizContent($bizContent)
 	{
-		$this->bizContent = $bizContent;
+		$this->bizContent              = $bizContent;
 		$this->apiParas["biz_content"] = $bizContent;
 	}
 
@@ -40,7 +43,7 @@ class AlipayFundTransToaccountTransferRequest
 
 	public function setNotifyUrl($notifyUrl)
 	{
-		$this->notifyUrl=$notifyUrl;
+		$this->notifyUrl = $notifyUrl;
 	}
 
 	public function getNotifyUrl()
@@ -50,7 +53,7 @@ class AlipayFundTransToaccountTransferRequest
 
 	public function setReturnUrl($returnUrl)
 	{
-		$this->returnUrl=$returnUrl;
+		$this->returnUrl = $returnUrl;
 	}
 
 	public function getReturnUrl()
@@ -95,7 +98,7 @@ class AlipayFundTransToaccountTransferRequest
 
 	public function setApiVersion($apiVersion)
 	{
-		$this->apiVersion=$apiVersion;
+		$this->apiVersion = $apiVersion;
 	}
 
 	public function getApiVersion()
@@ -103,16 +106,16 @@ class AlipayFundTransToaccountTransferRequest
 		return $this->apiVersion;
 	}
 
-  public function setNeedEncrypt($needEncrypt)
-  {
+	public function setNeedEncrypt($needEncrypt)
+	{
 
-     $this->needEncrypt=$needEncrypt;
+		$this->needEncrypt = $needEncrypt;
 
-  }
+	}
 
-  public function getNeedEncrypt()
-  {
-    return $this->needEncrypt;
-  }
+	public function getNeedEncrypt()
+	{
+		return $this->needEncrypt;
+	}
 
 }
